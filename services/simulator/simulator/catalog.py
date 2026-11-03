@@ -1,6 +1,7 @@
 """Templates for Northwind Gear's synthetic data.
 
-Everything is driven by one seeded RNG, so every run produces the same rows and IDs.
+Content is driven by one seeded RNG, so every run produces the same rows.
+IDs are derived from each record's natural key, so they never depend on RNG order.
 """
 
 import random
@@ -12,6 +13,10 @@ PRODUCT_COUNT = 500
 ARTICLE_COUNT = 300
 
 GROUPS = {"support": 1, "sales": 2, "managers": 3, "hr": 4, "admins": 5}
+
+# IDs come from each record's natural key (SKU, email, title), not from the RNG,
+# so adding or removing data never changes another record's ID.
+ID_NAMESPACE = uuid.UUID("6f1d3a52-6c1b-4c1e-9a57-2f0c9b7e4d10")
 
 
 @dataclass(frozen=True)
@@ -135,8 +140,8 @@ INCIDENTS = ("Customer injury in store", "Product safety complaint", "Data priva
              "Warehouse stock mismatch", "Recall notice")
 
 
-def new_id(rng: random.Random) -> uuid.UUID:
-    return uuid.UUID(int=rng.getrandbits(128), version=4)
+def stable_id(kind: str, key: str) -> uuid.UUID:
+    return uuid.uuid5(ID_NAMESPACE, f"{kind}:{key}")
 
 
 def body(sections: dict[str, str]) -> str:
@@ -145,18 +150,20 @@ def body(sections: dict[str, str]) -> str:
 
 
 def build_users(rng: random.Random) -> list[User]:
-    users = [User(new_id(rng), email, name, groups) for email, name, groups in DEMO_USERS]
+    users = [User(stable_id("user", email), email, name, groups)
+             for email, name, groups in DEMO_USERS]
     names = rng.sample([(f, l) for f in FIRST_NAMES for l in LAST_NAMES], len(EXTRA_USER_GROUPS))
     for (first, last), groups in zip(names, EXTRA_USER_GROUPS):
         domain = "northwind.test" if groups else "example.com"
-        users.append(User(new_id(rng), f"{first}.{last}@{domain}".lower(), f"{first} {last}", groups))
+        email = f"{first}.{last}@{domain}".lower()
+        users.append(User(stable_id("user", email), email, f"{first} {last}", groups))
     return users
 
 
 def build_products(rng: random.Random) -> list[Product]:
     # The demo's hero record: "How much is the Alpine 2 tent?"
     products = [Product(
-        new_id(rng), "TNT-0001", "Alpine 2 Tent",
+        stable_id("product", "TNT-0001"), "TNT-0001", "Alpine 2 Tent",
         "The Alpine 2 Tent is our best-selling two-person tent for weekend treks in the "
         "Sahyadris. It features aluminium poles, a 3,000 mm waterproof fly and two vestibules.",
         12_999, "in_stock",
@@ -167,12 +174,13 @@ def build_products(rng: random.Random) -> list[Product]:
     counters["TNT"] = 1
     for cat, series, variant in rng.sample(combos, PRODUCT_COUNT - 1):
         counters[cat.code] += 1
+        sku = f"{cat.code}-{counters[cat.code]:04d}"
         name = f"{series}{variant} {cat.noun}"
         f1, f2, f3 = rng.sample(cat.features, 3)
         low, high = cat.price_range
         price = rng.randrange(low // 500 + 1, high // 500 + 1) * 500 - 1  # ends in 499 / 999
         products.append(Product(
-            new_id(rng), f"{cat.code}-{counters[cat.code]:04d}", name,
+            stable_id("product", sku), sku, name,
             f"The {name} is built for {rng.choice(USES)}. It features {f1}, {f2} and {f3}.",
             price, rng.choices(STATUSES, STATUS_WEIGHTS)[0],
         ))
@@ -225,7 +233,7 @@ def core_articles(rng: random.Random) -> list[Document]:
             "After dispatch": "Once dispatched, refuse the delivery or start a return after it arrives.",
         },
     }
-    return [Document(new_id(rng), "article", title, body(sections), True)
+    return [Document(stable_id("document", title), "article", title, body(sections), True)
             for title, sections in pages.items()]
 
 
@@ -266,7 +274,7 @@ def guide_articles(rng: random.Random, count: int) -> list[Document]:
                 "Weather": f"Expect night temperatures around {rng.randint(-15, 18)} °C and plan "
                 "for sudden weather changes.",
             }))
-    return [Document(new_id(rng), "article", title, body(sections), True)
+    return [Document(stable_id("document", title), "article", title, body(sections), True)
             for title, sections in rng.sample(pool, count)]
 
 
@@ -323,7 +331,7 @@ def build_policies(rng: random.Random) -> list[Document]:
             "incident form.",
             "Follow-up": "A manager reviews every incident report within one business day.",
         }))
-    return [Document(new_id(rng), "policy", title, body(sections), False, groups)
+    return [Document(stable_id("document", title), "policy", title, body(sections), False, groups)
             for title, groups, sections in specs]
 
 
