@@ -1,0 +1,10 @@
+[project]
+name = "liverag-simulator"
+version = "0.1.0"
+description = "Northwind Gear synthetic data generator (later: background edits and canary writer)"
+requires-python = ">=3.12"
+dependencies = [
+    "argon2-cffi>=23.1",
+    "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0",
+]
