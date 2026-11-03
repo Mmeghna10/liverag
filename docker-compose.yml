@@ -1,0 +1,51 @@
+name: liverag
+
+services:
+  source-db:
+    image: postgres:16
+    container_name: liverag-source-db
+    environment:
+      POSTGRES_USER: ${SOURCE_DB_USER}
+      POSTGRES_PASSWORD: ${SOURCE_DB_PASSWORD}
+      POSTGRES_DB: ${SOURCE_DB_NAME}
+    command:
+      - postgres
+      - -c
+      - wal_level=logical
+      - -c
+      - max_replication_slots=4
+      - -c
+      - max_wal_senders=4
+      - -c
+      - max_slot_wal_keep_size=1GB
+    ports:
+      - "${SOURCE_DB_PORT}:5432"
+    volumes:
+      - source-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  index-db:
+    image: pgvector/pgvector:pg16
+    container_name: liverag-index-db
+    environment:
+      POSTGRES_USER: ${INDEX_DB_USER}
+      POSTGRES_PASSWORD: ${INDEX_DB_PASSWORD}
+      POSTGRES_DB: ${INDEX_DB_NAME}
+    ports:
+      - "${INDEX_DB_PORT}:5432"
+    volumes:
+      - index-db-data:/var/lib/postgresql/data
+      - ./infra/postgres/index-db/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  source-db-data:
+  index-db-data:
