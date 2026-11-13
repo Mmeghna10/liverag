@@ -5,6 +5,7 @@ Interactive docs:       http://localhost:8000/docs
 """
 
 import os
+import time
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import Any
@@ -16,7 +17,10 @@ from psycopg_pool import ConnectionPool
 
 from app.auth import CurrentUserDep
 from app.auth import router as auth_router
-from app.schemas import CurrentUser, SearchHit, SearchRequest, SearchResponse
+from app.chat import CONTEXT_CHUNKS, answer
+from app.llm import get_provider
+from app.schemas import (ChatRequest, ChatResponse, CurrentUser, SearchHit, SearchRequest,
+                         SearchResponse)
 
 
 @asynccontextmanager
@@ -32,12 +36,14 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     retriever = Retriever()
     retriever.embedder, retriever.reranker  # load both models now, not on the first request
     app.state.retriever = retriever
+    app.state.llm = get_provider()
     yield
+    app.state.llm.close()
     app.state.source_pool.close()
     app.state.index_pool.close()
 
 
-app = FastAPI(title="LiveRAG API", version="0.1.0", lifespan=lifespan)
+app = FastAPI(title="LiveRAG API", version="0.2.0", lifespan=lifespan)
 app.include_router(auth_router)
 
 
@@ -77,3 +83,14 @@ def search(body: SearchRequest, request: Request, user: CurrentUserDep) -> Searc
                                                   body.k, body.mode)
     return SearchResponse(query=body.query, mode=body.mode,
                           hits=[to_hit(hit, body.mode) for hit in hits])
+
+
+@app.post("/api/v1/chat")
+def chat(body: ChatRequest, request: Request, user: CurrentUserDep) -> ChatResponse:
+    started = time.perf_counter()
+    # Same permission-aware retrieval as /search: the LLM can only ever see chunks this user may read.
+    with request.app.state.index_pool.connection() as conn:
+        hits = request.app.state.retriever.search(conn, body.question, user.groups,
+                                                  CONTEXT_CHUNKS, "rerank")
+    return answer(body.question, [to_hit(hit, "rerank") for hit in hits],
+                  request.app.state.llm, started)

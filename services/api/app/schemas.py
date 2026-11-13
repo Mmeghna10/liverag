@@ -44,3 +44,29 @@ class SearchResponse(BaseModel):
     query: str
     mode: str
     hits: list[SearchHit]
+
+
+
+
+class ChatRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=1000)
+
+
+class Citation(BaseModel):
+    ref: str  # the short id the model cited, e.g. "S1"
+    chunk_id: UUID
+    source_table: str
+    source_id: UUID
+    title: str
+    score: float  # reranker score of the cited chunk
+
+
+class ChatResponse(BaseModel):
+    question: str
+    answer: str
+    abstained: bool
+    reason: str | None  # why we abstained: low_retrieval_score, model_declined, no_valid_citations
+    citations: list[Citation]
+    top_score: float | None  # best reranker score among the chunks this user may see
+    model: str | None  # None when we abstained without calling the LLM
+    took_ms: int
