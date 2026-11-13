@@ -1,9 +1,9 @@
-"""Command-line hybrid search over chunks_v1, filtered by what the user is allowed to read.
+"""Command-line search over chunks_v1 (hybrid + rerank), filtered by what the user may read.
 
 Run from services/indexer:
     uv run python -m indexer.search "How much is the Alpine 2 tent?"
     uv run python -m indexer.search "discount on a damaged tent" --as agent@northwind.test
-    uv run python -m indexer.search "TNT-0025" --mode vector
+    uv run python -m indexer.search "TNT-0025" --mode hybrid
 """
 
 import argparse
@@ -15,6 +15,7 @@ from psycopg.rows import dict_row
 
 from indexer.batch import dsn
 from indexer.embedder import Embedder
+from indexer.reranker import Reranker
 
 GROUP_NAMES = {1: "support", 2: "sales", 3: "managers", 4: "hr", 5: "admins"}
 CANDIDATES = 30  # how many results each search contributes before merging
@@ -83,20 +84,32 @@ def rrf_merge(ranked_lists: dict[str, list[dict[str, Any]]]) -> list[dict[str, A
     return sorted(merged.values(), key=lambda h: h["rrf"], reverse=True)
 
 
+def rerank(query: str, hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Re-order candidates by a cross-encoder that reads the query and each chunk together."""
+    scores = Reranker().score(query, [hit["text"] for hit in hits])
+    for position, (hit, score) in enumerate(zip(hits, scores), start=1):
+        hit["ranks"]["rrf"] = position  # where RRF had placed it, to compare
+        hit["rerank"] = score
+    return sorted(hits, key=lambda h: h["rerank"], reverse=True)
+
+
 def search(query: str, groups: list[int], k: int, mode: str) -> list[dict[str, Any]]:
     params: dict[str, Any] = {"text": query, "groups": groups, "limit": CANDIDATES}
     ranked: dict[str, list[dict[str, Any]]] = {}
     with psycopg.connect(dsn("INDEX_DB"), row_factory=dict_row) as conn:
         register_vector(conn)
-        if mode in ("vector", "hybrid"):
+        if mode in ("vector", "hybrid", "rerank"):
             params["vector"] = Embedder().embed_query(query)
             # With a filter, HNSW may run out of candidates before it finds enough allowed rows.
             # Iterative scan (pgvector 0.8+) lets it keep walking the graph until it has enough.
             conn.execute("SET hnsw.iterative_scan = relaxed_order")
             ranked["vec"] = conn.execute(VECTOR_SQL, params).fetchall()
-        if mode in ("keyword", "hybrid"):
+        if mode in ("keyword", "hybrid", "rerank"):
             ranked["kw"] = conn.execute(KEYWORD_SQL, params).fetchall()
-    return rrf_merge(ranked)[:k]
+    merged = rrf_merge(ranked)
+    if mode == "rerank":
+        merged = rerank(query, merged[:CANDIDATES])
+    return merged[:k]
 
 
 def label(hit: dict[str, Any]) -> str:
@@ -112,7 +125,8 @@ def main() -> None:
     parser.add_argument("query")
     parser.add_argument("--as", dest="email", help="search as this user (default: anonymous)")
     parser.add_argument("-k", type=int, default=6, help="number of results (default 6)")
-    parser.add_argument("--mode", choices=["hybrid", "vector", "keyword"], default="hybrid")
+    parser.add_argument("--mode", choices=["rerank", "hybrid", "vector", "keyword"],
+                        default="rerank")
     args = parser.parse_args()
 
     groups = groups_for(args.email)
@@ -121,12 +135,14 @@ def main() -> None:
     names = ", ".join(GROUP_NAMES.get(g, str(g)) for g in groups) or "none"
     print(f'\n"{args.query}"  as {args.email or "anonymous"}  (groups: {names})  '
           f"mode: {args.mode}\n")
-    shown = {"hybrid": ["vec", "kw"], "vector": ["vec"], "keyword": ["kw"]}[args.mode]
+    shown = {"rerank": ["vec", "kw", "rrf"], "hybrid": ["vec", "kw"],
+             "vector": ["vec"], "keyword": ["kw"]}[args.mode]
     for rank, hit in enumerate(hits, start=1):
         # Where the chunk ranked in each search; "-" means that search did not find it.
         ranks = "  ".join(f"{name}#{hit['ranks'].get(name, '-')}" for name in shown)
+        score = hit["rerank"] if args.mode == "rerank" else hit["rrf"]
         snippet = " ".join(hit["text"].split())[:80]
-        print(f"{rank}. {hit['rrf']:.4f}  [{ranks}]  {label(hit)}")
+        print(f"{rank}. {score:.4f}  [{ranks}]  {label(hit)}")
         print(f"   {snippet}")
     if not hits:
         print("No results.")
