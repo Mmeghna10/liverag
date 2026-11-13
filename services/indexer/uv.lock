@@ -280,9 +280,9 @@ wheels = [
 ]
 
 [[package]]
-name = "liverag-indexer"
+name = "liverag-core"
 version = "0.1.0"
-source = { virtual = "." }
+source = { editable = "../../packages/liverag-core" }
 dependencies = [
     { name = "pgvector" },
     { name = "psycopg", extra = ["binary"] },
@@ -296,6 +296,23 @@ requires-dist = [
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
     { name = "python-dotenv", specifier = ">=1.0" },
     { name = "sentence-transformers", specifier = ">=3.0" },
+]
+
+[[package]]
+name = "liverag-indexer"
+version = "0.1.0"
+source = { virtual = "." }
+dependencies = [
+    { name = "liverag-core" },
+    { name = "pgvector" },
+    { name = "psycopg", extra = ["binary"] },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "liverag-core", editable = "../../packages/liverag-core" },
+    { name = "pgvector", specifier = ">=0.3" },
+    { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
 ]
 
 [[package]]

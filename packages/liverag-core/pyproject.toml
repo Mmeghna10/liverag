@@ -1,0 +1,16 @@
+[project]
+name = "liverag-core"
+version = "0.1.0"
+description = "Code shared by LiveRAG services: config, embedding, reranking, retrieval"
+requires-python = ">=3.12"
+dependencies = [
+    "pgvector>=0.3",
+    "psycopg[binary]>=3.2",
+    "python-dotenv>=1.0",
+    "sentence-transformers>=3.0",
+]
+
+# A build backend makes this an installable package, so services can depend on it.
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -5,18 +5,17 @@ Run from services/indexer:  uv run python -m indexer.batch
 
 import os
 import time
-from pathlib import Path
 from typing import Any
 
 import numpy as np
 import psycopg
-from dotenv import load_dotenv
+from liverag_core.config import dsn
+from liverag_core.embedder import Embedder
 from pgvector.psycopg import register_vector
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 
 from indexer.chunking import Chunk, document_chunks, product_chunks
-from indexer.embedder import Embedder
 
 ROOT = Path(__file__).resolve().parents[3]
 load_dotenv(ROOT / ".env")

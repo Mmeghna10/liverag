@@ -4,8 +4,11 @@ version = "0.1.0"
 description = "LiveRAG indexer: chunk, embed and load source data into pgvector"
 requires-python = ">=3.12"
 dependencies = [
+    "liverag-core",
     "pgvector>=0.3",
     "psycopg[binary]>=3.2",
-    "python-dotenv>=1.0",
-    "sentence-transformers>=3.0",
 ]
+
+# Install liverag-core from the repo folder, in editable mode: edits to it take effect at once.
+[tool.uv.sources]
+liverag-core = { path = "../../packages/liverag-core", editable = true }
