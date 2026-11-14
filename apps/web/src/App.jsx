@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import { AuthError, getMe } from './api.js'
+import Login from './Login.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+// Group ids from the source DB seed (infra/postgres/source-db/init/02-seed.sql).
+const GROUP_NAMES = { 1: 'support', 2: 'sales', 3: 'managers', 4: 'hr', 5: 'admins' }
 
+// sessionStorage: survives a page refresh, cleared when the tab closes.
+const TOKEN_KEY = 'liverag.token'
+
+export default function App() {
+  const [token, setToken] = useState(() => sessionStorage.getItem(TOKEN_KEY))
+  const [user, setUser] = useState(null)
+  const [error, setError] = useState('')
+
+  function signIn(newToken) {
+    sessionStorage.setItem(TOKEN_KEY, newToken)
+    setToken(newToken)
+  }
+
+  function signOut() {
+    sessionStorage.removeItem(TOKEN_KEY)
+    setToken(null)
+    setUser(null)
+  }
+
+  // Whenever the token changes, ask the API who we are. An expired token sends us back to login.
+  useEffect(() => {
+    if (!token) return
+    let cancelled = false // ignore the answer if the token changed while we waited
+    getMe(token)
+      .then((me) => { if (!cancelled) { setUser(me); setError('') } })
+      .catch((err) => {
+        if (cancelled) return
+        if (err instanceof AuthError) signOut()
+        else setError(err.message)
+      })
+    return () => { cancelled = true }
+  }, [token])
+
+  if (!token) return <Login onLogin={signIn} />
+  if (error) return <main className="center"><p className="error">{error}</p></main>
+  if (!user) return <main className="center"><p className="muted">Loading…</p></main>
+
+  const groups = user.groups.map((id) => GROUP_NAMES[id] ?? `group ${id}`)
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <header>
+        <strong>LiveRAG</strong>
+        <span className="muted">
+          {user.email} · {groups.length ? groups.join(', ') : 'public only'}
+        </span>
+        <button type="button" onClick={signOut}>Sign out</button>
+      </header>
+      <main className="center">
+        <p className="muted">Signed in. The chat comes in the next step.</p>
+      </main>
+    </div>
   )
 }
-
-export default App
