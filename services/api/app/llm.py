@@ -6,6 +6,7 @@ changing LLM_PROVIDER in .env. Nothing in chat.py has to change.
 
 import json
 import os
+from collections.abc import Iterator
 from typing import Any, Protocol
 
 import httpx
@@ -16,6 +17,10 @@ class LLMProvider(Protocol):
 
     def complete_json(self, system: str, user: str, schema: dict[str, Any]) -> dict[str, Any]:
         """Send one system + user message; return the reply parsed as JSON matching `schema`."""
+        ...
+
+    def stream_text(self, system: str, user: str) -> Iterator[str]:
+        """Send one system + user message; yield the reply in small pieces as it is generated."""
         ...
 
     def close(self) -> None: ...
@@ -43,6 +48,27 @@ class OllamaProvider:
         response.raise_for_status()
         return json.loads(response.json()["message"]["content"])
 
+    def stream_text(self, system: str, user: str) -> Iterator[str]:
+        request = {
+            "model": self.model,
+            "messages": [{"role": "system", "content": system},
+                         {"role": "user", "content": user}],
+            "stream": True,
+            "keep_alive": "30m",
+            "options": {"temperature": 0, "num_ctx": 8192},
+        }
+        # Ollama streams one JSON object per line: {"message": {"content": "..."}, "done": false}
+        with self.client.stream("POST", "/api/chat", json=request) as response:
+            response.raise_for_status()
+            for line in response.iter_lines():
+                if not line:
+                    continue
+                part = json.loads(line)
+                if piece := part.get("message", {}).get("content"):
+                    yield piece
+                if part.get("done"):
+                    break
+
     def close(self) -> None:
         self.client.close()
 
@@ -50,6 +76,8 @@ class OllamaProvider:
 def get_provider() -> LLMProvider:
     provider = os.environ.get("LLM_PROVIDER", "ollama")
     if provider == "ollama":
-        return OllamaProvider(os.environ.get("OLLAMA_URL", "http://localhost:11434"),
+        # 127.0.0.1, not localhost: on Windows "localhost" tries IPv6 (::1) first, and Ollama only
+        # listens on IPv4, so every new connection to "localhost" waits ~2 s before falling back.
+        return OllamaProvider(os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434"),
                               os.environ.get("OLLAMA_MODEL", "qwen2.5:3b"))
     raise RuntimeError(f"Unknown LLM_PROVIDER {provider!r} (supported: ollama)")

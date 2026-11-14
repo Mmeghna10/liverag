@@ -1,26 +1,31 @@
 """LiveRAG API.
 
-Run from services/api:  uv run uvicorn app.main:app --reload
-Interactive docs:       http://localhost:8000/docs
+Run from services/api:  uv run uvicorn app.main:app --reload --reload-dir app
+Interactive docs:       http://127.0.0.1:8000/docs
 """
 
+import json
+import logging
 import os
 import time
-from collections.abc import AsyncIterator
+from collections.abc import AsyncIterator, Iterator
 from contextlib import asynccontextmanager
 from typing import Any
 
 from fastapi import FastAPI, Request
+from fastapi.responses import StreamingResponse
 from liverag_core.config import dsn
 from liverag_core.retrieval import Retriever
 from psycopg_pool import ConnectionPool
 
 from app.auth import CurrentUserDep
 from app.auth import router as auth_router
-from app.chat import CONTEXT_CHUNKS, answer
+from app.chat import CONTEXT_CHUNKS, answer, stream_answer
 from app.llm import get_provider
 from app.schemas import (ChatRequest, ChatResponse, CurrentUser, SearchHit, SearchRequest,
                          SearchResponse)
+
+log = logging.getLogger("liverag.api")
 
 
 @asynccontextmanager
@@ -43,7 +48,7 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     app.state.index_pool.close()
 
 
-app = FastAPI(title="LiveRAG API", version="0.2.0", lifespan=lifespan)
+app = FastAPI(title="LiveRAG API", version="0.3.0", lifespan=lifespan)
 app.include_router(auth_router)
 
 
@@ -94,3 +99,31 @@ def chat(body: ChatRequest, request: Request, user: CurrentUserDep) -> ChatRespo
                                                   CONTEXT_CHUNKS, "rerank")
     return answer(body.question, [to_hit(hit, "rerank") for hit in hits],
                   request.app.state.llm, started)
+
+
+def sse(event: str, data: dict[str, Any]) -> str:
+    """One Server-Sent Event: an event name, one line of JSON, then a blank line."""
+    return f"event: {event}\ndata: {json.dumps(data, ensure_ascii=False)}\n\n"
+
+
+@app.post("/api/v1/chat/stream")
+def chat_stream(body: ChatRequest, request: Request, user: CurrentUserDep) -> StreamingResponse:
+    started = time.perf_counter()
+    # Retrieve BEFORE the stream starts: a database error still becomes a normal HTTP 500.
+    with request.app.state.index_pool.connection() as conn:
+        hits = request.app.state.retriever.search(conn, body.question, user.groups,
+                                                  CONTEXT_CHUNKS, "rerank")
+    search_hits = [to_hit(hit, "rerank") for hit in hits]
+    llm = request.app.state.llm
+
+    def events() -> Iterator[str]:
+        try:
+            for event, data in stream_answer(body.question, search_hits, llm, started):
+                yield sse(event, data)
+        except Exception:
+            # The 200 status line is already sent, so report failures as an event instead.
+            log.exception("chat stream failed")
+            yield sse("error", {"detail": "The answer could not be generated. Please try again."})
+
+    return StreamingResponse(events(), media_type="text/event-stream",
+                             headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
