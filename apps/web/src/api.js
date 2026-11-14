@@ -49,3 +49,57 @@ export async function login(email, password) {
 export function getMe(token) {
   return request('/api/v1/me', { token })
 }
+
+/**
+ * Ask a question and receive the answer as a stream of Server-Sent Events.
+ *
+ * We read the stream with fetch() because the browser's EventSource can only send GET requests
+ * and cannot add an Authorization header.
+ *
+ * @param {string} token
+ * @param {string} question
+ * @param {{
+ *   onSources?: (sources: object[]) => void,  // the chunks the model will read (S1, S2, ...)
+ *   onToken?: (text: string) => void,         // a small piece of the answer
+ *   onDone?: (result: object) => void,        // the validated final answer (always last)
+ * }} handlers
+ * @param {AbortSignal} [signal]  lets the caller cancel (e.g. on sign-out)
+ */
+export async function streamChat(token, question, handlers, signal) {
+  const response = await fetch('/api/v1/chat/stream', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ question }),
+    signal,
+  })
+  if (response.status === 401) throw new AuthError('Please sign in again.')
+  if (!response.ok) throw new Error(`Server error (${response.status}). Is the API running?`)
+
+  const reader = response.body.getReader()
+  const decoder = new TextDecoder() // bytes -> text; handles ₹ split across two network packets
+  let buffer = ''
+
+  for (;;) {
+    const { value, done } = await reader.read()
+    if (done) break
+    buffer += decoder.decode(value, { stream: true })
+
+    // Events are separated by a blank line. Keep any incomplete last event in the buffer.
+    const events = buffer.split('\n\n')
+    buffer = events.pop()
+    for (const raw of events) {
+      let name = 'message'
+      let data = ''
+      for (const line of raw.split('\n')) {
+        if (line.startsWith('event: ')) name = line.slice(7)
+        else if (line.startsWith('data: ')) data += line.slice(6)
+      }
+      if (!data) continue
+      const payload = JSON.parse(data)
+      if (name === 'sources') handlers.onSources?.(payload.sources)
+      else if (name === 'token') handlers.onToken?.(payload.text)
+      else if (name === 'done') handlers.onDone?.(payload)
+      else if (name === 'error') throw new Error(payload.detail)
+    }
+  }
+}

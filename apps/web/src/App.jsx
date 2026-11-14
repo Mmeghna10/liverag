@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { AuthError, getMe } from './api.js'
 import Login from './Login.jsx'
+import Chat from './Chat.jsx'
+
 
 // Group ids from the source DB seed (infra/postgres/source-db/init/02-seed.sql).
 const GROUP_NAMES = { 1: 'support', 2: 'sales', 3: 'managers', 4: 'hr', 5: 'admins' }
@@ -52,9 +54,8 @@ export default function App() {
         </span>
         <button type="button" onClick={signOut}>Sign out</button>
       </header>
-      <main className="center">
-        <p className="muted">Signed in. The chat comes in the next step.</p>
-      </main>
+            {/* key={token}: a new sign-in starts a fresh chat, so one user never sees another's answers */}
+      <Chat key={token} token={token} onAuthError={signOut} />
     </div>
   )
 }
