@@ -1,5 +1,6 @@
 """Login with email + password (checked against the source DB's users) and JWT bearer tokens."""
 
+import logging
 import os
 from datetime import UTC, datetime, timedelta
 from typing import Annotated
@@ -16,6 +17,11 @@ from app.schemas import CurrentUser, LoginRequest, TokenResponse
 
 ALGORITHM = "HS256"
 TOKEN_MINUTES = 60
+
+ADMIN_GROUP_ID = 5  # "admins" in the source DB seed
+
+# uvicorn only prints its own loggers at INFO level, so we log through one of them.
+log = logging.getLogger("uvicorn.error")
 
 hasher = PasswordHasher()
 bearer = HTTPBearer()
@@ -67,3 +73,29 @@ def current_user(request: Request,
 
 
 CurrentUserDep = Annotated[CurrentUser, Depends(current_user)]
+
+
+
+
+def require_admin(user: CurrentUser) -> None:
+    if ADMIN_GROUP_ID not in user.groups:
+        raise HTTPException(status.HTTP_403_FORBIDDEN, "Admins only")
+
+
+def effective_user(request: Request, user: CurrentUser, view_as: str | None) -> CurrentUser:
+    """Who the answer is for: normally the caller; for admins, optionally another user ("view as").
+
+    The check happens on the server on every request. The UI hiding the picker is not security.
+    """
+    if not view_as or view_as == user.email:
+        return user
+    require_admin(user)
+    with request.app.state.source_pool.connection() as conn:
+        row = conn.execute("SELECT id FROM users WHERE email = %s AND is_active",
+                           (view_as,)).fetchone()
+    if row is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "No such user")
+    with request.app.state.index_pool.connection() as conn:
+        groups = user_groups(conn, row[0])
+    log.info("view_as: %s is viewing as %s", user.email, view_as)  # audit trail
+    return CurrentUser(id=row[0], email=view_as, groups=groups)

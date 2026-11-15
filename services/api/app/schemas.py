@@ -50,7 +50,13 @@ class SearchResponse(BaseModel):
 
 class ChatRequest(BaseModel):
     question: str = Field(min_length=1, max_length=1000)
+    # Admins only: answer as if this user (by email) had asked. Used for demos and debugging.
+    view_as: str | None = Field(default=None, max_length=254)
 
+
+class UserSummary(BaseModel):
+    email: str
+    groups: list[int]
 
 class Citation(BaseModel):
     ref: str  # the short id the model cited, e.g. "S1"

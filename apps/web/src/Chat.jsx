@@ -79,7 +79,7 @@ function Message({ message }) {
  * The chat page: a list of questions and streamed answers, and a box to ask the next one.
  * @param {{token: string, onAuthError: () => void}} props
  */
-export default function Chat({ token, onAuthError }) {
+export default function Chat({ token, viewAs, onAuthError }) {
   const [messages, setMessages] = useState([])
   const [question, setQuestion] = useState('')
   const [busy, setBusy] = useState(false)
@@ -110,7 +110,7 @@ export default function Chat({ token, onAuthError }) {
         onSources: (sources) => update(id, () => ({ sources })),
         onToken: (piece) => update(id, (m) => ({ text: m.text + piece })),
         onDone: (result) => update(id, () => ({ result })),
-      }, abortRef.current.signal)
+        }, abortRef.current.signal, viewAs)
     } catch (err) {
       if (err.name === 'AbortError') return
       if (err instanceof AuthError) { onAuthError(); return }

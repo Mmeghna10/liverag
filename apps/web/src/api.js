@@ -50,6 +50,18 @@ export function getMe(token) {
   return request('/api/v1/me', { token })
 }
 
+
+/**
+ * Admins only: every user with their groups, for the "view as" picker.
+ * @param {string} token
+ * @returns {Promise<{email: string, groups: number[]}[]>}
+ */
+export function getUsers(token) {
+  return request('/api/v1/users', { token })
+}
+
+
+
 /**
  * Ask a question and receive the answer as a stream of Server-Sent Events.
  *
@@ -65,14 +77,15 @@ export function getMe(token) {
  * }} handlers
  * @param {AbortSignal} [signal]  lets the caller cancel (e.g. on sign-out)
  */
-export async function streamChat(token, question, handlers, signal) {
+export async function streamChat(token, question, handlers, signal, viewAs) {
   const response = await fetch('/api/v1/chat/stream', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-    body: JSON.stringify({ question }),
+        body: JSON.stringify({ question, view_as: viewAs || undefined }),
     signal,
   })
   if (response.status === 401) throw new AuthError('Please sign in again.')
+    if (response.status === 403) throw new Error('Only admins can view as another user.')
   if (!response.ok) throw new Error(`Server error (${response.status}). Is the API running?`)
 
   const reader = response.body.getReader()

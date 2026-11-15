@@ -18,12 +18,12 @@ from liverag_core.config import dsn
 from liverag_core.retrieval import Retriever
 from psycopg_pool import ConnectionPool
 
-from app.auth import CurrentUserDep
+from app.auth import CurrentUserDep, effective_user, require_admin
 from app.auth import router as auth_router
 from app.chat import CONTEXT_CHUNKS, answer, stream_answer
 from app.llm import get_provider
 from app.schemas import (ChatRequest, ChatResponse, CurrentUser, SearchHit, SearchRequest,
-                         SearchResponse)
+                         SearchResponse, UserSummary)
 
 log = logging.getLogger("liverag.api")
 
@@ -79,6 +79,21 @@ def me(user: CurrentUserDep) -> CurrentUser:
     return user
 
 
+@app.get("/api/v1/users")
+def users(request: Request, user: CurrentUserDep) -> list[UserSummary]:
+    """Admins only: every active user with their groups, for the "view as" picker."""
+    require_admin(user)
+    with request.app.state.source_pool.connection() as conn:
+        people = conn.execute("SELECT id, email FROM users WHERE is_active ORDER BY email").fetchall()
+    with request.app.state.index_pool.connection() as conn:
+        rows = conn.execute("SELECT user_id, group_id FROM user_groups_replica ORDER BY group_id").fetchall()
+    groups: dict[Any, list[int]] = {}
+    for user_id, group_id in rows:
+        groups.setdefault(user_id, []).append(group_id)
+    return [UserSummary(email=email, groups=groups.get(user_id, [])) for user_id, email in people]
+
+
+
 # A plain `def` (not `async def`): FastAPI runs it in a worker thread, so the slow model and
 # database calls do not block other requests.
 @app.post("/api/v1/search")
@@ -93,6 +108,7 @@ def search(body: SearchRequest, request: Request, user: CurrentUserDep) -> Searc
 @app.post("/api/v1/chat")
 def chat(body: ChatRequest, request: Request, user: CurrentUserDep) -> ChatResponse:
     started = time.perf_counter()
+    user = effective_user(request, user, body.view_as)
     # Same permission-aware retrieval as /search: the LLM can only ever see chunks this user may read.
     with request.app.state.index_pool.connection() as conn:
         hits = request.app.state.retriever.search(conn, body.question, user.groups,
@@ -109,6 +125,7 @@ def sse(event: str, data: dict[str, Any]) -> str:
 @app.post("/api/v1/chat/stream")
 def chat_stream(body: ChatRequest, request: Request, user: CurrentUserDep) -> StreamingResponse:
     started = time.perf_counter()
+    user = effective_user(request, user, body.view_as)
     # Retrieve BEFORE the stream starts: a database error still becomes a normal HTTP 500.
     with request.app.state.index_pool.connection() as conn:
         hits = request.app.state.retriever.search(conn, body.question, user.groups,
