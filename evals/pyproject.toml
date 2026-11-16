@@ -1,0 +1,12 @@
+[project]
+name = "liverag-evals"
+version = "0.1.0"
+description = "LiveRAG evaluation: golden question set and scripts that measure retrieval, abstention and leaks"
+requires-python = ">=3.12"
+dependencies = [
+    "liverag-core",
+    "psycopg[binary]>=3.2",
+]
+
+[tool.uv.sources]
+liverag-core = { path = "../packages/liverag-core", editable = true }

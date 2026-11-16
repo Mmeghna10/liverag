@@ -1,0 +1,1185 @@
+{
+  "run_at": "2026-11-16T14:48:42+00:00",
+  "questions": 44,
+  "k": 5,
+  "summary": {
+    "rerank": {
+      "hit@1": 0.896551724137931,
+      "hit@5": 0.9655172413793104,
+      "mrr": 0.9310344827586207,
+      "ms_per_query": 1251
+    },
+    "hybrid": {
+      "hit@1": 0.896551724137931,
+      "hit@5": 0.9310344827586207,
+      "mrr": 0.9080459770114943,
+      "ms_per_query": 24
+    },
+    "vector": {
+      "hit@1": 0.8620689655172413,
+      "hit@5": 0.896551724137931,
+      "mrr": 0.8793103448275862,
+      "ms_per_query": 21
+    },
+    "keyword": {
+      "hit@1": 0.8275862068965517,
+      "hit@5": 0.9310344827586207,
+      "mrr": 0.8793103448275862,
+      "ms_per_query": 7
+    }
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.001,
+      "wrongly_refused": 0,
+      "wrongly_answered": 6
+    },
+    {
+      "threshold": 0.01,
+      "wrongly_refused": 2,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.05,
+      "wrongly_refused": 2,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.1,
+      "wrongly_refused": 3,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.2,
+      "wrongly_refused": 3,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.3,
+      "wrongly_refused": 3,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.5,
+      "wrongly_refused": 3,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.7,
+      "wrongly_refused": 5,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.9,
+      "wrongly_refused": 12,
+      "wrongly_answered": 0
+    }
+  ],
+  "lowest_answerable_score": 0.002899231854826212,
+  "highest_must_abstain_score": 0.003947553224861622,
+  "top_scores": {
+    "q01": 0.9989245533943176,
+    "q02": 0.8439249992370605,
+    "q03": 0.9998488426208496,
+    "q04": 0.9997729659080505,
+    "q05": 0.8144338726997375,
+    "q06": 0.9446281790733337,
+    "q07": 0.982734739780426,
+    "q08": 0.002899231854826212,
+    "q09": 0.88722163438797,
+    "q10": 0.8261799812316895,
+    "q11": 0.9989744424819946,
+    "q12": 0.999000608921051,
+    "q13": 0.9996829032897949,
+    "q14": 0.9740788340568542,
+    "q15": 0.996681272983551,
+    "q16": 0.0039742738008499146,
+    "q17": 0.7605095505714417,
+    "q18": 0.9974002838134766,
+    "q19": 0.9994164705276489,
+    "q20": 0.9994664788246155,
+    "q21": 0.8428043723106384,
+    "q22": 0.9988829493522644,
+    "q23": 0.999554455280304,
+    "q24": 0.5626360177993774,
+    "q25": 0.7210262417793274,
+    "q26": 0.9796881079673767,
+    "q27": 0.927571177482605,
+    "q28": 0.518394947052002,
+    "q29": 0.08714946359395981,
+    "q30": 0.0021406421437859535,
+    "q31": 0.0019008369417861104,
+    "q32": 7.529242429882288e-05,
+    "q33": 0.00014737836318090558,
+    "q34": 0.0006065472844056785,
+    "q35": 0.0021406421437859535,
+    "q36": 0.0006065472844056785,
+    "q37": 0.0001055337706930004,
+    "q38": 0.0019008369417861104,
+    "q39": 0.0006975974538363516,
+    "q40": 3.7444737245095894e-05,
+    "q41": 0.003947553224861622,
+    "q42": 0.001327072037383914,
+    "q43": 0.0005323155783116817,
+    "q44": 3.813393414020538e-05
+  },
+  "leaks": [],
+  "details": [
+    {
+      "id": "q01",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "TNT-0025"
+    },
+    {
+      "id": "q03",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "STV-0010"
+    },
+    {
+      "id": "q06",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q07",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q09",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Troubleshooting the Ridge backpack range"
+    },
+    {
+      "id": "q10",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Tracking your order"
+    },
+    {
+      "id": "q17",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q18",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "TNT-0012"
+    },
+    {
+      "id": "q19",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Troubleshooting the Coorg tent range"
+    },
+    {
+      "id": "q31",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q32",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q33",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Discount rules for damaged jackets"
+    },
+    {
+      "id": "q34",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Incident handling: data privacy request"
+    },
+    {
+      "id": "q35",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Troubleshooting the Coorg tent range"
+    },
+    {
+      "id": "q36",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Incident handling: data privacy request"
+    },
+    {
+      "id": "q37",
+      "mode": "rerank",
+      "rank": null,
+      "top": "BPK-0022"
+    },
+    {
+      "id": "q38",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q39",
+      "mode": "rerank",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q40",
+      "mode": "rerank",
+      "rank": null,
+      "top": "JKT-0024"
+    },
+    {
+      "id": "q41",
+      "mode": "rerank",
+      "rank": null,
+      "top": "TNT-0065"
+    },
+    {
+      "id": "q42",
+      "mode": "rerank",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q43",
+      "mode": "rerank",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q44",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Supplier terms: Deccan Outdoor Works"
+    },
+    {
+      "id": "q01",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "TNT-0026"
+    },
+    {
+      "id": "q03",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "BPK-0010"
+    },
+    {
+      "id": "q06",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q07",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q09",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q10",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q17",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q18",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "TNT-0006"
+    },
+    {
+      "id": "q31",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q32",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Troubleshooting the Aravalli headlamp range"
+    },
+    {
+      "id": "q33",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Discount rules for damaged sleeping bags"
+    },
+    {
+      "id": "q34",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Incident handling: data privacy request"
+    },
+    {
+      "id": "q35",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "TNT-0006"
+    },
+    {
+      "id": "q36",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Bulk pricing for corporate offsites"
+    },
+    {
+      "id": "q37",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "BPK-0046"
+    },
+    {
+      "id": "q38",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q39",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Caring for your Kaveri headlamp"
+    },
+    {
+      "id": "q40",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "LMP-0042"
+    },
+    {
+      "id": "q41",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "SLB-0026"
+    },
+    {
+      "id": "q42",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Caring for your Trail tent"
+    },
+    {
+      "id": "q43",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q44",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Supplier terms: Doon Outdoor Works"
+    },
+    {
+      "id": "q01",
+      "mode": "vector",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "vector",
+      "rank": null,
+      "top": "TNT-0055"
+    },
+    {
+      "id": "q03",
+      "mode": "vector",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "vector",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "vector",
+      "rank": null,
+      "top": "BPK-0010"
+    },
+    {
+      "id": "q06",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q07",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q09",
+      "mode": "vector",
+      "rank": null,
+      "top": "Troubleshooting the Himalaya backpack range"
+    },
+    {
+      "id": "q10",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Tracking your order"
+    },
+    {
+      "id": "q17",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q18",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "vector",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "vector",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "vector",
+      "rank": null,
+      "top": "Troubleshooting the Ladakh tent range"
+    },
+    {
+      "id": "q31",
+      "mode": "vector",
+      "rank": null,
+      "top": "LMP-0029"
+    },
+    {
+      "id": "q32",
+      "mode": "vector",
+      "rank": null,
+      "top": "Troubleshooting the Aravalli headlamp range"
+    },
+    {
+      "id": "q33",
+      "mode": "vector",
+      "rank": null,
+      "top": "Discount rules for damaged sleeping bags"
+    },
+    {
+      "id": "q34",
+      "mode": "vector",
+      "rank": null,
+      "top": "Incident handling: data privacy request"
+    },
+    {
+      "id": "q35",
+      "mode": "vector",
+      "rank": null,
+      "top": "Troubleshooting the Ladakh tent range"
+    },
+    {
+      "id": "q36",
+      "mode": "vector",
+      "rank": null,
+      "top": "Bulk pricing for corporate offsites"
+    },
+    {
+      "id": "q37",
+      "mode": "vector",
+      "rank": null,
+      "top": "BPK-0046"
+    },
+    {
+      "id": "q38",
+      "mode": "vector",
+      "rank": null,
+      "top": "LMP-0029"
+    },
+    {
+      "id": "q39",
+      "mode": "vector",
+      "rank": null,
+      "top": "Caring for your Kaveri headlamp"
+    },
+    {
+      "id": "q40",
+      "mode": "vector",
+      "rank": null,
+      "top": "LMP-0042"
+    },
+    {
+      "id": "q41",
+      "mode": "vector",
+      "rank": null,
+      "top": "SLB-0026"
+    },
+    {
+      "id": "q42",
+      "mode": "vector",
+      "rank": null,
+      "top": "Caring for your Trail tent"
+    },
+    {
+      "id": "q43",
+      "mode": "vector",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q44",
+      "mode": "vector",
+      "rank": null,
+      "top": "Supplier terms: Doon Outdoor Works"
+    },
+    {
+      "id": "q01",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "TNT-0025"
+    },
+    {
+      "id": "q03",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "STV-0010"
+    },
+    {
+      "id": "q06",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q07",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "keyword",
+      "rank": null,
+      "top": "BOT-0024"
+    },
+    {
+      "id": "q09",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q10",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q15",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q17",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q18",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q21",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "keyword",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q31",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q32",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q33",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Troubleshooting the Spiti headlamp range"
+    },
+    {
+      "id": "q34",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q35",
+      "mode": "keyword",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q36",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q37",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q38",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q39",
+      "mode": "keyword",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q40",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q41",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    },
+    {
+      "id": "q42",
+      "mode": "keyword",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q43",
+      "mode": "keyword",
+      "rank": null,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q44",
+      "mode": "keyword",
+      "rank": null,
+      "top": null
+    }
+  ]
+}
