@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "LiveRAG evaluation: golden question set and scripts that measure retrieval, abstention and leaks"
 requires-python = ">=3.12"
 dependencies = [
+    "httpx>=0.27",
     "liverag-core",
     "psycopg[binary]>=3.2",
 ]

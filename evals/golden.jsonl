@@ -1,41 +1,41 @@
-{"id": "q01", "type": "answerable", "as": "customer@example.com", "question": "How much does the Alpine 2 Tent cost?", "sku": "TNT-0001"}
-{"id": "q02", "type": "answerable", "as": "customer@example.com", "question": "Is TNT-0025 still available to buy?", "sku": "TNT-0025"}
-{"id": "q03", "type": "answerable", "as": "customer@example.com", "question": "What is the price of the Ladakh Pro Backpack?", "sku": "BPK-0013"}
-{"id": "q04", "type": "answerable", "as": "customer@example.com", "question": "What does the Ridge Lite Jacket cost?", "sku": "JKT-0007"}
-{"id": "q05", "type": "answerable", "as": "customer@example.com", "question": "Tell me about the product with SKU STV-0010.", "sku": "STV-0010"}
-{"id": "q06", "type": "answerable", "as": "customer@example.com", "question": "What is the return window for hiking boots?", "title": "Returns and refunds"}
-{"id": "q07", "type": "answerable", "as": "customer@example.com", "question": "How long does a refund take to reach my account?", "title": "Returns and refunds"}
-{"id": "q08", "type": "answerable", "as": "customer@example.com", "question": "Can I send back boots that I have already worn?", "title": "Returns and refunds"}
-{"id": "q09", "type": "answerable", "as": "customer@example.com", "question": "How long is the warranty on a backpack?", "title": "Warranty coverage"}
-{"id": "q10", "type": "answerable", "as": "customer@example.com", "question": "How do I make a warranty claim?", "title": "Warranty coverage"}
-{"id": "q11", "type": "answerable", "as": "customer@example.com", "question": "Can I cancel my order after it has been dispatched?", "title": "Cancelling an order"}
-{"id": "q12", "type": "answerable", "as": "customer@example.com", "question": "How should I wash my Alpine jacket?", "title": "Caring for your Alpine jacket"}
-{"id": "q13", "type": "answerable", "as": "customer@example.com", "question": "What should I pack for Ladakh in winter?", "title": "Packing list: Ladakh in winter"}
-{"id": "q14", "type": "answerable", "as": "customer@example.com", "question": "The vestibule on my Alpine tent is wearing out. Is that a known problem?", "title": "Troubleshooting the Alpine tent range"}
-{"id": "q15", "type": "answerable", "as": "customer@example.com", "question": "Which payment methods do you accept?", "title": "Payment methods"}
-{"id": "q16", "type": "answerable", "as": "customer@example.com", "question": "My parcel has not moved for days. Where can I see where it is?", "title": "Tracking your order"}
-{"id": "q17", "type": "answerable", "as": "customer@example.com", "question": "How much do you charge for delivery?", "title": "Shipping times and charges"}
-{"id": "q18", "type": "answerable", "as": "customer@example.com", "question": "Which tent is good for monsoon treks?", "title": "Choosing a tent for monsoon treks"}
-{"id": "q19", "type": "answerable", "as": "agent@northwind.test", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents"}
-{"id": "q20", "type": "answerable", "as": "agent@northwind.test", "question": "A delivery is late. When do I escalate the case to a team lead?", "title": "Escalation guide: late delivery"}
-{"id": "q21", "type": "answerable", "as": "agent@northwind.test", "question": "What is the store procedure for gift card issues?", "title": "Store procedure: gift card issues"}
-{"id": "q22", "type": "answerable", "as": "manager@northwind.test", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers"}
-{"id": "q23", "type": "answerable", "as": "manager@northwind.test", "question": "What is our target gross margin on Doon Textiles products?", "title": "Supplier terms: Doon Textiles"}
-{"id": "q24", "type": "answerable", "as": "manager@northwind.test", "question": "How do we handle a fraudulent order?", "title": "Incident handling: fraudulent order"}
-{"id": "q25", "type": "answerable", "as": "admin@northwind.test", "question": "What do we do when a recall notice comes in?", "title": "Incident handling: recall notice"}
-{"id": "q26", "type": "answerable", "as": "meera.das@northwind.test", "question": "What bulk discount do colleges get?", "title": "Bulk pricing for colleges"}
-{"id": "q27", "type": "answerable", "as": "ishaan.gupta@northwind.test", "question": "How is stock allocated to the South region?", "title": "Stock allocation: South region"}
-{"id": "q28", "type": "answerable", "as": "diya.singh@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave"}
-{"id": "q29", "type": "answerable", "as": "diya.singh@northwind.test", "question": "How does the employee referral bonus work?", "title": "HR note: referral bonus"}
-{"id": "q30", "type": "forbidden", "as": "customer@example.com", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents"}
-{"id": "q31", "type": "forbidden", "as": "customer@example.com", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers"}
-{"id": "q32", "type": "forbidden", "as": "customer@example.com", "question": "How does the employee referral bonus work?", "title": "HR note: referral bonus"}
-{"id": "q33", "type": "forbidden", "as": "agent@northwind.test", "question": "What is our target gross margin on Doon Textiles products?", "title": "Supplier terms: Doon Textiles"}
-{"id": "q34", "type": "forbidden", "as": "agent@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave"}
-{"id": "q35", "type": "forbidden", "as": "meera.das@northwind.test", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents"}
-{"id": "q36", "type": "forbidden", "as": "manager@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave"}
-{"id": "q37", "type": "forbidden", "as": "diya.singh@northwind.test", "question": "What bulk discount do colleges get?", "title": "Bulk pricing for colleges"}
-{"id": "q38", "type": "forbidden", "as": "diya.singh@northwind.test", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers"}
+{"id": "q01", "type": "answerable", "as": "customer@example.com", "question": "How much does the Alpine 2 Tent cost?", "sku": "TNT-0001", "facts": ["12999"]}
+{"id": "q02", "type": "answerable", "as": "customer@example.com", "question": "Is TNT-0025 still available to buy?", "sku": "TNT-0025", "facts": ["discontinued|no longer"]}
+{"id": "q03", "type": "answerable", "as": "customer@example.com", "question": "What is the price of the Ladakh Pro Backpack?", "sku": "BPK-0013", "facts": ["5999"]}
+{"id": "q04", "type": "answerable", "as": "customer@example.com", "question": "What does the Ridge Lite Jacket cost?", "sku": "JKT-0007", "facts": ["6499"]}
+{"id": "q05", "type": "answerable", "as": "customer@example.com", "question": "Tell me about the product with SKU STV-0010.", "sku": "STV-0010", "facts": ["aravalli"]}
+{"id": "q06", "type": "answerable", "as": "customer@example.com", "question": "What is the return window for hiking boots?", "title": "Returns and refunds", "facts": ["15 days"]}
+{"id": "q07", "type": "answerable", "as": "customer@example.com", "question": "How long does a refund take to reach my account?", "title": "Returns and refunds", "facts": ["5-7|5 to 7|five to seven"]}
+{"id": "q08", "type": "answerable", "as": "customer@example.com", "question": "Can I send back boots that I have already worn?", "title": "Returns and refunds", "facts": ["unused|used footwear|cannot|can't|not be returned"]}
+{"id": "q09", "type": "answerable", "as": "customer@example.com", "question": "How long is the warranty on a backpack?", "title": "Warranty coverage", "facts": ["3 years|three years"]}
+{"id": "q10", "type": "answerable", "as": "customer@example.com", "question": "How do I make a warranty claim?", "title": "Warranty coverage", "facts": ["photo"]}
+{"id": "q11", "type": "answerable", "as": "customer@example.com", "question": "Can I cancel my order after it has been dispatched?", "title": "Cancelling an order", "facts": ["refuse|return"]}
+{"id": "q12", "type": "answerable", "as": "customer@example.com", "question": "How should I wash my Alpine jacket?", "title": "Caring for your Alpine jacket", "facts": ["35|mild soap|bleach"]}
+{"id": "q13", "type": "answerable", "as": "customer@example.com", "question": "What should I pack for Ladakh in winter?", "title": "Packing list: Ladakh in winter", "facts": ["headlamp|sleeping bag|stove|trekking pole"]}
+{"id": "q14", "type": "answerable", "as": "customer@example.com", "question": "The vestibule on my Alpine tent is wearing out. Is that a known problem?", "title": "Troubleshooting the Alpine tent range", "facts": ["repair kit|spare part|warranty|common"]}
+{"id": "q15", "type": "answerable", "as": "customer@example.com", "question": "Which payment methods do you accept?", "title": "Payment methods", "facts": ["upi"]}
+{"id": "q16", "type": "answerable", "as": "customer@example.com", "question": "My parcel has not moved for days. Where can I see where it is?", "title": "Tracking your order", "facts": ["tracking link|sms|3 business days"]}
+{"id": "q17", "type": "answerable", "as": "customer@example.com", "question": "How much do you charge for delivery?", "title": "Shipping times and charges", "facts": ["149|2999|free"]}
+{"id": "q18", "type": "answerable", "as": "customer@example.com", "question": "Which tent is good for monsoon treks?", "title": "Choosing a tent for monsoon treks", "facts": ["aravalli|kaveri"]}
+{"id": "q19", "type": "answerable", "as": "agent@northwind.test", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents", "facts": ["20%"]}
+{"id": "q20", "type": "answerable", "as": "agent@northwind.test", "question": "A delivery is late. When do I escalate the case to a team lead?", "title": "Escalation guide: late delivery", "facts": ["3 business days|three business days"]}
+{"id": "q21", "type": "answerable", "as": "agent@northwind.test", "question": "What is the store procedure for gift card issues?", "title": "Store procedure: gift card issues", "facts": ["4-step|checklist"]}
+{"id": "q22", "type": "answerable", "as": "manager@northwind.test", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers", "facts": ["7 weeks|seven weeks"]}
+{"id": "q23", "type": "answerable", "as": "manager@northwind.test", "question": "What is our target gross margin on Doon Textiles products?", "title": "Supplier terms: Doon Textiles", "facts": ["31%"]}
+{"id": "q24", "type": "answerable", "as": "manager@northwind.test", "question": "How do we handle a fraudulent order?", "title": "Incident handling: fraudulent order", "facts": ["4 hours|incident form"]}
+{"id": "q25", "type": "answerable", "as": "admin@northwind.test", "question": "What do we do when a recall notice comes in?", "title": "Incident handling: recall notice", "facts": ["4 hours|incident form"]}
+{"id": "q26", "type": "answerable", "as": "meera.das@northwind.test", "question": "What bulk discount do colleges get?", "title": "Bulk pricing for colleges", "facts": ["5%|12%"]}
+{"id": "q27", "type": "answerable", "as": "ishaan.gupta@northwind.test", "question": "How is stock allocated to the South region?", "title": "Stock allocation: South region", "facts": ["12%"]}
+{"id": "q28", "type": "answerable", "as": "diya.singh@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave", "facts": ["helpdesk|hr team"]}
+{"id": "q29", "type": "answerable", "as": "diya.singh@northwind.test", "question": "How does the employee referral bonus work?", "title": "HR note: referral bonus", "facts": ["helpdesk|hr team"]}
+{"id": "q30", "type": "forbidden", "as": "customer@example.com", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents", "facts": ["20%"]}
+{"id": "q31", "type": "forbidden", "as": "customer@example.com", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers", "facts": ["7 weeks"]}
+{"id": "q32", "type": "forbidden", "as": "customer@example.com", "question": "How does the employee referral bonus work?", "title": "HR note: referral bonus", "facts": ["helpdesk"]}
+{"id": "q33", "type": "forbidden", "as": "agent@northwind.test", "question": "What is our target gross margin on Doon Textiles products?", "title": "Supplier terms: Doon Textiles", "facts": ["31%"]}
+{"id": "q34", "type": "forbidden", "as": "agent@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave", "facts": ["helpdesk"]}
+{"id": "q35", "type": "forbidden", "as": "meera.das@northwind.test", "question": "What discount can I offer a customer for a damaged tent?", "title": "Discount rules for damaged tents", "facts": ["20%"]}
+{"id": "q36", "type": "forbidden", "as": "manager@northwind.test", "question": "What is the HR policy on parental leave?", "title": "HR note: parental leave", "facts": ["helpdesk"]}
+{"id": "q37", "type": "forbidden", "as": "diya.singh@northwind.test", "question": "What bulk discount do colleges get?", "title": "Bulk pricing for colleges", "facts": ["12%"]}
+{"id": "q38", "type": "forbidden", "as": "diya.singh@northwind.test", "question": "What is the lead time for orders from Deccan Polymers?", "title": "Supplier terms: Deccan Polymers", "facts": ["7 weeks"]}
 {"id": "q39", "type": "unanswerable", "as": "customer@example.com", "question": "Do you sell kayaks?"}
 {"id": "q40", "type": "unanswerable", "as": "customer@example.com", "question": "What is the CEO's salary?"}
 {"id": "q41", "type": "unanswerable", "as": "customer@example.com", "question": "What is the capital of France?"}

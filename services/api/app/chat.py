@@ -144,7 +144,9 @@ def stream_answer(question: str, hits: list[SearchHit], llm: LLMProvider,
             yield "token", {"text": text}  # it's a real answer: release everything so far
 
     text = text.strip()
-    if text == NO_ANSWER or not text:
+    # NO_ANSWER anywhere counts: small models sometimes write a guess and then add NO_ANSWER
+    # ("We do not deliver [S1]. NO_ANSWER"). That guess must not reach the user.
+    if NO_ANSWER in text or not text:
         yield "done", abstain(question, "model_declined", top_score, started, llm.name).model_dump(mode="json")
         return
 
