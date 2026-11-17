@@ -7,3 +7,9 @@ __pycache__/
 .pytest_cache/
 node_modules/
 .next/
+
+# Personal documents stay on this laptop, never in Git
+docs/
+*.pdf
+*.docx
+*.pptx
