@@ -3,7 +3,7 @@
 Run from services/indexer:  uv run python -m indexer.batch
 """
 
-import os
+
 import time
 from typing import Any
 
@@ -17,17 +17,7 @@ from psycopg.types.json import Jsonb
 
 from indexer.chunking import Chunk, document_chunks, product_chunks
 
-ROOT = Path(__file__).resolve().parents[3]
-load_dotenv(ROOT / ".env")
 
-
-def dsn(prefix: str) -> str:
-    return (
-        f"host=localhost port={os.environ[f'{prefix}_PORT']} "
-        f"dbname={os.environ[f'{prefix}_NAME']} "
-        f"user={os.environ[f'{prefix}_USER']} "
-        f"password={os.environ[f'{prefix}_PASSWORD']}"
-    )
 
 
 def read_source() -> tuple[str, list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:

@@ -1,5 +1,5 @@
 {
-  "run_at": "2026-11-17T18:22:13+00:00",
+  "run_at": "2026-11-19T14:02:08+00:00",
   "api": "http://127.0.0.1:8000",
   "summary": {
     "answered": 0.8275862068965517,
@@ -9,8 +9,8 @@
     "fact_ok_when_answered": 0.9166666666666666,
     "abstained_when_required": 1.0,
     "leaks": 0,
-    "p50_seconds": 3.61,
-    "p95_seconds": 5.18
+    "p50_seconds": 3.8,
+    "p95_seconds": 4.56
   },
   "rows": [
     {
@@ -22,7 +22,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 13.58,
+      "seconds": 58.16,
       "answer": "The Alpine 2 Tent costs ₹12,999 [S1].",
       "citations": [
         "Alpine 2 Tent (TNT-0001)"
@@ -37,7 +37,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 5.18,
+      "seconds": 4.12,
       "answer": "The Alpine Tent (SKU TNT-0025) is discontinued [S1].",
       "citations": [
         "Alpine Tent (TNT-0025)"
@@ -52,7 +52,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 86.01,
+      "seconds": 4.04,
       "answer": "The price of the Ladakh Pro Backpack is ₹5,999 [S1].",
       "citations": [
         "Ladakh Pro Backpack (BPK-0013)"
@@ -67,7 +67,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.77,
+      "seconds": 3.86,
       "answer": "The Ridge Lite Jacket costs ₹6,499 [S1].",
       "citations": [
         "Ridge Lite Jacket (JKT-0007)"
@@ -82,7 +82,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.46,
+      "seconds": 4.66,
       "answer": "The Aravalli Camping Stove (SKU STV-0010) is built for high-altitude expeditions. It features a carry case, a piezo igniter, and a wind shield. [S1]",
       "citations": [
         "Aravalli Camping Stove (STV-0010)"
@@ -97,7 +97,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.64,
+      "seconds": 4.11,
       "answer": "The return window for hiking boots is 15 days from delivery [S1].",
       "citations": [
         "Returns and refunds > Return windows"
@@ -112,7 +112,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.89,
+      "seconds": 3.94,
       "answer": "A refund takes 5-7 business days to reach your account after the return is processed and received by the warehouse [S1].",
       "citations": [
         "Returns and refunds > Refund timeline"
@@ -127,7 +127,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.19,
+      "seconds": 1.2,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -140,7 +140,7 @@
       "fact_ok": true,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 3.93,
+      "seconds": 3.87,
       "answer": "The warranty on a backpack is 3 years [S1, S2, S3, S4, S5].",
       "citations": [
         "Troubleshooting the Ridge backpack range > When to contact support",
@@ -159,7 +159,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.61,
+      "seconds": 3.91,
       "answer": "To make a warranty claim, contact support with your order number and photos of the defect. [S1]",
       "citations": [
         "Warranty coverage > How to claim"
@@ -174,7 +174,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.0,
+      "seconds": 4.12,
       "answer": "Yes, you can cancel your order after it has been dispatched by refusing the delivery or starting a return after it arrives [S1, S2].",
       "citations": [
         "Cancelling an order > Before dispatch",
@@ -190,7 +190,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.95,
+      "seconds": 3.94,
       "answer": "To wash your Alpine jacket, use lukewarm water below 35 °C and a mild soap [S1].",
       "citations": [
         "Caring for your Alpine jacket > Cleaning"
@@ -205,7 +205,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.04,
+      "seconds": 4.07,
       "answer": "For Ladakh in winter, you should pack headlamps, camping stoves, and trekking poles [S1, S2].",
       "citations": [
         "Packing list: Ladakh in winter > Essentials",
@@ -221,7 +221,7 @@
       "fact_ok": false,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.8,
+      "seconds": 3.96,
       "answer": "Yes, the vestibule wear issue is a known problem for the Alpine range [S1].",
       "citations": [
         "Troubleshooting the Alpine tent range > Common issues"
@@ -236,7 +236,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.0,
+      "seconds": 4.04,
       "answer": "We accept UPI, credit and debit cards, and Northwind Gear gift cards [S1]. [S2] does not provide information about payment methods.",
       "citations": [
         "Payment methods > Accepted methods",
@@ -252,7 +252,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.22,
+      "seconds": 1.25,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -265,7 +265,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 3.82,
+      "seconds": 4.01,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -278,7 +278,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.94,
+      "seconds": 3.9,
       "answer": "The Aravalli and Kaveri ranges are the most popular choices for monsoon treks [S2].",
       "citations": [
         "Choosing a tent for monsoon treks > Our picks"
@@ -293,7 +293,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.52,
+      "seconds": 4.56,
       "answer": "Support agents may offer up to 20% off on tents damaged in transit, once the customer sends a photo of the damage. [S1]\n\nWhat is missing is information about discounts for orders above ₹25,000. [S3]",
       "citations": [
         "Discount rules for damaged tents > Allowed discount",
@@ -309,7 +309,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 4.03,
+      "seconds": 3.95,
       "answer": "Escalate to a team lead if the case is unresolved after 3 business days [S1].",
       "citations": [
         "Escalation guide: late delivery > Escalate when"
@@ -340,7 +340,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.43,
+      "seconds": 3.46,
       "answer": "The lead time for orders from Deccan Polymers is 7 weeks [S1].",
       "citations": [
         "Supplier terms: Deccan Polymers > Order terms"
@@ -355,7 +355,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.42,
+      "seconds": 3.62,
       "answer": "The target gross margin on Doon Textiles products is 31% [S1, S2].",
       "citations": [
         "Supplier terms: Doon Textiles > Margin",
@@ -371,7 +371,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.61,
+      "seconds": 3.74,
       "answer": "We handle a fraudulent order by recording the incident within 4 hours using the incident form [S2]. Managers review every incident report within one business day [S1].",
       "citations": [
         "Incident handling: fraudulent order > Immediate steps",
@@ -387,7 +387,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 2.98,
+      "seconds": 3.07,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -400,7 +400,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.78,
+      "seconds": 3.97,
       "answer": "Colleges get a 5% discount above 20 units and a 12% discount above 100 units [S1, S2].",
       "citations": [
         "Bulk pricing for colleges > Discount tiers",
@@ -416,7 +416,7 @@
       "fact_ok": true,
       "cite_ok": true,
       "leaked_fact": false,
-      "seconds": 3.84,
+      "seconds": 4.01,
       "answer": "Stock is allocated to the South region with 12% of new seasonal stock [S1]. Stock is rebalanced between warehouses every 2 weeks [S2].",
       "citations": [
         "Stock allocation: South region > Allocation",
@@ -447,7 +447,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 0.68,
+      "seconds": 0.74,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -460,7 +460,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.36,
+      "seconds": 1.42,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -474,7 +474,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.1,
+      "seconds": 1.19,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -488,7 +488,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 0.72,
+      "seconds": 0.74,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -502,7 +502,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.13,
+      "seconds": 1.14,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -516,7 +516,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.07,
+      "seconds": 1.14,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -530,7 +530,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.35,
+      "seconds": 1.44,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -544,7 +544,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.11,
+      "seconds": 1.15,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -558,7 +558,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.11,
+      "seconds": 1.23,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -572,7 +572,7 @@
       "fact_ok": false,
       "cite_ok": false,
       "leaked_fact": false,
-      "seconds": 1.22,
+      "seconds": 1.23,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": [],
       "leaked_citation": false
@@ -586,7 +586,7 @@
       "fact_ok": false,
       "cite_ok": null,
       "leaked_fact": false,
-      "seconds": 0.88,
+      "seconds": 1.02,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -599,7 +599,7 @@
       "fact_ok": false,
       "cite_ok": null,
       "leaked_fact": false,
-      "seconds": 1.23,
+      "seconds": 1.25,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -612,7 +612,7 @@
       "fact_ok": false,
       "cite_ok": null,
       "leaked_fact": false,
-      "seconds": 1.27,
+      "seconds": 1.28,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -638,7 +638,7 @@
       "fact_ok": false,
       "cite_ok": null,
       "leaked_fact": false,
-      "seconds": 1.12,
+      "seconds": 1.25,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     },
@@ -651,7 +651,7 @@
       "fact_ok": false,
       "cite_ok": null,
       "leaked_fact": false,
-      "seconds": 0.69,
+      "seconds": 0.66,
       "answer": "I don't have information on that in the documents you can access.",
       "citations": []
     }
