@@ -1,0 +1,35 @@
+{
+  "run_at": "2026-11-19T15:28:49+00:00",
+  "args": {
+    "changes": 80,
+    "kill_every": 12,
+    "seed": 7,
+    "keep_slot": false
+  },
+  "summary": {
+    "source_transactions": 80,
+    "row_changes": 152,
+    "change_mix": {
+      "price": 61,
+      "status": 23,
+      "acl": 29,
+      "soft_delete": 25,
+      "membership": 14
+    },
+    "kills": {
+      "reader": 4,
+      "indexer": 2
+    },
+    "messages_applied": 98,
+    "entities_applied": 295,
+    "entities_skipped_by_lsn_guard": 4,
+    "texts_embedded": 74,
+    "lag_p50_s": 0.22,
+    "lag_p95_s": 7.97,
+    "lag_max_s": 8.86,
+    "catch_up_s": 8.2,
+    "index_equals_source": true,
+    "source_restored": true,
+    "index_restored": true
+  }
+}

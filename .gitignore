@@ -13,3 +13,5 @@ docs/
 *.pdf
 *.docx
 *.pptx
+
+evals/results/chaos-logs/
