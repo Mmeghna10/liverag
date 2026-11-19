@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "LiveRAG CDC reader: decodes Postgres logical replication (pgoutput) into change events"
 requires-python = ">=3.12"
 dependencies = [
+    "confluent-kafka>=2.5",
     "liverag-core",
     # psycopg 3 does not speak the replication protocol yet; psycopg2 does.
     "psycopg2-binary>=2.9",
