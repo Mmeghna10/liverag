@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "LiveRAG indexer: chunk, embed and load source data into pgvector"
 requires-python = ">=3.12"
 dependencies = [
+    "confluent-kafka>=2.5",
     "liverag-core",
     "pgvector>=0.3",
     "psycopg[binary]>=3.2",
