@@ -1,0 +1,19 @@
+[project]
+name = "liverag-cdc"
+version = "0.1.0"
+description = "LiveRAG CDC reader: decodes Postgres logical replication (pgoutput) into change events"
+requires-python = ">=3.12"
+dependencies = [
+    "liverag-core",
+    # psycopg 3 does not speak the replication protocol yet; psycopg2 does.
+    "psycopg2-binary>=2.9",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[tool.uv.sources]
+liverag-core = { path = "../../packages/liverag-core", editable = true }
+
+[tool.pytest.ini_options]
+pythonpath = ["."]  # so tests can `import cdc` without installing this folder as a package
