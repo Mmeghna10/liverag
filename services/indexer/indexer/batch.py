@@ -12,6 +12,7 @@ import psycopg
 from liverag_core.config import dsn
 from liverag_core.embedder import Embedder
 from pgvector.psycopg import register_vector
+from psycopg import sql
 from psycopg.rows import dict_row
 from psycopg.types.json import Jsonb
 
@@ -20,12 +21,23 @@ from indexer.chunking import Chunk, document_chunks, product_chunks
 
 
 
-def read_source() -> tuple[str, list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
-    """Read everything from one consistent snapshot, plus the WAL position it matches."""
+def read_source(snapshot: str | None = None, snapshot_lsn: str | None = None
+                ) -> tuple[str, list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]]]:
+    """Read everything from one consistent snapshot, plus the WAL position it matches.
+
+    With `snapshot` (exported when a replication slot is created, see indexer/bootstrap.py) the
+    read sees the database exactly at the slot's start, `snapshot_lsn`: no gap, no overlap.
+    """
     with psycopg.connect(dsn("SOURCE_DB"), row_factory=dict_row) as conn:
         # REPEATABLE READ: every query below sees the database exactly as it was at the first one.
         conn.isolation_level = psycopg.IsolationLevel.REPEATABLE_READ
-        lsn = conn.execute("SELECT pg_current_wal_lsn()::text AS lsn").fetchone()["lsn"]
+        if snapshot:
+            # Must be the first statement of the transaction. It takes no $1 parameter, so the
+            # snapshot name is embedded as a safely quoted literal.
+            conn.execute(sql.SQL("SET TRANSACTION SNAPSHOT {}").format(sql.Literal(snapshot)))
+            lsn = snapshot_lsn
+        else:
+            lsn = conn.execute("SELECT pg_current_wal_lsn()::text AS lsn").fetchone()["lsn"]
         products = conn.execute(
             "SELECT id, sku, name, description, price_inr, status FROM products"
         ).fetchall()
