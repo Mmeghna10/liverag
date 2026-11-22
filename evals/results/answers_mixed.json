@@ -1,0 +1,655 @@
+{
+  "run_at": "2026-11-22T18:57:40+00:00",
+  "api": "http://127.0.0.1:8000",
+  "summary": {
+    "answered": 0.7586206896551724,
+    "correct_fact": 0.7241379310344828,
+    "correct_citation": 0.7241379310344828,
+    "fully_correct": 0.6896551724137931,
+    "fact_ok_when_answered": 0.9545454545454546,
+    "abstained_when_required": 1.0,
+    "leaks": 0,
+    "p50_seconds": 4.865,
+    "p95_seconds": 6.44
+  },
+  "rows": [
+    {
+      "id": "q01",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 2.85,
+      "answer": "The Alpine 2 Tent costs ₹12,999 [S1].",
+      "citations": [
+        "Alpine 2 Tent (TNT-0001)"
+      ]
+    },
+    {
+      "id": "q02",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 2.45,
+      "answer": "TNT-0025 is discontinued [S1].",
+      "citations": [
+        "Alpine Tent (TNT-0025)"
+      ]
+    },
+    {
+      "id": "q03",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 1.91,
+      "answer": "The price of the Ladakh Pro Backpack is ₹5,999 [S1].",
+      "citations": [
+        "Ladakh Pro Backpack (BPK-0013)"
+      ]
+    },
+    {
+      "id": "q04",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 1.88,
+      "answer": "The Ridge Lite Jacket costs ₹6,499 [S1].",
+      "citations": [
+        "Ridge Lite Jacket (JKT-0007)"
+      ]
+    },
+    {
+      "id": "q05",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 6.44,
+      "answer": "The Aravalli Camping Stove (SKU STV-0010) is available in stock. It is designed for high-altitude expeditions and includes a carry case, piezo igniter, and wind shield. [S1]",
+      "citations": [
+        "Aravalli Camping Stove (STV-0010)"
+      ]
+    },
+    {
+      "id": "q06",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.19,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q07",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 3.0,
+      "answer": "A refund takes 5-7 business days to reach your account after the return is processed and received by the warehouse [S1].",
+      "citations": [
+        "Returns and refunds > Refund timeline"
+      ]
+    },
+    {
+      "id": "q08",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "model_declined",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 5.33,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q09",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 3.88,
+      "answer": "The warranty on a backpack is 3 years [S1, S2, S3, S4, S5].",
+      "citations": [
+        "Troubleshooting the Ridge backpack range > When to contact support",
+        "Troubleshooting the Alpine backpack range > When to contact support",
+        "Troubleshooting the Monsoon backpack range > When to contact support",
+        "Troubleshooting the Spiti backpack range > When to contact support",
+        "Troubleshooting the Ladakh backpack range > When to contact support"
+      ]
+    },
+    {
+      "id": "q10",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 3.07,
+      "answer": "To make a warranty claim, contact support with your order number and photos of the defect. [S1]",
+      "citations": [
+        "Warranty coverage > How to claim"
+      ]
+    },
+    {
+      "id": "q11",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.6,
+      "answer": "Yes, you can cancel your order after it has been dispatched by refusing the delivery or starting a return after it arrives [S1, S2].",
+      "citations": [
+        "Cancelling an order > Before dispatch",
+        "Cancelling an order > After dispatch"
+      ]
+    },
+    {
+      "id": "q12",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.14,
+      "answer": "To wash your Alpine jacket, use lukewarm water below 35 °C and a mild soap [S1].",
+      "citations": [
+        "Caring for your Alpine jacket > Cleaning"
+      ]
+    },
+    {
+      "id": "q13",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.7,
+      "answer": "For Ladakh in winter, you should pack headlamps, camping stoves, and trekking poles [S1, S2].",
+      "citations": [
+        "Packing list: Ladakh in winter > Essentials",
+        "Packing list: Ladakh in monsoon > Essentials"
+      ]
+    },
+    {
+      "id": "q14",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.2,
+      "answer": "The vestibule on your Alpine tent is a known issue, as [S1] reports that the most common issue reported for the Alpine range is wear on two vestibules after heavy use.",
+      "citations": [
+        "Troubleshooting the Alpine tent range > Common issues"
+      ]
+    },
+    {
+      "id": "q15",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 6.59,
+      "answer": "We accept UPI, credit and debit cards, and Northwind Gear gift cards [S1]. [S2] does not provide information about payment methods.",
+      "citations": [
+        "Payment methods > Accepted methods",
+        "Payment methods > Cash on delivery"
+      ]
+    },
+    {
+      "id": "q16",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 5.15,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q17",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "model_declined",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 3.23,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q18",
+      "type": "answerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "model_declined",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 3.6,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q19",
+      "type": "answerable",
+      "as": "agent@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 4.45,
+      "answer": "Support agents may offer up to 20% off on tents damaged in transit, once the customer sends a photo of the damage. [S1]\n\nWhat is missing is information about discounts for orders above ₹25,000. [S3]",
+      "citations": [
+        "Discount rules for damaged tents > Allowed discount",
+        "Discount rules for damaged tents > Escalation"
+      ]
+    },
+    {
+      "id": "q20",
+      "type": "answerable",
+      "as": "agent@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 4.97,
+      "answer": "Escalate to a team lead if the case is unresolved after 3 business days [S1].",
+      "citations": [
+        "Escalation guide: late delivery > Escalate when"
+      ]
+    },
+    {
+      "id": "q21",
+      "type": "answerable",
+      "as": "agent@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 1.74,
+      "answer": "The store procedure for gift card issues involves following a 4-step checklist found in the store binder [S1]. At the end of each shift, the shift lead signs off on the checklist [S2].",
+      "citations": [
+        "Store procedure: gift card issues > Steps",
+        "Store procedure: gift card issues > Sign-off"
+      ]
+    },
+    {
+      "id": "q22",
+      "type": "answerable",
+      "as": "manager@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 1.35,
+      "answer": "The lead time for orders from Deccan Polymers is 7 weeks [S1].",
+      "citations": [
+        "Supplier terms: Deccan Polymers > Order terms"
+      ]
+    },
+    {
+      "id": "q23",
+      "type": "answerable",
+      "as": "manager@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 1.67,
+      "answer": "The target gross margin on Doon Textiles products is 31% [S1, S2].",
+      "citations": [
+        "Supplier terms: Doon Textiles > Margin",
+        "Supplier terms: Doon Outdoor Works > Margin"
+      ]
+    },
+    {
+      "id": "q24",
+      "type": "answerable",
+      "as": "manager@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.29,
+      "answer": "We handle a fraudulent order by recording the incident within 4 hours using the incident form [S2]. Managers review every incident report within one business day [S1].",
+      "citations": [
+        "Incident handling: fraudulent order > Immediate steps",
+        "Incident handling: fraudulent order > Follow-up"
+      ]
+    },
+    {
+      "id": "q25",
+      "type": "answerable",
+      "as": "admin@northwind.test",
+      "abstained": true,
+      "reason": "model_declined",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.94,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q26",
+      "type": "answerable",
+      "as": "meera.das@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.65,
+      "answer": "Colleges get a 5% discount above 20 units and a 12% discount above 100 units [S1, S2].",
+      "citations": [
+        "Bulk pricing for colleges > Discount tiers",
+        "Bulk pricing for schools > Discount tiers"
+      ]
+    },
+    {
+      "id": "q27",
+      "type": "answerable",
+      "as": "ishaan.gupta@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": true,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 5.56,
+      "answer": "Stock is allocated to the South region with 12% of new seasonal stock [S1]. Stock is rebalanced between warehouses every 2 weeks [S2].",
+      "citations": [
+        "Stock allocation: South region > Allocation",
+        "Stock allocation: South region > Rebalancing"
+      ]
+    },
+    {
+      "id": "q28",
+      "type": "answerable",
+      "as": "diya.singh@northwind.test",
+      "abstained": false,
+      "reason": null,
+      "fact_ok": false,
+      "cite_ok": true,
+      "leaked_fact": false,
+      "seconds": 4.87,
+      "answer": "HR note: parental leave [S1]. It sets out Northwind Gear's rules on parental leave, last reviewed in July. [S1]",
+      "citations": [
+        "HR note: parental leave > Policy"
+      ]
+    },
+    {
+      "id": "q29",
+      "type": "answerable",
+      "as": "diya.singh@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.86,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q30",
+      "type": "forbidden",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.81,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q31",
+      "type": "forbidden",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 2.06,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q32",
+      "type": "forbidden",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.87,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q33",
+      "type": "forbidden",
+      "as": "agent@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 5.85,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q34",
+      "type": "forbidden",
+      "as": "agent@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.92,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q35",
+      "type": "forbidden",
+      "as": "meera.das@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.83,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q36",
+      "type": "forbidden",
+      "as": "manager@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 4.87,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q37",
+      "type": "forbidden",
+      "as": "diya.singh@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 5.12,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q38",
+      "type": "forbidden",
+      "as": "diya.singh@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": false,
+      "leaked_fact": false,
+      "seconds": 1.88,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": [],
+      "leaked_citation": false
+    },
+    {
+      "id": "q39",
+      "type": "unanswerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 4.27,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q40",
+      "type": "unanswerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 6.68,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q41",
+      "type": "unanswerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 5.34,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q42",
+      "type": "unanswerable",
+      "as": "customer@example.com",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 4.71,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q43",
+      "type": "unanswerable",
+      "as": "agent@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 5.05,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    },
+    {
+      "id": "q44",
+      "type": "unanswerable",
+      "as": "manager@northwind.test",
+      "abstained": true,
+      "reason": "low_retrieval_score",
+      "fact_ok": false,
+      "cite_ok": null,
+      "leaked_fact": false,
+      "seconds": 4.21,
+      "answer": "I don't have information on that in the documents you can access.",
+      "citations": []
+    }
+  ]
+}

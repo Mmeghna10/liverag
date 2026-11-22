@@ -5,6 +5,7 @@ Run from the evals folder:   uv run python -m evals.answers
 Read-only: it only logs in and asks questions.
 """
 
+import argparse
 import json
 import os
 import re
@@ -59,6 +60,9 @@ def ask(client: httpx.Client, token: str, question: str) -> dict[str, Any]:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--results", type=Path, default=RESULTS, help="where to write the results")
+    results = parser.parse_args().results.resolve()
     golden = [json.loads(line) for line in GOLDEN.read_text(encoding="utf-8").splitlines() if line]
     password = os.environ["DEMO_USER_PASSWORD"]
     rows: list[dict[str, Any]] = []
@@ -133,12 +137,12 @@ def main() -> None:
                 f"fact={'ok' if r['fact_ok'] else 'missing'} cite={'ok' if r['cite_ok'] else 'wrong'}")
             print(f"  {r['id']} {what}: {r['answer'][:110]}")
 
-    RESULTS.parent.mkdir(exist_ok=True)
-    RESULTS.write_text(json.dumps({
+    results.parent.mkdir(exist_ok=True)
+    results.write_text(json.dumps({
         "run_at": datetime.now(UTC).isoformat(timespec="seconds"), "api": API_URL,
         "summary": summary, "rows": rows,
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"\nSaved {RESULTS.relative_to(HERE)}")
+    print(f"\nSaved {results}")
     if leaks:
         raise SystemExit(1)
 
