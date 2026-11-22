@@ -12,20 +12,22 @@ from collections.abc import AsyncIterator, Iterator
 from contextlib import asynccontextmanager
 from typing import Any
 
+from confluent_kafka import Consumer
 from fastapi import FastAPI, Request
 from fastapi.responses import StreamingResponse
 from liverag_core.config import dsn
 from liverag_core.retrieval import Retriever
 from psycopg_pool import ConnectionPool
 
-from app.auth import CurrentUserDep, effective_user, require_admin
+from app import account, admin, conversations
+from app.auth import CurrentUserDep, effective_user
 from app.auth import router as auth_router
 from app.chat import CONTEXT_CHUNKS, answer, stream_answer
+from app.conversations import save_message, start_or_continue
 from app.llm import get_provider
-from app.schemas import (ChatRequest, ChatResponse, CurrentUser, SearchHit, SearchRequest,
-                         SearchResponse, UserSummary)
+from app.schemas import ChatRequest, ChatResponse, SearchHit, SearchRequest, SearchResponse
 
-log = logging.getLogger("liverag.api")
+log = logging.getLogger("uvicorn.error")
 
 
 @asynccontextmanager
@@ -42,14 +44,23 @@ async def lifespan(app: FastAPI) -> AsyncIterator[None]:
     retriever.embedder, retriever.reranker  # load both models now, not on the first request
     app.state.retriever = retriever
     app.state.llm = get_provider()
+    # Only used to read the topic's end offset for the live sync status; never consumes.
+    app.state.kafka = Consumer({
+        "bootstrap.servers": os.environ.get("KAFKA_BOOTSTRAP", "127.0.0.1:19092"),
+        "group.id": "liverag-api-status",
+    })
     yield
+    app.state.kafka.close()
     app.state.llm.close()
     app.state.source_pool.close()
     app.state.index_pool.close()
 
 
-app = FastAPI(title="LiveRAG API", version="0.3.0", lifespan=lifespan)
+app = FastAPI(title="LiveRAG API", version="0.5.0", lifespan=lifespan)
 app.include_router(auth_router)
+app.include_router(account.router)
+app.include_router(conversations.router)
+app.include_router(admin.router)
 
 
 def to_hit(hit: dict[str, Any], mode: str) -> SearchHit:
@@ -74,26 +85,6 @@ def health() -> dict[str, str]:
     return {"status": "ok"}
 
 
-@app.get("/api/v1/me")
-def me(user: CurrentUserDep) -> CurrentUser:
-    return user
-
-
-@app.get("/api/v1/users")
-def users(request: Request, user: CurrentUserDep) -> list[UserSummary]:
-    """Admins only: every active user with their groups, for the "view as" picker."""
-    require_admin(user)
-    with request.app.state.source_pool.connection() as conn:
-        people = conn.execute("SELECT id, email FROM users WHERE is_active ORDER BY email").fetchall()
-    with request.app.state.index_pool.connection() as conn:
-        rows = conn.execute("SELECT user_id, group_id FROM user_groups_replica ORDER BY group_id").fetchall()
-    groups: dict[Any, list[int]] = {}
-    for user_id, group_id in rows:
-        groups.setdefault(user_id, []).append(group_id)
-    return [UserSummary(email=email, groups=groups.get(user_id, [])) for user_id, email in people]
-
-
-
 # A plain `def` (not `async def`): FastAPI runs it in a worker thread, so the slow model and
 # database calls do not block other requests.
 @app.post("/api/v1/search")
@@ -107,6 +98,7 @@ def search(body: SearchRequest, request: Request, user: CurrentUserDep) -> Searc
 
 @app.post("/api/v1/chat")
 def chat(body: ChatRequest, request: Request, user: CurrentUserDep) -> ChatResponse:
+    """One answer as JSON (used by the evaluation scripts). Not saved to a conversation."""
     started = time.perf_counter()
     user = effective_user(request, user, body.view_as)
     # Same permission-aware retrieval as /search: the LLM can only ever see chunks this user may read.
@@ -124,23 +116,38 @@ def sse(event: str, data: dict[str, Any]) -> str:
 
 @app.post("/api/v1/chat/stream")
 def chat_stream(body: ChatRequest, request: Request, user: CurrentUserDep) -> StreamingResponse:
+    """The web app's chat: streams the answer and saves both sides into a conversation."""
     started = time.perf_counter()
+    caller = user                       # the conversation always belongs to whoever is signed in
     user = effective_user(request, user, body.view_as)
-    # Retrieve BEFORE the stream starts: a database error still becomes a normal HTTP 500.
-    with request.app.state.index_pool.connection() as conn:
+    viewed_as = user.email if user.email != caller.email else None
+    pool = request.app.state.index_pool
+    with pool.connection() as conn:
+        conversation_id = start_or_continue(conn, body.conversation_id, caller.id, body.question)
+        save_message(conn, conversation_id, "user", body.question, viewed_as=viewed_as)
+        # Retrieve BEFORE the stream starts: a database error still becomes a normal HTTP 500.
         hits = request.app.state.retriever.search(conn, body.question, user.groups,
                                                   CONTEXT_CHUNKS, "rerank")
     search_hits = [to_hit(hit, "rerank") for hit in hits]
     llm = request.app.state.llm
 
     def events() -> Iterator[str]:
+        yield sse("conversation", {"id": str(conversation_id)})
         try:
             for event, data in stream_answer(body.question, search_hits, llm, started):
+                if event == "done":
+                    with pool.connection() as conn:
+                        save_message(conn, conversation_id, "assistant", data["answer"], data,
+                                     viewed_as)
                 yield sse(event, data)
         except Exception:
             # The 200 status line is already sent, so report failures as an event instead.
             log.exception("chat stream failed")
-            yield sse("error", {"detail": "The answer could not be generated. Please try again."})
+            detail = "The answer could not be generated. Please try again."
+            with pool.connection() as conn:
+                save_message(conn, conversation_id, "assistant", detail,
+                             {"abstained": True, "reason": "error"}, viewed_as)
+            yield sse("error", {"detail": detail})
 
     return StreamingResponse(events(), media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})

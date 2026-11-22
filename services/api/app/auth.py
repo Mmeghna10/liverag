@@ -40,14 +40,18 @@ def login(body: LoginRequest, request: Request) -> TokenResponse:
     with request.app.state.source_pool.connection() as conn:
         row = conn.execute(
             "SELECT id, password_hash FROM users WHERE email = %s AND is_active",
-            (body.email,),
+            (body.email.strip().lower(),),
         ).fetchone()
     # Same answer for "no such user" and "wrong password", so attackers can't probe for emails.
     if row is None or not password_ok(row[1], body.password):
         raise HTTPException(status.HTTP_401_UNAUTHORIZED, "Invalid email or password")
+    return issue_token(row[0], body.email.strip().lower())
 
+
+def issue_token(user_id: UUID, email: str) -> TokenResponse:
+    """A signed token that proves who you are for the next TOKEN_MINUTES minutes."""
     expires = datetime.now(UTC) + timedelta(minutes=TOKEN_MINUTES)
-    token = jwt.encode({"sub": str(row[0]), "email": body.email, "exp": expires},
+    token = jwt.encode({"sub": str(user_id), "email": email, "exp": expires},
                        os.environ["JWT_SECRET"], algorithm=ALGORITHM)
     return TokenResponse(access_token=token, expires_in=TOKEN_MINUTES * 60)
 
