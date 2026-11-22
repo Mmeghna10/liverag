@@ -1,0 +1,75 @@
+{
+  "run_at": "2026-11-22T08:45:09+00:00",
+  "args": {
+    "per_type": 6,
+    "gap": 3.0,
+    "batch_interval": 60.0,
+    "max_wait": 60.0,
+    "seed": 11,
+    "methods": "cdc,polling,batch"
+  },
+  "results": [
+    {
+      "method": "cdc",
+      "changes": 30,
+      "visible": 30,
+      "missed_total": 0,
+      "missed_by_type": {
+        "price": 0,
+        "soft_delete": 0,
+        "hard_delete": 0,
+        "acl_revoke": 0,
+        "group_remove": 0
+      },
+      "staleness_p50_s": 0.2,
+      "staleness_p95_s": 0.26,
+      "staleness_max_s": 0.26,
+      "leak_window_p95_s": 0.26,
+      "permission_changes_never_applied": 0,
+      "texts_embedded": 6,
+      "chunks_written": 20
+    },
+    {
+      "method": "polling",
+      "changes": 30,
+      "visible": 12,
+      "missed_total": 18,
+      "missed_by_type": {
+        "price": 0,
+        "soft_delete": 0,
+        "hard_delete": 6,
+        "acl_revoke": 6,
+        "group_remove": 6
+      },
+      "staleness_p50_s": 2.57,
+      "staleness_p95_s": 3.81,
+      "staleness_max_s": 4.78,
+      "leak_window_p95_s": null,
+      "permission_changes_never_applied": 12,
+      "texts_embedded": 0,
+      "chunks_written": 77
+    },
+    {
+      "method": "batch",
+      "changes": 30,
+      "visible": 30,
+      "missed_total": 0,
+      "missed_by_type": {
+        "price": 0,
+        "soft_delete": 0,
+        "hard_delete": 0,
+        "acl_revoke": 0,
+        "group_remove": 0
+      },
+      "staleness_p50_s": 43.23,
+      "staleness_p95_s": 64.73,
+      "staleness_max_s": 67.74,
+      "leak_window_p95_s": 64.73,
+      "permission_changes_never_applied": 0,
+      "texts_embedded": 0,
+      "chunks_written": 2947
+    }
+  ],
+  "source_restored": true,
+  "index_consistent_after": true
+}
