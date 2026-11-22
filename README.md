@@ -11,6 +11,8 @@ killed mid-transaction.
 > Dissertation-2 project. All numbers below come from the scripts in `evals/` and the JSON
 > files in `evals/results/`.
 
+![LiveRAG chat: a cited answer with its sources, and a refusal for a document the user may not read](assets/screenshots/chat.png)
+
 ## Results
 
 ### CDC vs the usual alternatives (same 30 changes for each method)
@@ -45,6 +47,28 @@ Source: `evals/results/baselines.json`, `uv run python -m evals.baselines`.
 End to end (local `qwen2.5:3b`): 100 % of forbidden/unanswerable questions refused, 0 answer
 leaks, 92 % of given answers contain the correct fact, 72 % fully correct (fact + citation).
 
+## The web app
+
+A complete chat application in a lavender theme, with light and dark mode and a phone layout.
+
+| | |
+|---|---|
+| ![Sign in](assets/screenshots/signin.png) | ![Home in dark mode](assets/screenshots/home-dark.png) |
+| **Sign in or create an account.** New accounts start with public documents only. | **Start a chat** from suggestions, in light or dark mode. |
+| ![Admin console](assets/screenshots/admin.png) | ![Your account](assets/screenshots/account.png) |
+| **Admin console:** live pipeline health and one toggle per user and group. A toggle writes to the source database; CDC carries it to search in about a second. | **Your account:** profile, your access, statistics, password, theme. |
+
+- **Cited, streamed answers:** numbered citation chips; a sources panel shows each document,
+  its section and how closely it matched (under the answer on smaller screens).
+- **Honest refusals:** questions about documents you may not read get a lock card, and the
+  language model never sees those documents.
+- **Saved conversations:** your chat history in the sidebar (rename, delete); nobody else can
+  open it.
+- **Live sync status:** a pill in the top bar shows whether the CDC pipeline is running.
+- **View as:** admins can ask exactly as any other user would, to check what they can see.
+
+<p align="center"><img src="assets/screenshots/mobile.jpg" alt="LiveRAG on a phone" width="280"></p>
+
 ## Architecture
 
 ```
@@ -65,11 +89,24 @@ leaks, 92 % of given answers contain the correct fact, 72 % fully correct (fact 
 - **Permissions** are filtered **inside** the search SQL; group membership is read on every
   request and kept in sync by the same CDC pipeline.
 - **Bootstrap** creates the slot with an exported snapshot, so batch and stream meet at one LSN.
+- **Accounts and access changes** made in the app write to the source database (the app plays
+  the company's own system); the search index still changes **only** through CDC.
+
+### API (FastAPI, docs at `/docs`)
+
+| Area | Endpoints |
+|---|---|
+| Auth and account | `POST /api/v1/auth/signup`, `POST /api/v1/auth/login`, `GET/PATCH /api/v1/me`, `POST /api/v1/me/password` |
+| Chat | `POST /api/v1/chat/stream` (SSE, saved to a conversation), `POST /api/v1/chat` (JSON, used by evals), `POST /api/v1/search` |
+| Conversations | `GET /api/v1/conversations`, `GET/PATCH/DELETE /api/v1/conversations/{id}` |
+| Sync status | `GET /api/v1/status` |
+| Admin | `GET /api/v1/admin/pipeline`, `GET /api/v1/admin/users`, `GET /api/v1/admin/groups`, `PUT/DELETE /api/v1/admin/users/{id}/groups/{group}` |
 
 ## Tech stack
 Python 3.12 · uv · PostgreSQL 16 · pgvector (HNSW) · Redpanda · confluent-kafka · psycopg 3 /
 psycopg2 (replication) · FastAPI · Alembic · sentence-transformers (bge-small-en-v1.5,
-bge-reranker-base) · Ollama (qwen2.5:3b) · React 19 + Vite · Docker Compose
+bge-reranker-base) · Ollama (qwen2.5:3b) · JWT + Argon2 · React 19 + Vite + Tailwind CSS 4 +
+React Router + lucide icons · Docker Compose · GitHub Actions
 
 ## Run it locally
 
@@ -81,7 +118,7 @@ docker compose up -d          # source-db :5433, index-db :5434, redpanda :19092
 ollama pull qwen2.5:3b
 
 cd services/simulator && uv run python -m simulator.seed            # demo data
-cd ../api            && uv run alembic upgrade head                 # index schema
+cd ../api            && uv run alembic upgrade head                 # index schema + chat history
 cd ../indexer        && uv run python -m indexer.bootstrap          # index + slot, no gap
 ```
 
@@ -94,9 +131,14 @@ cd services/api      && uv run uvicorn app.main:app                 # API on :80
 cd apps/web          && npm install && npm run dev                  # UI on :5173
 ```
 
-Sign in as `customer@example.com` or `agent@northwind.test` (password = `DEMO_USER_PASSWORD`)
-and ask *"What discount can I give for a damaged item?"*: the agent gets a cited answer, the
-customer is refused. Admins can use **View as** to compare users.
+Open http://127.0.0.1:5173 and **create your own account**, or use a demo account
+(`customer@example.com`, `agent@northwind.test`, `manager@northwind.test`,
+`admin@northwind.test`; password = `DEMO_USER_PASSWORD`).
+
+**Try the live access demo:** as your new account, ask *"What discount can I give for a damaged
+item?"*: refused. Sign in as the admin, open the **Admin console** and switch on **Support** for
+your account. Ask again: answered with cited sources, about a second later and without any
+re-indexing.
 
 ## Evaluations
 
@@ -111,14 +153,15 @@ uv run python -m evals.baselines     # CDC vs polling vs batch
 ## Repository layout
 
 ```
-apps/web/              React + Vite chat UI (login, streaming answers, citations, view-as)
-services/api/          FastAPI (auth, search, chat) + Alembic migrations for the index DB
+apps/web/              React + Vite app: sign-in/up, chat, sources, account, admin console
+services/api/          FastAPI (auth, accounts, chat, conversations, admin) + Alembic migrations
 services/cdc/          pgoutput decoder and CDC reader -> Redpanda
 services/indexer/      chunking, batch, bootstrap, streaming indexer, polling baseline
 services/simulator/    deterministic Northwind Gear demo data
 packages/liverag-core/ shared config, embedder, reranker, retrieval SQL
 evals/                 golden set, evaluation scripts, results
 infra/                 Postgres init scripts, health check
+assets/screenshots/    screenshots used in this README
 ```
 
 ## Limitations
