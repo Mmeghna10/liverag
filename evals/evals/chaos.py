@@ -198,6 +198,23 @@ def wait_caught_up(source: psycopg.Connection, index: psycopg.Connection, bootst
     raise SystemExit("Pipeline did not catch up within the timeout")
 
 
+def drop_slot(source: psycopg.Connection) -> None:
+    """Drop the slot so it does not hold WAL. Postgres needs a few seconds to notice that the
+    killed reader is gone; until then the slot counts as active and cannot be dropped."""
+    for _ in range(30):
+        row = source.execute("SELECT active FROM pg_replication_slots "
+                             "WHERE slot_name = 'liverag_slot'").fetchone()
+        if row is None:
+            return
+        if not row[0]:
+            source.execute("SELECT pg_drop_replication_slot('liverag_slot')")
+            log("Dropped the replication slot.")
+            return
+        time.sleep(1)
+    log("WARNING: slot still active after 30 s; drop it with `cdc.reader --drop-slot`.")
+
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--changes", type=int, default=80, help="source transactions to make")
@@ -253,9 +270,8 @@ def main() -> None:
     finally:
         for service in services:
             service.kill()
-        if not args.keep_slot:
-            source.execute("SELECT pg_drop_replication_slot(slot_name) FROM pg_replication_slots "
-                           "WHERE slot_name = 'liverag_slot' AND NOT active")
+            if not args.keep_slot:
+             drop_slot(source)
 
     source_after = prints(source, SOURCE_PRINTS)
     index_after = prints(index, INDEX_PRINTS)
