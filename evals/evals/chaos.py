@@ -270,8 +270,8 @@ def main() -> None:
     finally:
         for service in services:
             service.kill()
-            if not args.keep_slot:
-             drop_slot(source)
+        if not args.keep_slot:
+            drop_slot(source)
 
     source_after = prints(source, SOURCE_PRINTS)
     index_after = prints(index, INDEX_PRINTS)
