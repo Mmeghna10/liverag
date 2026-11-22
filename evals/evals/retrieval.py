@@ -1,9 +1,12 @@
 """Measure retrieval, abstention and permission leaks on the golden set. No LLM involved.
 
 Run from the evals folder:   uv run python -m evals.retrieval
+Real dataset (Outdoors Stack Exchange duplicates):
+  uv run python -m evals.retrieval --golden ../data/outdoors/prepared/golden_outdoors.jsonl       --results results/retrieval_outdoors.json
 Read-only: it only runs SELECT queries against both databases.
 """
 
+import argparse
 import json
 import time
 from datetime import UTC, datetime
@@ -21,8 +24,8 @@ K = 5  # the chat endpoint gives the LLM the top 5 chunks, so we measure the top
 THRESHOLDS = [0.001, 0.01, 0.05, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9]
 
 
-def load_golden() -> list[dict[str, Any]]:
-    with GOLDEN.open(encoding="utf-8") as f:
+def load_golden(path: Path = GOLDEN) -> list[dict[str, Any]]:
+    with path.open(encoding="utf-8") as f:
         return [json.loads(line) for line in f if line.strip()]
 
 
@@ -58,7 +61,12 @@ def find_leaks(conn: psycopg.Connection, hits: list[dict[str, Any]], groups: lis
 
 
 def main() -> None:
-    golden = load_golden()
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument("--golden", type=Path, default=GOLDEN, help="question set (JSON lines)")
+    parser.add_argument("--results", type=Path, default=RESULTS, help="where to write the results")
+    args = parser.parse_args()
+    results = args.results.resolve()
+    golden = load_golden(args.golden)
     groups = groups_by_email({item["as"] for item in golden})
     answerable = [item for item in golden if item["type"] == "answerable"]
     must_abstain = [item for item in golden if item["type"] != "answerable"]
@@ -133,14 +141,14 @@ def main() -> None:
     for leak in leaks:
         print("  LEAK", leak)
 
-    RESULTS.parent.mkdir(exist_ok=True)
-    RESULTS.write_text(json.dumps({
+    results.parent.mkdir(exist_ok=True)
+    results.write_text(json.dumps({
         "run_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "questions": len(golden), "k": K, "summary": summary, "threshold_sweep": sweep,
         "lowest_answerable_score": lowest_ok, "highest_must_abstain_score": highest_bad,
         "top_scores": top_scores, "leaks": leaks, "details": details,
     }, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"\nSaved {RESULTS.relative_to(HERE)}")
+    print(f"\nSaved {results}")
     if leaks:
         raise SystemExit(1)  # a leak fails the run, so CI can catch it later
 

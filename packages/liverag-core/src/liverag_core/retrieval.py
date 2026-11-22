@@ -33,12 +33,14 @@ VECTOR_SQL = f"""
 
 # plainto_tsquery joins the words with AND ('alpin' & '2' & 'tent'); a question rarely has every
 # word in one chunk, so we switch to OR and let ts_rank_cd reward chunks that match more words.
+# Normalization 2 divides by chunk length: without it, long chunks (real community threads)
+# win on sheer word count and push short exact matches (product pages, policies) out of the top.
 KEYWORD_SQL = f"""
     WITH q AS (
         SELECT replace(plainto_tsquery('english', %(text)s)::text, ' & ', ' | ')::tsquery AS query
     )
     SELECT id, source_table, source_id, text, metadata, updated_at,
-           ts_rank_cd(tsv, q.query) AS score
+           ts_rank_cd(tsv, q.query, 2) AS score
     FROM chunks_v1, q
     WHERE tsv @@ q.query AND {PERMISSION_FILTER}
     ORDER BY score DESC

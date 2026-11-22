@@ -35,7 +35,28 @@ Source: `evals/results/baselines.json`, `uv run python -m evals.baselines`.
   left 46–49 of 500 products wrong; the exported-snapshot handoff left **0**.
 - **Streamed index = fresh batch rebuild** after updates, duplicates, a crash and a full reload.
 
-### Retrieval and answers (44-question golden set, 0 permission leaks)
+### Real data: The Great Outdoors Stack Exchange
+
+The synthetic Northwind Gear data is joined by a real corpus: the official Stack Exchange dump of
+[outdoors.stackexchange.com](https://outdoors.stackexchange.com) (CC BY-SA 4.0). After cleaning,
+**5,811 real question-and-answer threads** (11,512 answers, 22,571 chunks in total) are indexed
+next to the company data; threads tagged `first-aid` or `health` are restricted to support and
+managers (the dump has no permissions, so this rule is simulated).
+
+- **Live replay of real edits:** the 150 most recent real edit sessions (132 body, 25 title,
+  14 tag edits on 67 threads) replayed through the CDC pipeline: **150/150 visible**, staleness
+  **p50 0.34 s, p95 0.59 s**, max 0.80 s; index equal to the source and to a fresh batch rebuild.
+  (`evals/results/outdoors_replay.json`)
+- **Retrieval on real duplicates:** 171 queries, each a question closed as a duplicate, whose
+  correct answer is the original thread (a reworded question, so harder than the golden set):
+  hit@5 **0.70** (rerank and vector), hit@1 0.39 rerank / 0.43 vector, **0 permission leaks**.
+  (`evals/results/retrieval_outdoors.json`)
+- **Original 44 questions on the mixed corpus:** rerank hit@5 0.86, 0 must-refuse questions
+  answered at the 0.1 threshold, 0 leaks. Long community threads first pushed short product pages
+  out of keyword search (hit@5 0.10); ranking full-text matches by length (`ts_rank_cd(..., 2)`)
+  brought it back to 0.86. (`evals/results/retrieval_mixed.json`)
+
+### Retrieval and answers (44-question golden set, synthetic data only, 0 permission leaks)
 
 | Mode | hit@1 | hit@5 | MRR |
 |---|---|---|---|
@@ -131,6 +152,16 @@ cd services/api      && uv run uvicorn app.main:app                 # API on :80
 cd apps/web          && npm install && npm run dev                  # UI on :5173
 ```
 
+**Optional, real data:** download `outdoors.stackexchange.com.7z` (31 MB) from
+[archive.org/details/stackexchange](https://archive.org/details/stackexchange), extract the XML
+files into `data/outdoors/raw/` (git-ignored), then load it instead of `simulator.seed`:
+
+```bash
+cd services/simulator && uv run python -m simulator.outdoors prepare   # clean -> data/outdoors/prepared
+cd services/simulator && uv run python -m simulator.outdoors seed      # Northwind Gear + 5,811 threads
+cd services/indexer   && uv run python -m indexer.bootstrap --force    # ~20 min on CPU (21k new texts)
+```
+
 Open http://127.0.0.1:5173 and **create your own account**, or use a demo account
 (`customer@example.com`, `agent@northwind.test`, `manager@northwind.test`,
 `admin@northwind.test`; password = `DEMO_USER_PASSWORD`).
@@ -148,6 +179,10 @@ uv run python -m evals.retrieval     # retrieval quality, abstention, leak check
 uv run python -m evals.answers       # end-to-end answers (API + Ollama running)
 uv run python -m evals.chaos         # random changes + hard kills, fingerprint check
 uv run python -m evals.baselines     # CDC vs polling vs batch
+# with the real data loaded:
+uv run python -m evals.replay        # replay 150 real edits through CDC, freshness + rebuild check
+uv run python -m evals.retrieval --golden ../data/outdoors/prepared/golden_outdoors.jsonl \
+    --results results/retrieval_outdoors.json
 ```
 
 ## Repository layout
@@ -157,7 +192,8 @@ apps/web/              React + Vite app: sign-in/up, chat, sources, account, adm
 services/api/          FastAPI (auth, accounts, chat, conversations, admin) + Alembic migrations
 services/cdc/          pgoutput decoder and CDC reader -> Redpanda
 services/indexer/      chunking, batch, bootstrap, streaming indexer, polling baseline
-services/simulator/    deterministic Northwind Gear demo data
+services/simulator/    deterministic Northwind Gear demo data; Outdoors Stack Exchange loader
+data/                  downloaded datasets (git-ignored)
 packages/liverag-core/ shared config, embedder, reranker, retrieval SQL
 evals/                 golden set, evaluation scripts, results
 infra/                 Postgres init scripts, health check
@@ -165,7 +201,14 @@ assets/screenshots/    screenshots used in this README
 ```
 
 ## Limitations
-Small synthetic dataset and golden set (44 questions); intervals in the baseline experiment are
+Company data is synthetic, and access rules on the real Stack Exchange threads are simulated
+from tags; the real duplicate-retrieval test shows a lot of room left (hit@5 0.70) and the
+cross-encoder takes several seconds per query on CPU with long threads; intervals in the baseline experiment are
 scaled down (60 s instead of nightly); a single Redpanda partition (global order over
 throughput); schema changes (DDL) are not handled automatically; answer quality reflects a
 3-billion-parameter local model.
+
+## Data attribution
+The Great Outdoors data comes from the Stack Exchange data dump and is licensed under
+[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); it is downloaded by the user and
+never committed to this repository.

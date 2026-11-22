@@ -15,3 +15,5 @@ docs/
 *.pptx
 
 evals/results/chaos-logs/
+# Downloaded datasets (CC BY-SA; fetched by the user, never committed)
+data/

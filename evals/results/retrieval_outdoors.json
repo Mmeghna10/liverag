@@ -1,0 +1,4360 @@
+{
+  "run_at": "2026-11-22T18:43:36+00:00",
+  "questions": 171,
+  "k": 5,
+  "summary": {
+    "rerank": {
+      "hit@1": 0.38509316770186336,
+      "hit@5": 0.6956521739130435,
+      "mrr": 0.49451345755693576,
+      "ms_per_query": 5631
+    },
+    "hybrid": {
+      "hit@1": 0.30434782608695654,
+      "hit@5": 0.6024844720496895,
+      "mrr": 0.41666666666666663,
+      "ms_per_query": 119
+    },
+    "vector": {
+      "hit@1": 0.42857142857142855,
+      "hit@5": 0.7018633540372671,
+      "mrr": 0.5297101449275362,
+      "ms_per_query": 19
+    },
+    "keyword": {
+      "hit@1": 0.13043478260869565,
+      "hit@5": 0.33540372670807456,
+      "mrr": 0.2098343685300207,
+      "ms_per_query": 90
+    }
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.001,
+      "wrongly_refused": 2,
+      "wrongly_answered": 9
+    },
+    {
+      "threshold": 0.01,
+      "wrongly_refused": 5,
+      "wrongly_answered": 9
+    },
+    {
+      "threshold": 0.05,
+      "wrongly_refused": 16,
+      "wrongly_answered": 9
+    },
+    {
+      "threshold": 0.1,
+      "wrongly_refused": 18,
+      "wrongly_answered": 8
+    },
+    {
+      "threshold": 0.2,
+      "wrongly_refused": 27,
+      "wrongly_answered": 8
+    },
+    {
+      "threshold": 0.3,
+      "wrongly_refused": 35,
+      "wrongly_answered": 7
+    },
+    {
+      "threshold": 0.5,
+      "wrongly_refused": 54,
+      "wrongly_answered": 6
+    },
+    {
+      "threshold": 0.7,
+      "wrongly_refused": 68,
+      "wrongly_answered": 4
+    },
+    {
+      "threshold": 0.9,
+      "wrongly_refused": 96,
+      "wrongly_answered": 3
+    }
+  ],
+  "lowest_answerable_score": 0.00011096423986600712,
+  "highest_must_abstain_score": 0.9810303449630737,
+  "top_scores": {
+    "o001": 0.47766196727752686,
+    "o002a": 0.9810303449630737,
+    "o002f": 0.9810303449630737,
+    "o003": 0.9810303449630737,
+    "o004a": 0.9646915793418884,
+    "o004f": 0.9535044431686401,
+    "o005a": 0.9672749638557434,
+    "o005f": 0.967275083065033,
+    "o006": 0.03252927213907242,
+    "o007": 0.9587429761886597,
+    "o008": 0.9964547157287598,
+    "o009": 0.9518847465515137,
+    "o010": 0.4907533526420593,
+    "o011": 0.3396235406398773,
+    "o012": 0.9034218788146973,
+    "o013": 0.9034218788146973,
+    "o014": 0.9770312905311584,
+    "o015": 0.9976629018783569,
+    "o016": 0.6051623225212097,
+    "o017": 0.2912111282348633,
+    "o018": 0.9760254621505737,
+    "o019": 0.9889835715293884,
+    "o020": 0.7404201626777649,
+    "o021": 0.35603055357933044,
+    "o022": 0.8709827065467834,
+    "o023": 0.539858341217041,
+    "o024": 0.061843566596508026,
+    "o025": 0.9871604442596436,
+    "o026": 0.9980040192604065,
+    "o027": 0.9496219754219055,
+    "o028": 0.8774257898330688,
+    "o029": 0.8127933740615845,
+    "o030": 0.5868330001831055,
+    "o031": 0.10385473817586899,
+    "o032": 0.5413233041763306,
+    "o033": 0.8679001927375793,
+    "o034": 0.3863303065299988,
+    "o035": 0.9995049238204956,
+    "o036": 0.8786108493804932,
+    "o037": 0.9861298203468323,
+    "o038": 0.8811172246932983,
+    "o039a": 0.9962490200996399,
+    "o039f": 0.6407110691070557,
+    "o040a": 0.47557783126831055,
+    "o040f": 0.2167825698852539,
+    "o041": 0.6030979752540588,
+    "o042": 0.9993725419044495,
+    "o043": 0.9989074468612671,
+    "o044": 0.9607906937599182,
+    "o045": 0.9980155229568481,
+    "o046": 0.5636310577392578,
+    "o047a": 0.0004521352529991418,
+    "o047f": 0.0004521352529991418,
+    "o048": 0.9911233186721802,
+    "o049": 0.8768914937973022,
+    "o050a": 0.38575148582458496,
+    "o050f": 0.07827377319335938,
+    "o051": 0.5440229177474976,
+    "o052": 0.8238094449043274,
+    "o053": 0.15886946022510529,
+    "o054": 0.9446489214897156,
+    "o055": 0.034073375165462494,
+    "o056": 0.8692886233329773,
+    "o057a": 0.7525284886360168,
+    "o057f": 0.7525284886360168,
+    "o058": 0.9125459790229797,
+    "o059": 0.5447936654090881,
+    "o060": 0.00011096423986600712,
+    "o061": 0.9799547791481018,
+    "o062": 0.02001466229557991,
+    "o063": 0.8648346662521362,
+    "o064": 0.9242427945137024,
+    "o065": 0.992646336555481,
+    "o066": 0.17904795706272125,
+    "o067": 0.5687442421913147,
+    "o068": 0.9742109179496765,
+    "o069": 0.5647401213645935,
+    "o070": 0.9335533380508423,
+    "o071": 0.9984524250030518,
+    "o072": 0.4435943067073822,
+    "o073": 0.5908723473548889,
+    "o074": 0.23771806061267853,
+    "o075": 0.8367035984992981,
+    "o076": 0.7930804491043091,
+    "o077": 0.930918276309967,
+    "o078": 0.6780954003334045,
+    "o079": 0.9554736614227295,
+    "o080": 0.3644413948059082,
+    "o081": 0.8336474895477295,
+    "o082": 0.9795179963111877,
+    "o083": 0.9795179963111877,
+    "o084": 0.37606313824653625,
+    "o085": 0.8931849598884583,
+    "o086": 0.9944709539413452,
+    "o087": 0.9563859105110168,
+    "o088": 0.01330585777759552,
+    "o089": 0.23254920542240143,
+    "o090": 0.3967788517475128,
+    "o091": 0.4539334177970886,
+    "o092": 0.05536128580570221,
+    "o093": 0.9968432188034058,
+    "o094": 0.9909098744392395,
+    "o095": 0.16321095824241638,
+    "o096": 0.0053921653889119625,
+    "o097": 0.2240905612707138,
+    "o098": 0.15186092257499695,
+    "o099": 0.1029495820403099,
+    "o100a": 0.6979824900627136,
+    "o100f": 0.6979824900627136,
+    "o101": 0.9941818118095398,
+    "o102": 0.19445262849330902,
+    "o103": 0.9863349199295044,
+    "o104": 0.7355564832687378,
+    "o105": 0.017576735466718674,
+    "o106": 0.9685786962509155,
+    "o107": 0.8805688619613647,
+    "o108": 0.8805688619613647,
+    "o109": 0.24788755178451538,
+    "o110": 0.7380950450897217,
+    "o111": 0.026319464668631554,
+    "o112": 0.0033359541557729244,
+    "o113": 0.9945440292358398,
+    "o114": 0.4803885221481323,
+    "o115": 0.968340277671814,
+    "o116": 0.8168227672576904,
+    "o117": 0.4855750501155853,
+    "o118": 0.8386327028274536,
+    "o119": 0.23471549153327942,
+    "o120": 0.23471549153327942,
+    "o121": 0.9900873303413391,
+    "o122": 0.8165997862815857,
+    "o123": 0.8561709523200989,
+    "o124": 0.997454822063446,
+    "o125a": 0.7282703518867493,
+    "o125f": 0.4099028706550598,
+    "o126": 0.9929574728012085,
+    "o127": 0.021443484351038933,
+    "o128": 0.3867410123348236,
+    "o129": 0.0036738021299242973,
+    "o130": 0.038606029003858566,
+    "o131": 0.23626314103603363,
+    "o132": 0.9862608313560486,
+    "o133": 0.8861419558525085,
+    "o134": 0.9502843022346497,
+    "o135": 0.8416780829429626,
+    "o136": 0.9778454899787903,
+    "o137": 0.9778454899787903,
+    "o138": 0.9183182716369629,
+    "o139": 0.9995162487030029,
+    "o140": 0.987648606300354,
+    "o141": 0.0264388769865036,
+    "o142": 0.02969251573085785,
+    "o143": 0.4750233292579651,
+    "o144": 0.927528440952301,
+    "o145": 0.9815042018890381,
+    "o146": 0.9091969132423401,
+    "o147": 0.9600287079811096,
+    "o148": 0.9977265000343323,
+    "o150": 0.3149057924747467,
+    "o151": 0.9581546783447266,
+    "o152": 0.9750553369522095,
+    "o153": 0.9720156788825989,
+    "o154": 0.9920377731323242,
+    "o155": 0.4574419856071472,
+    "o156": 0.4574419856071472,
+    "o157": 0.7382736802101135,
+    "o158": 0.13470827043056488,
+    "o159": 0.13470827043056488,
+    "o160": 0.032536447048187256,
+    "o161": 0.9993044137954712,
+    "o162": 0.5153242945671082
+  },
+  "leaks": [],
+  "details": [
+    {
+      "id": "o001",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "How to identify latitude & longitude with a compass?"
+    },
+    {
+      "id": "o002a",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o002f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o003",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o004a",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What are essential items in an emergency kit?"
+    },
+    {
+      "id": "o004f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Tips for a novice backpacker"
+    },
+    {
+      "id": "o005a",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Is it possible to develop immunity against mosquitos?"
+    },
+    {
+      "id": "o005f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Is it possible to develop immunity against mosquitos?"
+    },
+    {
+      "id": "o006",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "\"Official\" providers of topographic maps per country"
+    },
+    {
+      "id": "o007",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How To Quickly Warm A Tent"
+    },
+    {
+      "id": "o008",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What is the best way to store my sleeping bag for long periods of time?"
+    },
+    {
+      "id": "o009",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Training to prepare for oxygen deficiency in the high mountains"
+    },
+    {
+      "id": "o010",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Navigational gear worldwide"
+    },
+    {
+      "id": "o011",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Should I do exercises for finger strength as an intermediate, heavy climber?"
+    },
+    {
+      "id": "o012",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to carry fat, greasy foods like tahini sauce and peanut butter?"
+    },
+    {
+      "id": "o013",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to carry fat, greasy foods like tahini sauce and peanut butter?"
+    },
+    {
+      "id": "o014",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "How can I prepare physically for a long distance thru-hike such as the Pacific Crest Trail?"
+    },
+    {
+      "id": "o015",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to clean rock-climbing shoes?"
+    },
+    {
+      "id": "o016",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What qualifies as a bear bag?"
+    },
+    {
+      "id": "o017",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Cross-country style baskets for Black Diamond collapsible poles"
+    },
+    {
+      "id": "o018",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to make a fire without burning the ground"
+    },
+    {
+      "id": "o019",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do I tell if this single climbing rope is still safe for use?"
+    },
+    {
+      "id": "o020",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Buying a Backpacking Knife"
+    },
+    {
+      "id": "o021",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Recommended ascents for the improving mountaineer"
+    },
+    {
+      "id": "o022",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o023",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Are there any general rules of thumb for route finding up a mountain without any trails?"
+    },
+    {
+      "id": "o024",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do people deal with sweating and 'feeling hot' at high altitude climbs (above 5500m)?"
+    },
+    {
+      "id": "o025",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Retrieve ice-screw after descending"
+    },
+    {
+      "id": "o026",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Methods for taping hands, wrists, and fingers for climbing?"
+    },
+    {
+      "id": "o027",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How can I improve on the straps on my travel pack?"
+    },
+    {
+      "id": "o028",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "When to kill and bleed a fish"
+    },
+    {
+      "id": "o029",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Solar Power While Backpacking"
+    },
+    {
+      "id": "o030",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Are water purification tablets safe?"
+    },
+    {
+      "id": "o031",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Cascades mountaineering school"
+    },
+    {
+      "id": "o032",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Numbers on down jackets"
+    },
+    {
+      "id": "o033",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Stove/fuel setup for harsh conditions"
+    },
+    {
+      "id": "o034",
+      "mode": "rerank",
+      "rank": null,
+      "top": "A technical question on spikes"
+    },
+    {
+      "id": "o035",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Is there a safe way to light and tend a small fire on earthy/peaty ground?"
+    },
+    {
+      "id": "o036",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Backpack strap chafing"
+    },
+    {
+      "id": "o037",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Should I be worried about bears when sleeping in a hammock?"
+    },
+    {
+      "id": "o038",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Rock climbing over edge - What can I put under the rope to protect it?"
+    },
+    {
+      "id": "o039a",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Post-hike Care and Pain Relief for Blisters and Hot Spots"
+    },
+    {
+      "id": "o039f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Boots or trail runners with reference to blisters?"
+    },
+    {
+      "id": "o040a",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "What is this knee pain when going downhill?"
+    },
+    {
+      "id": "o040f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What are the minimum set of shoes required for hiking outdoors"
+    },
+    {
+      "id": "o041",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How can I tell if I am dehydrated or have low electrolytes (need salt, etc.)?"
+    },
+    {
+      "id": "o042",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Sleeping in an inflatable boat"
+    },
+    {
+      "id": "o043",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Are there significant behaviour differences among bear species to adopt different safety rules?"
+    },
+    {
+      "id": "o044",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Down sleeping bag stored in sack for years"
+    },
+    {
+      "id": "o045",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What precautions should I take to protect myself and my camp from bears?"
+    },
+    {
+      "id": "o046",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What is the fastest safe abseiling method (for competitions)?"
+    },
+    {
+      "id": "o047a",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to store fuel tablets for travel"
+    },
+    {
+      "id": "o047f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to store fuel tablets for travel"
+    },
+    {
+      "id": "o048",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o049",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What to do if you are above timberline and your descent is cut off by a large forest fire?"
+    },
+    {
+      "id": "o050a",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Knee pain when descending a mountain"
+    },
+    {
+      "id": "o050f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Handling IT-Band Syndrome when hiking"
+    },
+    {
+      "id": "o051",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to avoid exploding rocks"
+    },
+    {
+      "id": "o052",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What formation to best survive a flood?"
+    },
+    {
+      "id": "o053",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Is there anything that can be done to stop my insoles sliding?"
+    },
+    {
+      "id": "o054",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "What precautions should we take in situations when hiking or walking through tall grass?"
+    },
+    {
+      "id": "o055",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Is there a practical \"Measurement of warmth\"?"
+    },
+    {
+      "id": "o056",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "Rock climbing grading theory"
+    },
+    {
+      "id": "o057a",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Will barefoot walking harden the skin and help prevent blisters when trekking in heavy shoes?"
+    },
+    {
+      "id": "o057f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Will barefoot walking harden the skin and help prevent blisters when trekking in heavy shoes?"
+    },
+    {
+      "id": "o058",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Top Rope Anchors - is a figure-8 on a bight stronger or just easier to untie than an overhand knot?"
+    },
+    {
+      "id": "o059",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Power for devices in cold and dark?"
+    },
+    {
+      "id": "o060",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Wood versus plastic trail signs?"
+    },
+    {
+      "id": "o061",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to react to an aggressive boar"
+    },
+    {
+      "id": "o062",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Permanent Camping Cooler - No Ice Needed"
+    },
+    {
+      "id": "o063",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o064",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What species of bird is in this recording from Bethesda MD?"
+    },
+    {
+      "id": "o065",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What's the proper way to establish a triaxial connection with carabiners?"
+    },
+    {
+      "id": "o066",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What are areas of the body which lose heat more quickly, and how can I reduce that loss?"
+    },
+    {
+      "id": "o067",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Abseiling on one rope: should I attach the prusik to the other one?"
+    },
+    {
+      "id": "o068",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o069",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Stove/fuel setup for harsh conditions"
+    },
+    {
+      "id": "o070",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Things to keep away from climbing ropes"
+    },
+    {
+      "id": "o071",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What characteristics should I look for in a good torch/flashlight?"
+    },
+    {
+      "id": "o072",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Hammock vs tent"
+    },
+    {
+      "id": "o073",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Which camp fuel type is the easiest on your stove?"
+    },
+    {
+      "id": "o074",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to react to cattle charging towards you?"
+    },
+    {
+      "id": "o075",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Strengthening exercises for a backpacking trip?"
+    },
+    {
+      "id": "o076",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "\"Official\" providers of topographic maps per country"
+    },
+    {
+      "id": "o077",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "How to fight bugs when hiking?"
+    },
+    {
+      "id": "o078",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "o079",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How to warm up your cold toes and fingers?"
+    },
+    {
+      "id": "o080",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "What is the safest way to purify water?"
+    },
+    {
+      "id": "o081",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How can I make a footprint for a tent?"
+    },
+    {
+      "id": "o082",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Climbing with a much lighter partner?"
+    },
+    {
+      "id": "o083",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Climbing with a much lighter partner?"
+    },
+    {
+      "id": "o084",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to begin trail / fell running?"
+    },
+    {
+      "id": "o085",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Adapting feet to the cold?"
+    },
+    {
+      "id": "o086",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Can I use sunlight to purify water without a special container?"
+    },
+    {
+      "id": "o087",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Will I be warmer in my sleeping bag inside or outside of my tent, when winter camping?"
+    },
+    {
+      "id": "o088",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Can a compass be thrown off by its surroundings?"
+    },
+    {
+      "id": "o089",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What are the advantages of different locks for collapsible trekking poles?"
+    },
+    {
+      "id": "o090",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What are the pros and cons of using a red colored light source for hiking at night?"
+    },
+    {
+      "id": "o091",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "How effective are pen launcher bear bangers compared to bearspray?"
+    },
+    {
+      "id": "o092",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What is SPF in sunscreen cream?"
+    },
+    {
+      "id": "o093",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o094",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How should I plan a backpacking trip with people who have never backpacked before?"
+    },
+    {
+      "id": "o095",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What is the difference between camber and rocker shaped snowboards?"
+    },
+    {
+      "id": "o096",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How should I put out a campfire while away from civilization?"
+    },
+    {
+      "id": "o097",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to deal with wet feet?"
+    },
+    {
+      "id": "o098",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What safety equipment should I carry for sea-touring by kayak?"
+    },
+    {
+      "id": "o099",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Is my water filter defective?"
+    },
+    {
+      "id": "o100a",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What do you risk when you ignore blisters and carry on walking?"
+    },
+    {
+      "id": "o100f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What do you risk when you ignore blisters and carry on walking?"
+    },
+    {
+      "id": "o101",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What do I do if a black bear is right outside my tent?"
+    },
+    {
+      "id": "o102",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What to teach someone who wants to start lead climbing?"
+    },
+    {
+      "id": "o103",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Can groundwater still be consumed if after boiling the water turns brown with an oily substance floating on top?"
+    },
+    {
+      "id": "o104",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What kind of technique is required for bouldering outdoors?"
+    },
+    {
+      "id": "o105",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Should you store a compass flat?"
+    },
+    {
+      "id": "o106",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What do the climbing terms \"Redpoint\", \"Pinkpoint\", \"Flash\" and \"Onsight\" mean?"
+    },
+    {
+      "id": "o107",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Climbing outdoors makes the skin of my palm red and sensitive"
+    },
+    {
+      "id": "o108",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Climbing outdoors makes the skin of my palm red and sensitive"
+    },
+    {
+      "id": "o109",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What should I do to avoid ticks other than wear particular clothing?"
+    },
+    {
+      "id": "o110",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How do you cure rabbit fur for an arrow rest?"
+    },
+    {
+      "id": "o111",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Dos and Don'ts in an area signed with the shield \"Rabies! Endangered District\" in Germany"
+    },
+    {
+      "id": "o112",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What to look for in (trail-)running shoes for various terrain?"
+    },
+    {
+      "id": "o113",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Stoveless/fireless hiking food suggestions"
+    },
+    {
+      "id": "o114",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Taking care of hiking backpack"
+    },
+    {
+      "id": "o115",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How To Quickly Warm A Tent"
+    },
+    {
+      "id": "o116",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What features should I look for in a packraft?"
+    },
+    {
+      "id": "o117",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "\"Official\" providers of topographic maps per country"
+    },
+    {
+      "id": "o118",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What's that stinging feeling when I swim in the sea?"
+    },
+    {
+      "id": "o119",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do you make an emergency water filter and purifier?"
+    },
+    {
+      "id": "o120",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "How do you make an emergency water filter and purifier?"
+    },
+    {
+      "id": "o121",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What are the basic considerations for hammock camping?"
+    },
+    {
+      "id": "o122",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Is it safe to carry propane gas cylinder in minivan?"
+    },
+    {
+      "id": "o123",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What should I look for in a rope for climbing?"
+    },
+    {
+      "id": "o124",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do I tell if this single climbing rope is still safe for use?"
+    },
+    {
+      "id": "o125a",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Why are tourniquets not recommended as a first aid for a snakebite?"
+    },
+    {
+      "id": "o125f",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What to do if one is bitten by a copperhead when alone"
+    },
+    {
+      "id": "o126",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "How to tie a Purcell prusik?"
+    },
+    {
+      "id": "o127",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What's the best way to dispose of a body in the backcountry?"
+    },
+    {
+      "id": "o128",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Is Sleeping Pad R-Value Misleading for Winter Camping?"
+    },
+    {
+      "id": "o129",
+      "mode": "rerank",
+      "rank": 5,
+      "top": "Commuting by canoe"
+    },
+    {
+      "id": "o130",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Dialing an emergency number in a foreign country using a satellite phone"
+    },
+    {
+      "id": "o131",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Which wildlife is it legal to hunt in the UK?"
+    },
+    {
+      "id": "o132",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Do polarized sunglasses protect against snow blindness?"
+    },
+    {
+      "id": "o133",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How to progress in rock climbing after grades v4 / 5.11+?"
+    },
+    {
+      "id": "o134",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What is the minimum amount of water per day to survive?"
+    },
+    {
+      "id": "o135",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Men using a women's trekking backpack"
+    },
+    {
+      "id": "o136",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o137",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o138",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o139",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How dangerous are kangaroos?"
+    },
+    {
+      "id": "o140",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Finding fuel for a Trangia stove in Russia"
+    },
+    {
+      "id": "o141",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How can I take keys with me while swimming?"
+    },
+    {
+      "id": "o142",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Swimming across a strong current"
+    },
+    {
+      "id": "o143",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "What do I do if a black bear is right outside my tent?"
+    },
+    {
+      "id": "o144",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Toproping with two ropes joined by a double fisherman's"
+    },
+    {
+      "id": "o145",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Quickest / most efficient way to ascend a hanging rope with rock climbing gear?"
+    },
+    {
+      "id": "o146",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How can I tie a bowline knot with one hand?"
+    },
+    {
+      "id": "o147",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "How do you correct Google Earth's incorrect slope percentage?"
+    },
+    {
+      "id": "o148",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o150",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Old Down Sleeping Bag performance"
+    },
+    {
+      "id": "o151",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Is this a well-known way to kill ticks that are out of reach on your body?"
+    },
+    {
+      "id": "o152",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "What kinds of wood work well in a bow drill?"
+    },
+    {
+      "id": "o153",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Which side of an emergency blanket should I use?"
+    },
+    {
+      "id": "o154",
+      "mode": "rerank",
+      "rank": 4,
+      "top": "Longest \"1-mountain\" hikes in the world"
+    },
+    {
+      "id": "o155",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Best technique to sharpen a knife using a whetstone?"
+    },
+    {
+      "id": "o156",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Best technique to sharpen a knife using a whetstone?"
+    },
+    {
+      "id": "o157",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o158",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o159",
+      "mode": "rerank",
+      "rank": null,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o160",
+      "mode": "rerank",
+      "rank": null,
+      "top": "technical clothing and fabric softener"
+    },
+    {
+      "id": "o161",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Are there vines in nature that are naturally capable of being a whip, rope or string?"
+    },
+    {
+      "id": "o162",
+      "mode": "rerank",
+      "rank": 3,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o001",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How can you navigate without a compass or GPS"
+    },
+    {
+      "id": "o002a",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o002f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o003",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o004a",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "How to plan a day hike"
+    },
+    {
+      "id": "o004f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to plan a day hike"
+    },
+    {
+      "id": "o005a",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What are some effective ways of reducing itching from a mosquito bite?"
+    },
+    {
+      "id": "o005f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How can I protect a room from bugs without using mosquito-nets or visible barriers?"
+    },
+    {
+      "id": "o006",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o007",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How To Quickly Warm A Tent"
+    },
+    {
+      "id": "o008",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What is the best way to store my sleeping bag for long periods of time?"
+    },
+    {
+      "id": "o009",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What are the possible risks of exercising at high altitudes?"
+    },
+    {
+      "id": "o010",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How dependable is a cheap compass?"
+    },
+    {
+      "id": "o011",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Why don't climbing professional use all their fingers on small holds?"
+    },
+    {
+      "id": "o012",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What foods should I avoid when backpacking?"
+    },
+    {
+      "id": "o013",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What foods should I avoid when backpacking?"
+    },
+    {
+      "id": "o014",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "How best to condition oneself to do day hikes at an altitude peaking at 6,000 to 8,000 ft?"
+    },
+    {
+      "id": "o015",
+      "mode": "hybrid",
+      "rank": 5,
+      "top": "How to get rid of bad smell in hiking boots after they have been soaked?"
+    },
+    {
+      "id": "o016",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What are the critical dimensions to a safe bear-bag?"
+    },
+    {
+      "id": "o017",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to get started skiing?"
+    },
+    {
+      "id": "o018",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How to make a fire without burning the ground"
+    },
+    {
+      "id": "o019",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How should I check climbing equipment to tell whether it is still safe to use?"
+    },
+    {
+      "id": "o020",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Buying a Backpacking Knife"
+    },
+    {
+      "id": "o021",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Is there a definitive list of the tallest mountains in the world that require little or no mountaineering experience?"
+    },
+    {
+      "id": "o022",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o023",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What does contouring mean in the context of navigation/orienteering?"
+    },
+    {
+      "id": "o024",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Are nutrition bars/energy bars good for high altitude treks?"
+    },
+    {
+      "id": "o025",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Abseiling on one rope: should I attach the prusik to the other one?"
+    },
+    {
+      "id": "o026",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Methods for taping hands, wrists, and fingers for climbing?"
+    },
+    {
+      "id": "o027",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to prevent strap slippage through buckle?"
+    },
+    {
+      "id": "o028",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "When to kill and bleed a fish"
+    },
+    {
+      "id": "o029",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Solar Power While Backpacking"
+    },
+    {
+      "id": "o030",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Are water purification tablets safe?"
+    },
+    {
+      "id": "o031",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Good resources for climbing"
+    },
+    {
+      "id": "o032",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Numbers on down jackets"
+    },
+    {
+      "id": "o033",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Choosing a camping stove for high-altitude snow"
+    },
+    {
+      "id": "o034",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What to look for in an ice axe for use in classic alpine terrain?"
+    },
+    {
+      "id": "o035",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is there a safe way to light and tend a small fire on earthy/peaty ground?"
+    },
+    {
+      "id": "o036",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Backpack strap chafing"
+    },
+    {
+      "id": "o037",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Camping with a tarp, what are risks about animals?"
+    },
+    {
+      "id": "o038",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What type of rope should I use to make a 1.5\" Gym Climbing rope?"
+    },
+    {
+      "id": "o039a",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Should you pop a blister?"
+    },
+    {
+      "id": "o039f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Boots or trail runners with reference to blisters?"
+    },
+    {
+      "id": "o040a",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "What is this knee pain when going downhill?"
+    },
+    {
+      "id": "o040f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Hiking with a minor wound near the knee?"
+    },
+    {
+      "id": "o041",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Can the sheer existence of snow lead to dehydration?"
+    },
+    {
+      "id": "o042",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Should I worry about moisture in my inflatable sleeping pad?"
+    },
+    {
+      "id": "o043",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o044",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Will a down sleeping bag recover 100% after being squeezed if it's not for a long time?"
+    },
+    {
+      "id": "o045",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What precautions should I take to protect myself and my camp from bears?"
+    },
+    {
+      "id": "o046",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Abseiling on one rope: should I attach the prusik to the other one?"
+    },
+    {
+      "id": "o047a",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "What is the name and availability of this lure?"
+    },
+    {
+      "id": "o047f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is the name and availability of this lure?"
+    },
+    {
+      "id": "o048",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o049",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Surviving a forest fire by starting another fire"
+    },
+    {
+      "id": "o050a",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What is this knee pain when going downhill?"
+    },
+    {
+      "id": "o050f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Pressing the knee while ascending"
+    },
+    {
+      "id": "o051",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Is there a way to light a fire in the wild using rocks?"
+    },
+    {
+      "id": "o052",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Jumping off of a cliff into water - survival tips"
+    },
+    {
+      "id": "o053",
+      "mode": "hybrid",
+      "rank": 5,
+      "top": "A removeable solution for slipping insoles?"
+    },
+    {
+      "id": "o054",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Good ways to avoid snakes when hiking?"
+    },
+    {
+      "id": "o055",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o056",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Rock climbing grading theory"
+    },
+    {
+      "id": "o057a",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Will barefoot walking harden the skin and help prevent blisters when trekking in heavy shoes?"
+    },
+    {
+      "id": "o057f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Will barefoot walking harden the skin and help prevent blisters when trekking in heavy shoes?"
+    },
+    {
+      "id": "o058",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Top Rope Anchors - is a figure-8 on a bight stronger or just easier to untie than an overhand knot?"
+    },
+    {
+      "id": "o059",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How can I prevent batteries from losing charge in cold weather?"
+    },
+    {
+      "id": "o060",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How can I recognize a game trail?"
+    },
+    {
+      "id": "o061",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Is there any reason that a wild boars would charge the tent?"
+    },
+    {
+      "id": "o062",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Good \"real\" fridge for car camping"
+    },
+    {
+      "id": "o063",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "At what temperature should one switch from gloves to mittens?"
+    },
+    {
+      "id": "o064",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What species of bird is this?"
+    },
+    {
+      "id": "o065",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Which knot is best for connecting loose ends and attaching carabiner?"
+    },
+    {
+      "id": "o066",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What are areas of the body which lose heat more quickly, and how can I reduce that loss?"
+    },
+    {
+      "id": "o067",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What do I do if I lose my belay plate?"
+    },
+    {
+      "id": "o068",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o069",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How much does a full/empty jetboil canister weigh?"
+    },
+    {
+      "id": "o070",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Why do some climbing ropes have smaller load bearing than some paracords?"
+    },
+    {
+      "id": "o071",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "My head torch/lamp has a red mode, why?"
+    },
+    {
+      "id": "o072",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Making own Hammock"
+    },
+    {
+      "id": "o073",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What features should I look for in a solar cooker for dim daylight conditions?"
+    },
+    {
+      "id": "o074",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How to react to cattle charging towards you?"
+    },
+    {
+      "id": "o075",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What can I feed my dogs on a week-long hike?"
+    },
+    {
+      "id": "o076",
+      "mode": "hybrid",
+      "rank": 5,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o077",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What type of mosquito repellent is most effective?"
+    },
+    {
+      "id": "o078",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Is it within Leave No Trace to spread someone's ashes in a wilderness area?"
+    },
+    {
+      "id": "o079",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How to warm up your cold toes and fingers?"
+    },
+    {
+      "id": "o080",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o081",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How can I make a footprint for a tent?"
+    },
+    {
+      "id": "o082",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Ideal and Minimal Rope Diameter for Lead Climbing"
+    },
+    {
+      "id": "o083",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Ideal and Minimal Rope Diameter for Lead Climbing"
+    },
+    {
+      "id": "o084",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to begin trail / fell running?"
+    },
+    {
+      "id": "o085",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Adapting feet to the cold?"
+    },
+    {
+      "id": "o086",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Can I use sunlight to purify water without a special container?"
+    },
+    {
+      "id": "o087",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Tent and sleeping bag: pack inside or strap outside a backpack?"
+    },
+    {
+      "id": "o088",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Should you store a compass flat?"
+    },
+    {
+      "id": "o089",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What are the advantages of different locks for collapsible trekking poles?"
+    },
+    {
+      "id": "o090",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Can I light a kerosene lamp with flint & steel or a magnifying glass?"
+    },
+    {
+      "id": "o091",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Is bear spray effective against other animals?"
+    },
+    {
+      "id": "o092",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What is SPF in sunscreen cream?"
+    },
+    {
+      "id": "o093",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o094",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How should I plan a backpacking trip with people who have never backpacked before?"
+    },
+    {
+      "id": "o095",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What is the difference between camber and rocker shaped snowboards?"
+    },
+    {
+      "id": "o096",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How should I put out a campfire while away from civilization?"
+    },
+    {
+      "id": "o097",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Staying dry in severe weather"
+    },
+    {
+      "id": "o098",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "What's a good low-budget kayak for both river and sea?"
+    },
+    {
+      "id": "o099",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Safe to use Old Water Filter?"
+    },
+    {
+      "id": "o100a",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Blisters on small of back"
+    },
+    {
+      "id": "o100f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o101",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What do I do if a black bear is right outside my tent?"
+    },
+    {
+      "id": "o102",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Ideal and Minimal Rope Diameter for Lead Climbing"
+    },
+    {
+      "id": "o103",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Can groundwater still be consumed if after boiling the water turns brown with an oily substance floating on top?"
+    },
+    {
+      "id": "o104",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What kind of technique is required for bouldering outdoors?"
+    },
+    {
+      "id": "o105",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Can you find your location using the angle between compass bearings?"
+    },
+    {
+      "id": "o106",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What do the climbing terms \"Redpoint\", \"Pinkpoint\", \"Flash\" and \"Onsight\" mean?"
+    },
+    {
+      "id": "o107",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to tape torn skin to continue climbing?"
+    },
+    {
+      "id": "o108",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to tape torn skin to continue climbing?"
+    },
+    {
+      "id": "o109",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What should I do to avoid ticks other than wear particular clothing?"
+    },
+    {
+      "id": "o110",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "If in a survival situation, how can one preserve a hide of an animal with a minimum amount of tools and skill?"
+    },
+    {
+      "id": "o111",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Dos and Don'ts in an area signed with the shield \"Rabies! Endangered District\" in Germany"
+    },
+    {
+      "id": "o112",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What to look for in (trail-)running shoes for various terrain?"
+    },
+    {
+      "id": "o113",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Food nutrition for week long hike"
+    },
+    {
+      "id": "o114",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Cleaning the plastic residue of the inside of my old backpack"
+    },
+    {
+      "id": "o115",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "How to safely heat a enclosed tent with electricity"
+    },
+    {
+      "id": "o116",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What to look out for when buying used backpacks"
+    },
+    {
+      "id": "o117",
+      "mode": "hybrid",
+      "rank": 5,
+      "top": "Looking for trails that are open in Iceland in mid-March for a multi-day hike?"
+    },
+    {
+      "id": "o118",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What's that stinging feeling when I swim in the sea?"
+    },
+    {
+      "id": "o119",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Can I use sunlight to purify water without a special container?"
+    },
+    {
+      "id": "o120",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Can I use sunlight to purify water without a special container?"
+    },
+    {
+      "id": "o121",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What are the downsides to sleeping in a hammock on a multi-day hike?"
+    },
+    {
+      "id": "o122",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is it safe to carry propane gas cylinder in minivan?"
+    },
+    {
+      "id": "o123",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What should I look for in a rope for climbing?"
+    },
+    {
+      "id": "o124",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o125a",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "Am I able to \"open up\" a snake bite and suck the venom out of it?"
+    },
+    {
+      "id": "o125f",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Found a black snake in my backyard. Is it dangerous?"
+    },
+    {
+      "id": "o126",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to arrange 2 Prusiks when ascending a rope?"
+    },
+    {
+      "id": "o127",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Carrying skis attached to backpack"
+    },
+    {
+      "id": "o128",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Do \"R\" values add proportionally?"
+    },
+    {
+      "id": "o129",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What's a good low-budget kayak for both river and sea?"
+    },
+    {
+      "id": "o130",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Dialing an emergency number in a foreign country using a satellite phone"
+    },
+    {
+      "id": "o131",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Do deer have the ability to be predators of large animals?"
+    },
+    {
+      "id": "o132",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Do polarized sunglasses protect against UV?"
+    },
+    {
+      "id": "o133",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Understanding/comparing via ferrata grades?"
+    },
+    {
+      "id": "o134",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Transition to \"Starvation Mode\" in Survival Situations"
+    },
+    {
+      "id": "o135",
+      "mode": "hybrid",
+      "rank": 3,
+      "top": "What is the difference between men's and women's hiking boots?"
+    },
+    {
+      "id": "o136",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o137",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o138",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o139",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How dangerous are kangaroos?"
+    },
+    {
+      "id": "o140",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Are Trangia and MSR fuel bottles inter changeable?"
+    },
+    {
+      "id": "o141",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How can I take keys with me while swimming?"
+    },
+    {
+      "id": "o142",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "What is the best way to swim through ocean surf?"
+    },
+    {
+      "id": "o143",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Black bears and torch lights"
+    },
+    {
+      "id": "o144",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is it dangerous to rope together on an ascent of hard packed ice?"
+    },
+    {
+      "id": "o145",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is the minimum amount of gear that would allow one to ascend a climbing rope?"
+    },
+    {
+      "id": "o146",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Quick release knot for attaching kit"
+    },
+    {
+      "id": "o147",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How do you correct Google Earth's incorrect slope percentage?"
+    },
+    {
+      "id": "o148",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Tick or spider?"
+    },
+    {
+      "id": "o150",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Sleeping bag too hot"
+    },
+    {
+      "id": "o151",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "How to confirm/remove ticks in tough spots when alone?"
+    },
+    {
+      "id": "o152",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "What kinds of wood work well in a bow drill?"
+    },
+    {
+      "id": "o153",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Which side of an emergency blanket should I use?"
+    },
+    {
+      "id": "o154",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Is there a definitive list of the tallest mountains in the world that require little or no mountaineering experience?"
+    },
+    {
+      "id": "o155",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to sharpen a peculiar looking knife"
+    },
+    {
+      "id": "o156",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "How to sharpen a peculiar looking knife"
+    },
+    {
+      "id": "o157",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o158",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o159",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o160",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Does wash in waterproofing work on a non-waterproof shell?"
+    },
+    {
+      "id": "o161",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Are there vines in nature that are naturally capable of being a whip, rope or string?"
+    },
+    {
+      "id": "o162",
+      "mode": "hybrid",
+      "rank": 5,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o001",
+      "mode": "vector",
+      "rank": 2,
+      "top": "When using a compass, why not follow a degree mark without rotation?"
+    },
+    {
+      "id": "o002a",
+      "mode": "vector",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o002f",
+      "mode": "vector",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o003",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o004a",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Bare Essentials for 2-3 day Hike"
+    },
+    {
+      "id": "o004f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Bare Essentials for 2-3 day Hike"
+    },
+    {
+      "id": "o005a",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What are some effective ways of reducing itching from a mosquito bite?"
+    },
+    {
+      "id": "o005f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is it possible to develop immunity against mosquitos?"
+    },
+    {
+      "id": "o006",
+      "mode": "vector",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o007",
+      "mode": "vector",
+      "rank": null,
+      "top": "How To Quickly Warm A Tent"
+    },
+    {
+      "id": "o008",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What is the best way to store my sleeping bag for long periods of time?"
+    },
+    {
+      "id": "o009",
+      "mode": "vector",
+      "rank": 2,
+      "top": "What are some proven methods of training for week long backpacking trips at high altitude?"
+    },
+    {
+      "id": "o010",
+      "mode": "vector",
+      "rank": 3,
+      "top": "If you have figured out one compass direction, is that always/sometimes/never enough to tell all the other three as well?"
+    },
+    {
+      "id": "o011",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What hand and finger exercises help with climbing?"
+    },
+    {
+      "id": "o012",
+      "mode": "vector",
+      "rank": null,
+      "top": "What's a good, lightweight solution for portable cookware?"
+    },
+    {
+      "id": "o013",
+      "mode": "vector",
+      "rank": 2,
+      "top": "What's a good, lightweight solution for portable cookware?"
+    },
+    {
+      "id": "o014",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What are some proven methods of training for week long backpacking trips at high altitude?"
+    },
+    {
+      "id": "o015",
+      "mode": "vector",
+      "rank": 2,
+      "top": "How to contain the stench of climbing shoes?"
+    },
+    {
+      "id": "o016",
+      "mode": "vector",
+      "rank": null,
+      "top": "How to retrieve a bear bag when hung with Pacific Crest Trail (PCT) method"
+    },
+    {
+      "id": "o017",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Are folding poles suitable for cross-country skiing?"
+    },
+    {
+      "id": "o018",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to make a fire without burning the ground"
+    },
+    {
+      "id": "o019",
+      "mode": "vector",
+      "rank": 4,
+      "top": "How can I know if a rope is certified? I found a hidden tag"
+    },
+    {
+      "id": "o020",
+      "mode": "vector",
+      "rank": null,
+      "top": "Buying a Backpacking Knife"
+    },
+    {
+      "id": "o021",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Is there a definitive list of the tallest mountains in the world that require little or no mountaineering experience?"
+    },
+    {
+      "id": "o022",
+      "mode": "vector",
+      "rank": 3,
+      "top": "Water treatment for washing - are purification tablets best option, and how many are needed?"
+    },
+    {
+      "id": "o023",
+      "mode": "vector",
+      "rank": null,
+      "top": "What does contouring mean in the context of navigation/orienteering?"
+    },
+    {
+      "id": "o024",
+      "mode": "vector",
+      "rank": null,
+      "top": "Suitable Food for moderate to High altitude trekking"
+    },
+    {
+      "id": "o025",
+      "mode": "vector",
+      "rank": null,
+      "top": "Knots when abseiling with single rope"
+    },
+    {
+      "id": "o026",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Methods for taping hands, wrists, and fingers for climbing?"
+    },
+    {
+      "id": "o027",
+      "mode": "vector",
+      "rank": null,
+      "top": "How can I reduce the pressure of backpack straps on my collarbone, perhaps by fixing padding to the strap?"
+    },
+    {
+      "id": "o028",
+      "mode": "vector",
+      "rank": 1,
+      "top": "When to kill and bleed a fish"
+    },
+    {
+      "id": "o029",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Solar Power While Backpacking"
+    },
+    {
+      "id": "o030",
+      "mode": "vector",
+      "rank": null,
+      "top": "Are water purification tablets safe?"
+    },
+    {
+      "id": "o031",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What to look for in a winter skills course?"
+    },
+    {
+      "id": "o032",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Numbers on down jackets"
+    },
+    {
+      "id": "o033",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Stove/fuel setup for harsh conditions"
+    },
+    {
+      "id": "o034",
+      "mode": "vector",
+      "rank": null,
+      "top": "What to look for in an ice axe for use in classic alpine terrain?"
+    },
+    {
+      "id": "o035",
+      "mode": "vector",
+      "rank": 5,
+      "top": "Is there a safe way to light and tend a small fire on earthy/peaty ground?"
+    },
+    {
+      "id": "o036",
+      "mode": "vector",
+      "rank": null,
+      "top": "Backpack strap chafing"
+    },
+    {
+      "id": "o037",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Camping with a tarp, what are risks about animals?"
+    },
+    {
+      "id": "o038",
+      "mode": "vector",
+      "rank": null,
+      "top": "Rock climbing over edge - What can I put under the rope to protect it?"
+    },
+    {
+      "id": "o039a",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Should you pop a blister?"
+    },
+    {
+      "id": "o039f",
+      "mode": "vector",
+      "rank": null,
+      "top": "What do you risk when you ignore blisters and carry on walking?"
+    },
+    {
+      "id": "o040a",
+      "mode": "vector",
+      "rank": 2,
+      "top": "What is this knee pain when going downhill?"
+    },
+    {
+      "id": "o040f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Hiking with a minor wound near the knee?"
+    },
+    {
+      "id": "o041",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How can I tell if I am dehydrated or have low electrolytes (need salt, etc.)?"
+    },
+    {
+      "id": "o042",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Sleeping in an inflatable boat"
+    },
+    {
+      "id": "o043",
+      "mode": "vector",
+      "rank": 3,
+      "top": "Are there significant behaviour differences among bear species to adopt different safety rules?"
+    },
+    {
+      "id": "o044",
+      "mode": "vector",
+      "rank": 5,
+      "top": "Down sleeping bag stored in sack for years"
+    },
+    {
+      "id": "o045",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What precautions should I take to protect myself and my camp from bears?"
+    },
+    {
+      "id": "o046",
+      "mode": "vector",
+      "rank": null,
+      "top": "What is the fastest safe abseiling method (for competitions)?"
+    },
+    {
+      "id": "o047a",
+      "mode": "vector",
+      "rank": null,
+      "top": "What is the name and availability of this lure?"
+    },
+    {
+      "id": "o047f",
+      "mode": "vector",
+      "rank": null,
+      "top": "What is the name and availability of this lure?"
+    },
+    {
+      "id": "o048",
+      "mode": "vector",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o049",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Surviving a forest fire by starting another fire"
+    },
+    {
+      "id": "o050a",
+      "mode": "vector",
+      "rank": 5,
+      "top": "Hiking with a minor wound near the knee?"
+    },
+    {
+      "id": "o050f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Hiking with a minor wound near the knee?"
+    },
+    {
+      "id": "o051",
+      "mode": "vector",
+      "rank": null,
+      "top": "What kinds of things are the \"defensive driving\" equivalent to handling campfires?"
+    },
+    {
+      "id": "o052",
+      "mode": "vector",
+      "rank": null,
+      "top": "What formation to best survive a flood?"
+    },
+    {
+      "id": "o053",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Sliding Insoles: does this need to be resolved?"
+    },
+    {
+      "id": "o054",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Good ways to avoid snakes when hiking?"
+    },
+    {
+      "id": "o055",
+      "mode": "vector",
+      "rank": null,
+      "top": "What can I do to keep my hands warm while using touchscreens in the winter?"
+    },
+    {
+      "id": "o056",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Bouldering, improving and getting up grades"
+    },
+    {
+      "id": "o057a",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to harden feet to avoid blisters on long hikes"
+    },
+    {
+      "id": "o057f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Will barefoot walking harden the skin and help prevent blisters when trekking in heavy shoes?"
+    },
+    {
+      "id": "o058",
+      "mode": "vector",
+      "rank": null,
+      "top": "Top Rope Anchors - is a figure-8 on a bight stronger or just easier to untie than an overhand knot?"
+    },
+    {
+      "id": "o059",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How can I prevent batteries from losing charge in cold weather?"
+    },
+    {
+      "id": "o060",
+      "mode": "vector",
+      "rank": null,
+      "top": "How can I recognize a game trail?"
+    },
+    {
+      "id": "o061",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to react to an aggressive boar"
+    },
+    {
+      "id": "o062",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Permanent Camping Cooler - No Ice Needed"
+    },
+    {
+      "id": "o063",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Suggestions for a winter lifestyle"
+    },
+    {
+      "id": "o064",
+      "mode": "vector",
+      "rank": 2,
+      "top": "What bird(s) is this in this recording?"
+    },
+    {
+      "id": "o065",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Which knot is best for connecting loose ends and attaching carabiner?"
+    },
+    {
+      "id": "o066",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What are areas of the body which lose heat more quickly, and how can I reduce that loss?"
+    },
+    {
+      "id": "o067",
+      "mode": "vector",
+      "rank": null,
+      "top": "Backup prusik for Abseiling: Where does it go?"
+    },
+    {
+      "id": "o068",
+      "mode": "vector",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o069",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How much does a full/empty jetboil canister weigh?"
+    },
+    {
+      "id": "o070",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Things to keep away from climbing ropes"
+    },
+    {
+      "id": "o071",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What characteristics should I look for in a good torch/flashlight?"
+    },
+    {
+      "id": "o072",
+      "mode": "vector",
+      "rank": null,
+      "top": "What features should I consider when evaluating a hammock-tent hybrid?"
+    },
+    {
+      "id": "o073",
+      "mode": "vector",
+      "rank": null,
+      "top": "What is the most suitable cooking equipment to use for a long duration in central asia countries?"
+    },
+    {
+      "id": "o074",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to react to cattle charging towards you?"
+    },
+    {
+      "id": "o075",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How much should your backpack weigh?"
+    },
+    {
+      "id": "o076",
+      "mode": "vector",
+      "rank": 1,
+      "top": "\"Official\" providers of topographic maps per country"
+    },
+    {
+      "id": "o077",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What proven alternatives are there to DEET?"
+    },
+    {
+      "id": "o078",
+      "mode": "vector",
+      "rank": 3,
+      "top": "Is it within Leave No Trace to spread someone's ashes in a wilderness area?"
+    },
+    {
+      "id": "o079",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to warm up your cold toes and fingers?"
+    },
+    {
+      "id": "o080",
+      "mode": "vector",
+      "rank": 5,
+      "top": "What is the safest way to purify water?"
+    },
+    {
+      "id": "o081",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Footprint or no Footprint in a TNF Assault"
+    },
+    {
+      "id": "o082",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Climbing with a much lighter partner?"
+    },
+    {
+      "id": "o083",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Climbing with a much lighter partner?"
+    },
+    {
+      "id": "o084",
+      "mode": "vector",
+      "rank": null,
+      "top": "How to begin trail / fell running?"
+    },
+    {
+      "id": "o085",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How can I acclimatize to cold?"
+    },
+    {
+      "id": "o086",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Can I use sunlight to purify water without a special container?"
+    },
+    {
+      "id": "o087",
+      "mode": "vector",
+      "rank": null,
+      "top": "Hammock vs tent"
+    },
+    {
+      "id": "o088",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Where can I purchase a quality compass?"
+    },
+    {
+      "id": "o089",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What are the advantages of different locks for collapsible trekking poles?"
+    },
+    {
+      "id": "o090",
+      "mode": "vector",
+      "rank": 3,
+      "top": "How bright a flashlight would I realistically need for searching through terrain?"
+    },
+    {
+      "id": "o091",
+      "mode": "vector",
+      "rank": 2,
+      "top": "How effective are pen launcher bear bangers compared to bearspray?"
+    },
+    {
+      "id": "o092",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What is SPF in sunscreen cream?"
+    },
+    {
+      "id": "o093",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o094",
+      "mode": "vector",
+      "rank": null,
+      "top": "How should I plan a backpacking trip with people who have never backpacked before?"
+    },
+    {
+      "id": "o095",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What is the difference between camber and rocker shaped snowboards?"
+    },
+    {
+      "id": "o096",
+      "mode": "vector",
+      "rank": null,
+      "top": "How should I put out a campfire while away from civilization?"
+    },
+    {
+      "id": "o097",
+      "mode": "vector",
+      "rank": null,
+      "top": "Staying dry in severe weather"
+    },
+    {
+      "id": "o098",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What safety equipment should I carry for sea-touring by kayak?"
+    },
+    {
+      "id": "o099",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Safe to use Old Water Filter?"
+    },
+    {
+      "id": "o100a",
+      "mode": "vector",
+      "rank": null,
+      "top": "Blisters on small of back"
+    },
+    {
+      "id": "o100f",
+      "mode": "vector",
+      "rank": null,
+      "top": "What do you risk when you ignore blisters and carry on walking?"
+    },
+    {
+      "id": "o101",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What do I do if a black bear is right outside my tent?"
+    },
+    {
+      "id": "o102",
+      "mode": "vector",
+      "rank": null,
+      "top": "What to teach someone who wants to start lead climbing?"
+    },
+    {
+      "id": "o103",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Can groundwater still be consumed if after boiling the water turns brown with an oily substance floating on top?"
+    },
+    {
+      "id": "o104",
+      "mode": "vector",
+      "rank": null,
+      "top": "What kind of technique is required for bouldering outdoors?"
+    },
+    {
+      "id": "o105",
+      "mode": "vector",
+      "rank": null,
+      "top": "Should you store a compass flat?"
+    },
+    {
+      "id": "o106",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What do the climbing terms \"Redpoint\", \"Pinkpoint\", \"Flash\" and \"Onsight\" mean?"
+    },
+    {
+      "id": "o107",
+      "mode": "vector",
+      "rank": null,
+      "top": "Does sandpapering finger tips improve rock climbing?"
+    },
+    {
+      "id": "o108",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Does sandpapering finger tips improve rock climbing?"
+    },
+    {
+      "id": "o109",
+      "mode": "vector",
+      "rank": null,
+      "top": "What should I do to avoid ticks other than wear particular clothing?"
+    },
+    {
+      "id": "o110",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How do you cure rabbit fur for an arrow rest?"
+    },
+    {
+      "id": "o111",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Dos and Don'ts in an area signed with the shield \"Rabies! Endangered District\" in Germany"
+    },
+    {
+      "id": "o112",
+      "mode": "vector",
+      "rank": null,
+      "top": "What to look for in (trail-)running shoes for various terrain?"
+    },
+    {
+      "id": "o113",
+      "mode": "vector",
+      "rank": 1,
+      "top": "A list of suitable foods for a long hike"
+    },
+    {
+      "id": "o114",
+      "mode": "vector",
+      "rank": null,
+      "top": "Cleaning the plastic residue of the inside of my old backpack"
+    },
+    {
+      "id": "o115",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How To Quickly Warm A Tent"
+    },
+    {
+      "id": "o116",
+      "mode": "vector",
+      "rank": 3,
+      "top": "What to look out for when buying used backpacks"
+    },
+    {
+      "id": "o117",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Looking for trails that are open in Iceland in mid-March for a multi-day hike?"
+    },
+    {
+      "id": "o118",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What's that stinging feeling when I swim in the sea?"
+    },
+    {
+      "id": "o119",
+      "mode": "vector",
+      "rank": null,
+      "top": "How do you make an emergency water filter and purifier?"
+    },
+    {
+      "id": "o120",
+      "mode": "vector",
+      "rank": 3,
+      "top": "How do you make an emergency water filter and purifier?"
+    },
+    {
+      "id": "o121",
+      "mode": "vector",
+      "rank": null,
+      "top": "What are the basic considerations for hammock camping?"
+    },
+    {
+      "id": "o122",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Is it safe to carry propane gas cylinder in minivan?"
+    },
+    {
+      "id": "o123",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What should I look for in a rope for climbing?"
+    },
+    {
+      "id": "o124",
+      "mode": "vector",
+      "rank": 5,
+      "top": "How do I tell if this single climbing rope is still safe for use?"
+    },
+    {
+      "id": "o125a",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Why are tourniquets not recommended as a first aid for a snakebite?"
+    },
+    {
+      "id": "o125f",
+      "mode": "vector",
+      "rank": null,
+      "top": "Snake on chest while sleeping?"
+    },
+    {
+      "id": "o126",
+      "mode": "vector",
+      "rank": 2,
+      "top": "How to tie a Purcell prusik?"
+    },
+    {
+      "id": "o127",
+      "mode": "vector",
+      "rank": 4,
+      "top": "Hauling a pack during climbing"
+    },
+    {
+      "id": "o128",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Is Sleeping Pad R-Value Misleading for Winter Camping?"
+    },
+    {
+      "id": "o129",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Is there a kayak / paddleboard for large people?"
+    },
+    {
+      "id": "o130",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Dialing an emergency number in a foreign country using a satellite phone"
+    },
+    {
+      "id": "o131",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Which wildlife is it legal to hunt in the UK?"
+    },
+    {
+      "id": "o132",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Do polarized sunglasses protect against UV?"
+    },
+    {
+      "id": "o133",
+      "mode": "vector",
+      "rank": null,
+      "top": "How to progress in rock climbing after grades v4 / 5.11+?"
+    },
+    {
+      "id": "o134",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What is the minimum amount of water per day to survive?"
+    },
+    {
+      "id": "o135",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Men using a women's trekking backpack"
+    },
+    {
+      "id": "o136",
+      "mode": "vector",
+      "rank": null,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o137",
+      "mode": "vector",
+      "rank": null,
+      "top": "Knot for pulling two branches of a tree together"
+    },
+    {
+      "id": "o138",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o139",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How dangerous are kangaroos?"
+    },
+    {
+      "id": "o140",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Finding fuel for a Trangia stove in Russia"
+    },
+    {
+      "id": "o141",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How can I take keys with me while swimming?"
+    },
+    {
+      "id": "o142",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Can a human survive in Saltstraumen or other whirlpool?"
+    },
+    {
+      "id": "o143",
+      "mode": "vector",
+      "rank": null,
+      "top": "Giving honey to a bear?"
+    },
+    {
+      "id": "o144",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is it dangerous to rope together on an ascent of hard packed ice?"
+    },
+    {
+      "id": "o145",
+      "mode": "vector",
+      "rank": 4,
+      "top": "What is the minimum amount of gear that would allow one to ascend a climbing rope?"
+    },
+    {
+      "id": "o146",
+      "mode": "vector",
+      "rank": null,
+      "top": "Quick release knot for attaching kit"
+    },
+    {
+      "id": "o147",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How do you correct Google Earth's incorrect slope percentage?"
+    },
+    {
+      "id": "o148",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o150",
+      "mode": "vector",
+      "rank": 5,
+      "top": "Warmth of two sleeping bags"
+    },
+    {
+      "id": "o151",
+      "mode": "vector",
+      "rank": 1,
+      "top": "How to confirm/remove ticks in tough spots when alone?"
+    },
+    {
+      "id": "o152",
+      "mode": "vector",
+      "rank": 1,
+      "top": "What kinds of wood work well in a bow drill?"
+    },
+    {
+      "id": "o153",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Which side of an emergency blanket should I use?"
+    },
+    {
+      "id": "o154",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Longest \"1-mountain\" hikes in the world"
+    },
+    {
+      "id": "o155",
+      "mode": "vector",
+      "rank": 4,
+      "top": "How to sharpen the line cutter/gut hook on a knife?"
+    },
+    {
+      "id": "o156",
+      "mode": "vector",
+      "rank": 2,
+      "top": "How to sharpen the line cutter/gut hook on a knife?"
+    },
+    {
+      "id": "o157",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Are there any natural materials found in the wild that can be used as an effective sunscreen?"
+    },
+    {
+      "id": "o158",
+      "mode": "vector",
+      "rank": 1,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o159",
+      "mode": "vector",
+      "rank": null,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o160",
+      "mode": "vector",
+      "rank": null,
+      "top": "How do breathable fabrics like Gore-tex and DWR (Durable Water Repellent) work?"
+    },
+    {
+      "id": "o161",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Are there vines in nature that are naturally capable of being a whip, rope or string?"
+    },
+    {
+      "id": "o162",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o001",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "How can you navigate without a compass or GPS"
+    },
+    {
+      "id": "o002a",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Are AT skis unsuited for downhill skiing at a resort?"
+    },
+    {
+      "id": "o002f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Are AT skis unsuited for downhill skiing at a resort?"
+    },
+    {
+      "id": "o003",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Are AT skis unsuited for downhill skiing at a resort?"
+    },
+    {
+      "id": "o004a",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "How to clean hiking boots"
+    },
+    {
+      "id": "o004f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to clean hiking boots"
+    },
+    {
+      "id": "o005a",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What are some effective ways of reducing itching from a mosquito bite?"
+    },
+    {
+      "id": "o005f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How can I protect a room from bugs without using mosquito-nets or visible barriers?"
+    },
+    {
+      "id": "o006",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o007",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Caring for your Monsoon backpack"
+    },
+    {
+      "id": "o008",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What is the best way to store my sleeping bag for long periods of time?"
+    },
+    {
+      "id": "o009",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Choosing a backpack for high-altitude snow"
+    },
+    {
+      "id": "o010",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Are there bubble free handheld compasses?"
+    },
+    {
+      "id": "o011",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "Which fingers to use in a 2 finger pocket when rock climbing?"
+    },
+    {
+      "id": "o012",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What foods should I avoid when backpacking?"
+    },
+    {
+      "id": "o013",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What foods should I avoid when backpacking?"
+    },
+    {
+      "id": "o014",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Choosing a hiking boots for high-altitude snow"
+    },
+    {
+      "id": "o015",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Why are climbing shoes usually a slightly tighter than the usual mountaineering shoes?"
+    },
+    {
+      "id": "o016",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the critical dimensions to a safe bear-bag?"
+    },
+    {
+      "id": "o017",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How can I get rid of mold on climbing skins for skis?"
+    },
+    {
+      "id": "o018",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "What to do with partially burned fire logs"
+    },
+    {
+      "id": "o019",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o020",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is it possible to improvise a knife sharpener in the wild?"
+    },
+    {
+      "id": "o021",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Is there a Polish mountain rescue organisation?"
+    },
+    {
+      "id": "o022",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o023",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Would a tampon be a good addition to a survival kit"
+    },
+    {
+      "id": "o024",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Choosing a jacket for high-altitude snow"
+    },
+    {
+      "id": "o025",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I tie a stopper knot?"
+    },
+    {
+      "id": "o026",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o027",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the purpose for having a bridge connecting the shoulder straps on a backpack?"
+    },
+    {
+      "id": "o028",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "How do I catch fish with fish hooks but no bait?"
+    },
+    {
+      "id": "o029",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to unlock walking poles that have not been used for a while"
+    },
+    {
+      "id": "o030",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Are water purification tablets safe?"
+    },
+    {
+      "id": "o031",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Good books to learn survival?"
+    },
+    {
+      "id": "o032",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Membrane jacket rises up when crouching"
+    },
+    {
+      "id": "o033",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Which camp fuel type is the easiest on your stove?"
+    },
+    {
+      "id": "o034",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What’s the difference between a B and a T ice axe?"
+    },
+    {
+      "id": "o035",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "o036",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Trekking in the himalayan region"
+    },
+    {
+      "id": "o037",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the difference between back country camping and front country camping?"
+    },
+    {
+      "id": "o038",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o039a",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o039f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o040a",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "What is this knee pain when going downhill?"
+    },
+    {
+      "id": "o040f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to clean hiking boots"
+    },
+    {
+      "id": "o041",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the main differences between dehydrated foods and freeze-dried foods?"
+    },
+    {
+      "id": "o042",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Should I worry about moisture in my inflatable sleeping pad?"
+    },
+    {
+      "id": "o043",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Can Grizzlies climb trees?"
+    },
+    {
+      "id": "o044",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Synthetic vs Down sleeping bags?"
+    },
+    {
+      "id": "o045",
+      "mode": "keyword",
+      "rank": 4,
+      "top": "Safety precautions for a spotter for his/her own safety"
+    },
+    {
+      "id": "o046",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to safely mark a rope"
+    },
+    {
+      "id": "o047a",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Trekking poles making odd noise"
+    },
+    {
+      "id": "o047f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Trekking poles making odd noise"
+    },
+    {
+      "id": "o048",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o049",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is a good knife for survival in a forested environment?"
+    },
+    {
+      "id": "o050a",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "How much should your backpack weigh?"
+    },
+    {
+      "id": "o050f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How much should your backpack weigh?"
+    },
+    {
+      "id": "o051",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Can I heat a shelter with fire?"
+    },
+    {
+      "id": "o052",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the best rope to have in a survival situation?"
+    },
+    {
+      "id": "o053",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Why are climbing shoes usually a slightly tighter than the usual mountaineering shoes?"
+    },
+    {
+      "id": "o054",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "What should you do if you see a rattle snake?"
+    },
+    {
+      "id": "o055",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the loop on the finger of my winter gloves for?"
+    },
+    {
+      "id": "o056",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Bouldering in Font"
+    },
+    {
+      "id": "o057a",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o057f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I treat a blister? How can I prevent getting them in the first place?"
+    },
+    {
+      "id": "o058",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I tie a figure of 8 knot"
+    },
+    {
+      "id": "o059",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Storing Headlamps: With or without batteries?"
+    },
+    {
+      "id": "o060",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Choosing a headlamp for rainforest trails"
+    },
+    {
+      "id": "o061",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is there any reason that a wild boars would charge the tent?"
+    },
+    {
+      "id": "o062",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How can I maximise my chances of seeing a wild wombat?"
+    },
+    {
+      "id": "o063",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o064",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What type of bird seed attracts the most amount of birds?"
+    },
+    {
+      "id": "o065",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the correct way to attach an autoblock to your harness for rappelling?"
+    },
+    {
+      "id": "o066",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What are areas of the body which lose heat more quickly, and how can I reduce that loss?"
+    },
+    {
+      "id": "o067",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What do I do if I lose my belay plate?"
+    },
+    {
+      "id": "o068",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "If I cross paths with a bear, what should I do?"
+    },
+    {
+      "id": "o069",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "How much does a full/empty jetboil canister weigh?"
+    },
+    {
+      "id": "o070",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o071",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to make a traditional torch?"
+    },
+    {
+      "id": "o072",
+      "mode": "keyword",
+      "rank": 4,
+      "top": "Making own Hammock"
+    },
+    {
+      "id": "o073",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What do life jacket ratings mean (Type I, Type II, etc)?"
+    },
+    {
+      "id": "o074",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Is burning cow pies (dried cow manure) safe?"
+    },
+    {
+      "id": "o075",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Splitting up weight hiking as a couple/mixed gender group"
+    },
+    {
+      "id": "o076",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o077",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is it effective to use mosquito repellent under clothes?"
+    },
+    {
+      "id": "o078",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are survival tools I should have when in the wilderness?"
+    },
+    {
+      "id": "o079",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Winter Camping: How to warm up your boots in the morning?"
+    },
+    {
+      "id": "o080",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o081",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "What is a self erecting tent and why should I want one?"
+    },
+    {
+      "id": "o082",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between Sport Climbing and Traditional Climbing?"
+    },
+    {
+      "id": "o083",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between Sport Climbing and Traditional Climbing?"
+    },
+    {
+      "id": "o084",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to clean hiking boots"
+    },
+    {
+      "id": "o085",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to keep your beer cold up to 12 hours?"
+    },
+    {
+      "id": "o086",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the different methods to purify water?"
+    },
+    {
+      "id": "o087",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between frontcountry camping and backcountry camping?"
+    },
+    {
+      "id": "o088",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to unlock walking poles that have not been used for a while"
+    },
+    {
+      "id": "o089",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What are the advantages of different locks for collapsible trekking poles?"
+    },
+    {
+      "id": "o090",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How effective are portable electric fences?"
+    },
+    {
+      "id": "o091",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is bear spray effective against other animals?"
+    },
+    {
+      "id": "o092",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What is SPF in sunscreen cream?"
+    },
+    {
+      "id": "o093",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Are mittens warmer than gloves?"
+    },
+    {
+      "id": "o094",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "o095",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "What's a field tip?"
+    },
+    {
+      "id": "o096",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How should I put out a campfire while away from civilization?"
+    },
+    {
+      "id": "o097",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Caring for your Himalaya tent"
+    },
+    {
+      "id": "o098",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's a good low-budget kayak for both river and sea?"
+    },
+    {
+      "id": "o099",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is it safe to put snow in water filtration?"
+    },
+    {
+      "id": "o100a",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between frontcountry camping and backcountry camping?"
+    },
+    {
+      "id": "o100f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between frontcountry camping and backcountry camping?"
+    },
+    {
+      "id": "o101",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Claw marks: Bear or cougar?"
+    },
+    {
+      "id": "o102",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What's the difference between Sport Climbing and Traditional Climbing?"
+    },
+    {
+      "id": "o103",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "How to effectively dry/clean the inside of water bladders?"
+    },
+    {
+      "id": "o104",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Bouldering in Font"
+    },
+    {
+      "id": "o105",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What exactly is meant by the diameter of an arrowhead point?"
+    },
+    {
+      "id": "o106",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "What do the climbing terms \"Redpoint\", \"Pinkpoint\", \"Flash\" and \"Onsight\" mean?"
+    },
+    {
+      "id": "o107",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Which fingers to use in a 2 finger pocket when rock climbing?"
+    },
+    {
+      "id": "o108",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Which fingers to use in a 2 finger pocket when rock climbing?"
+    },
+    {
+      "id": "o109",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "o110",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Uses of a rabbit in a survival situation?"
+    },
+    {
+      "id": "o111",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to use DEET bug sprays if I have dogs?"
+    },
+    {
+      "id": "o112",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to unlock walking poles that have not been used for a while"
+    },
+    {
+      "id": "o113",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Michigan Upper Peninsula Hiking - Long Trail"
+    },
+    {
+      "id": "o114",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Ways of attaching a DSLR on a ACT Trail 32 backpack"
+    },
+    {
+      "id": "o115",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to safely heat a enclosed tent with electricity"
+    },
+    {
+      "id": "o116",
+      "mode": "keyword",
+      "rank": 4,
+      "top": "What to look out for when buying used backpacks"
+    },
+    {
+      "id": "o117",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Where can I find an online elevation profile of the Cohos trail?"
+    },
+    {
+      "id": "o118",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "How do \"Dock leaves\" work to reduce itching from stinging nettles?"
+    },
+    {
+      "id": "o119",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do you boil water without a proper container?"
+    },
+    {
+      "id": "o120",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "How do you boil water without a proper container?"
+    },
+    {
+      "id": "o121",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Do snakes try to get in hammocks?"
+    },
+    {
+      "id": "o122",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Choosing a camping stove for winter car camping"
+    },
+    {
+      "id": "o123",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o124",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o125a",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to use DEET bug sprays if I have dogs?"
+    },
+    {
+      "id": "o125f",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to use DEET bug sprays if I have dogs?"
+    },
+    {
+      "id": "o126",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Hitch with no ends"
+    },
+    {
+      "id": "o127",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Will a lighter trigger pull help me be more accurate?"
+    },
+    {
+      "id": "o128",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Is it warmer to sleep naked in a sleeping bag?"
+    },
+    {
+      "id": "o129",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Why are we moving in circles with a tandem kayak?"
+    },
+    {
+      "id": "o130",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Dialing an emergency number in a foreign country using a satellite phone"
+    },
+    {
+      "id": "o131",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Can you tell if a plant is edible by watching what animals eat it?"
+    },
+    {
+      "id": "o132",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Do polarized sunglasses protect against snow blindness?"
+    },
+    {
+      "id": "o133",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do you compare between different rock climbing grades?"
+    },
+    {
+      "id": "o134",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the best rope to have in a survival situation?"
+    },
+    {
+      "id": "o135",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What does the three different volume specifications mean for the Gregory Whitney backpack?"
+    },
+    {
+      "id": "o136",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Can Grizzlies climb trees?"
+    },
+    {
+      "id": "o137",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Can Grizzlies climb trees?"
+    },
+    {
+      "id": "o138",
+      "mode": "keyword",
+      "rank": null,
+      "top": "When is first light when you are far above the terrain?"
+    },
+    {
+      "id": "o139",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "How dangerous are kangaroos?"
+    },
+    {
+      "id": "o140",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "Are Trangia and MSR fuel bottles inter changeable?"
+    },
+    {
+      "id": "o141",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Fitness for surfing?"
+    },
+    {
+      "id": "o142",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What should one do when get a cramp while swimming?"
+    },
+    {
+      "id": "o143",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Can I shoot a bear in self-defense?"
+    },
+    {
+      "id": "o144",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o145",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I inspect a climbing rope?"
+    },
+    {
+      "id": "o146",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do I tie a bowline knot?"
+    },
+    {
+      "id": "o147",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Where can I find an online elevation profile of the Cohos trail?"
+    },
+    {
+      "id": "o148",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Tick or spider?"
+    },
+    {
+      "id": "o150",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Synthetic vs Down sleeping bags?"
+    },
+    {
+      "id": "o151",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is this tick or spider?"
+    },
+    {
+      "id": "o152",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "Is it possible to repair this flat bow?"
+    },
+    {
+      "id": "o153",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Which side of an emergency blanket should I use?"
+    },
+    {
+      "id": "o154",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Is there a definitive list of the tallest mountains in the world that require little or no mountaineering experience?"
+    },
+    {
+      "id": "o155",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How do you safely cut wood with a knife?"
+    },
+    {
+      "id": "o156",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "How do you safely cut wood with a knife?"
+    },
+    {
+      "id": "o157",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Do polarized sunglasses protect against snow blindness?"
+    },
+    {
+      "id": "o158",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o159",
+      "mode": "keyword",
+      "rank": null,
+      "top": "When should I use spray-on versus wash-in waterproofer for treating DWR garments?"
+    },
+    {
+      "id": "o160",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Advice for waterproof winter jacket for city and cycling"
+    },
+    {
+      "id": "o161",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "What harm, if any, does epoxy paint do to rope?"
+    },
+    {
+      "id": "o162",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "Is this tick or spider?"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "run_at": "2026-11-22T18:23:23+00:00",
+  "args": {
+    "gap": 1.0
+  },
+  "summary": {
+    "sessions": 150,
+    "threads_edited": 67,
+    "change_kinds": {
+      "title": 25,
+      "body": 132,
+      "tags": 14
+    },
+    "permission_changes": 0,
+    "visible": 150,
+    "missed": 0,
+    "staleness_p50_s": 0.34,
+    "staleness_p95_s": 0.59,
+    "staleness_max_s": 0.8,
+    "permission_staleness_max_s": null,
+    "catch_up_s": 0.0,
+    "index_equals_source": true,
+    "streamed_equals_batch_rebuild": true,
+    "chunks_in_index": 22575
+  }
+}

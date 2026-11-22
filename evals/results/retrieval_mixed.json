@@ -1,0 +1,1185 @@
+{
+  "run_at": "2026-11-22T18:26:45+00:00",
+  "questions": 44,
+  "k": 5,
+  "summary": {
+    "rerank": {
+      "hit@1": 0.7931034482758621,
+      "hit@5": 0.8620689655172413,
+      "mrr": 0.8275862068965517,
+      "ms_per_query": 4026
+    },
+    "hybrid": {
+      "hit@1": 0.7586206896551724,
+      "hit@5": 0.8275862068965517,
+      "mrr": 0.7844827586206896,
+      "ms_per_query": 72
+    },
+    "vector": {
+      "hit@1": 0.7586206896551724,
+      "hit@5": 0.7931034482758621,
+      "mrr": 0.7758620689655172,
+      "ms_per_query": 20
+    },
+    "keyword": {
+      "hit@1": 0.6206896551724138,
+      "hit@5": 0.8620689655172413,
+      "mrr": 0.7109195402298851,
+      "ms_per_query": 48
+    }
+  },
+  "threshold_sweep": [
+    {
+      "threshold": 0.001,
+      "wrongly_refused": 1,
+      "wrongly_answered": 8
+    },
+    {
+      "threshold": 0.01,
+      "wrongly_refused": 1,
+      "wrongly_answered": 2
+    },
+    {
+      "threshold": 0.05,
+      "wrongly_refused": 2,
+      "wrongly_answered": 1
+    },
+    {
+      "threshold": 0.1,
+      "wrongly_refused": 3,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.2,
+      "wrongly_refused": 4,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.3,
+      "wrongly_refused": 4,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.5,
+      "wrongly_refused": 4,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.7,
+      "wrongly_refused": 6,
+      "wrongly_answered": 0
+    },
+    {
+      "threshold": 0.9,
+      "wrongly_refused": 13,
+      "wrongly_answered": 0
+    }
+  ],
+  "lowest_answerable_score": 0.0009885771432891488,
+  "highest_must_abstain_score": 0.05898192897439003,
+  "top_scores": {
+    "q01": 0.9989245533943176,
+    "q02": 0.843924880027771,
+    "q03": 0.9998488426208496,
+    "q04": 0.9997729659080505,
+    "q05": 0.8144338726997375,
+    "q06": 0.04532821476459503,
+    "q07": 0.982734739780426,
+    "q08": 0.1344689279794693,
+    "q09": 0.88722163438797,
+    "q10": 0.8261799812316895,
+    "q11": 0.9989744424819946,
+    "q12": 0.999000608921051,
+    "q13": 0.9996829032897949,
+    "q14": 0.9740788340568542,
+    "q15": 0.996681272983551,
+    "q16": 0.0009885771432891488,
+    "q17": 0.7605095505714417,
+    "q18": 0.9974002838134766,
+    "q19": 0.9994164705276489,
+    "q20": 0.9994664788246155,
+    "q21": 0.8428043723106384,
+    "q22": 0.9988829493522644,
+    "q23": 0.999554455280304,
+    "q24": 0.5626360177993774,
+    "q25": 0.7210261821746826,
+    "q26": 0.9796881079673767,
+    "q27": 0.927571177482605,
+    "q28": 0.518395185470581,
+    "q29": 0.08714946359395981,
+    "q30": 0.0015431834617629647,
+    "q31": 0.0019008369417861104,
+    "q32": 6.502233736682683e-05,
+    "q33": 0.0006417502881959081,
+    "q34": 0.000510083104018122,
+    "q35": 0.0015431834617629647,
+    "q36": 0.000510083104018122,
+    "q37": 0.0001896374742500484,
+    "q38": 0.0019008369417861104,
+    "q39": 0.030139032751321793,
+    "q40": 3.744663263205439e-05,
+    "q41": 0.05898192897439003,
+    "q42": 0.002238108543679118,
+    "q43": 0.001736739999614656,
+    "q44": 3.788094181800261e-05
+  },
+  "leaks": [],
+  "details": [
+    {
+      "id": "q01",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "TNT-0025"
+    },
+    {
+      "id": "q03",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "STV-0010"
+    },
+    {
+      "id": "q06",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Hiking boot help"
+    },
+    {
+      "id": "q07",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do I prevent rocks or sand from getting in my boots?"
+    },
+    {
+      "id": "q09",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Troubleshooting the Ridge backpack range"
+    },
+    {
+      "id": "q10",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Is there an app: remind me when I get back here"
+    },
+    {
+      "id": "q17",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q18",
+      "mode": "rerank",
+      "rank": 2,
+      "top": "TNT-0012"
+    },
+    {
+      "id": "q19",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "rerank",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What can I use an old tent for?"
+    },
+    {
+      "id": "q31",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q32",
+      "mode": "rerank",
+      "rank": null,
+      "top": "I am researching the E4 path"
+    },
+    {
+      "id": "q33",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What to look for in a quality archery target?"
+    },
+    {
+      "id": "q34",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "q35",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What can I use an old tent for?"
+    },
+    {
+      "id": "q36",
+      "mode": "rerank",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "q37",
+      "mode": "rerank",
+      "rank": null,
+      "top": "BMC Discount on Climbing Walls"
+    },
+    {
+      "id": "q38",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q39",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Would a Jackson Fun or Wave Sport Fuse kayak work for a beginner on low category rivers, but mostly flat water?"
+    },
+    {
+      "id": "q40",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Big wall strategies for a three-member team"
+    },
+    {
+      "id": "q41",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Tips for travelling through Europe with just a tent"
+    },
+    {
+      "id": "q42",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do I use these \"guy line runners\" to adjust the tension on my tent's lines?"
+    },
+    {
+      "id": "q43",
+      "mode": "rerank",
+      "rank": null,
+      "top": "How do people who don't have a driver's license yet live remotely solve their food/survival needs?"
+    },
+    {
+      "id": "q44",
+      "mode": "rerank",
+      "rank": null,
+      "top": "Bulk pricing for corporate offsites"
+    },
+    {
+      "id": "q01",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "TNT-0007"
+    },
+    {
+      "id": "q03",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "hybrid",
+      "rank": 4,
+      "top": "Does a Mammut Smart Alpine belay device go well with a Black Diamond Gridlock carabiner? Any other recommendations?"
+    },
+    {
+      "id": "q06",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is the point of hiking boots, versus any comfortable walking shoes?"
+    },
+    {
+      "id": "q07",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Can I fix my boots by gluing the soles back on?"
+    },
+    {
+      "id": "q09",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Troubleshooting the Ladakh backpack range"
+    },
+    {
+      "id": "q10",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is there an app: remind me when I get back here"
+    },
+    {
+      "id": "q17",
+      "mode": "hybrid",
+      "rank": 2,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q18",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "hybrid",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is the best way to store my tent?"
+    },
+    {
+      "id": "q31",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q32",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Who gets the bill if you activate a PLB to help someone else?"
+    },
+    {
+      "id": "q33",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Disposal of Gore-Tex or other membrane products"
+    },
+    {
+      "id": "q34",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is there a Leave No Trace equivalent specifically for boaters?"
+    },
+    {
+      "id": "q35",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is the best way to store my tent?"
+    },
+    {
+      "id": "q36",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Is there a Leave No Trace equivalent specifically for boaters?"
+    },
+    {
+      "id": "q37",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "For what it's worth: climbing-tape"
+    },
+    {
+      "id": "q38",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Shipping times and charges"
+    },
+    {
+      "id": "q39",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Why are we moving in circles with a tandem kayak?"
+    },
+    {
+      "id": "q40",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "I am researching the E4 path"
+    },
+    {
+      "id": "q41",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Searching for a sport route in the Briançon area, France"
+    },
+    {
+      "id": "q42",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "What is a freestanding tent and why should I want one?"
+    },
+    {
+      "id": "q43",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "When filming wild animals with a drone, how far away does the drone need to be?"
+    },
+    {
+      "id": "q44",
+      "mode": "hybrid",
+      "rank": null,
+      "top": "Supplier terms: Doon Outdoor Works"
+    },
+    {
+      "id": "q01",
+      "mode": "vector",
+      "rank": 1,
+      "top": "TNT-0001"
+    },
+    {
+      "id": "q02",
+      "mode": "vector",
+      "rank": null,
+      "top": "TNT-0055"
+    },
+    {
+      "id": "q03",
+      "mode": "vector",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "vector",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "vector",
+      "rank": null,
+      "top": "Does a Mammut Smart Alpine belay device go well with a Black Diamond Gridlock carabiner? Any other recommendations?"
+    },
+    {
+      "id": "q06",
+      "mode": "vector",
+      "rank": null,
+      "top": "Hiking boot help"
+    },
+    {
+      "id": "q07",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "vector",
+      "rank": null,
+      "top": "Am I likely to need multiple pairs of boots on the Appalachian Trail?"
+    },
+    {
+      "id": "q09",
+      "mode": "vector",
+      "rank": null,
+      "top": "Troubleshooting the Himalaya backpack range"
+    },
+    {
+      "id": "q10",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is there an app: remind me when I get back here"
+    },
+    {
+      "id": "q17",
+      "mode": "vector",
+      "rank": 2,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q18",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Incident handling: fraudulent order"
+    },
+    {
+      "id": "q25",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Incident handling: recall notice"
+    },
+    {
+      "id": "q26",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "vector",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "vector",
+      "rank": 1,
+      "top": "HR note: parental leave"
+    },
+    {
+      "id": "q29",
+      "mode": "vector",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "vector",
+      "rank": null,
+      "top": "Does any tent manufacturer promise to have replacement parts?"
+    },
+    {
+      "id": "q31",
+      "mode": "vector",
+      "rank": null,
+      "top": "LMP-0029"
+    },
+    {
+      "id": "q32",
+      "mode": "vector",
+      "rank": null,
+      "top": "Who gets the bill if you activate a PLB to help someone else?"
+    },
+    {
+      "id": "q33",
+      "mode": "vector",
+      "rank": null,
+      "top": "Condensation, dew when biouvacking above tree line"
+    },
+    {
+      "id": "q34",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is there a Leave No Trace equivalent specifically for boaters?"
+    },
+    {
+      "id": "q35",
+      "mode": "vector",
+      "rank": null,
+      "top": "Does any tent manufacturer promise to have replacement parts?"
+    },
+    {
+      "id": "q36",
+      "mode": "vector",
+      "rank": null,
+      "top": "Is there a Leave No Trace equivalent specifically for boaters?"
+    },
+    {
+      "id": "q37",
+      "mode": "vector",
+      "rank": null,
+      "top": "For what it's worth: climbing-tape"
+    },
+    {
+      "id": "q38",
+      "mode": "vector",
+      "rank": null,
+      "top": "LMP-0029"
+    },
+    {
+      "id": "q39",
+      "mode": "vector",
+      "rank": null,
+      "top": "Kayaking in the UK"
+    },
+    {
+      "id": "q40",
+      "mode": "vector",
+      "rank": null,
+      "top": "I am researching the E4 path"
+    },
+    {
+      "id": "q41",
+      "mode": "vector",
+      "rank": null,
+      "top": "Where are some small, pleasant, natural walk-in campgrounds in France?"
+    },
+    {
+      "id": "q42",
+      "mode": "vector",
+      "rank": null,
+      "top": "How to reduce the annoying sound of falling raindrops on a tent?"
+    },
+    {
+      "id": "q43",
+      "mode": "vector",
+      "rank": null,
+      "top": "When filming wild animals with a drone, how far away does the drone need to be?"
+    },
+    {
+      "id": "q44",
+      "mode": "vector",
+      "rank": null,
+      "top": "Supplier terms: Doon Outdoor Works"
+    },
+    {
+      "id": "q01",
+      "mode": "keyword",
+      "rank": 5,
+      "top": "What is a self erecting tent and why should I want one?"
+    },
+    {
+      "id": "q02",
+      "mode": "keyword",
+      "rank": 4,
+      "top": "Where to buy half tubes for outdoor games"
+    },
+    {
+      "id": "q03",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "BPK-0013"
+    },
+    {
+      "id": "q04",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "JKT-0007"
+    },
+    {
+      "id": "q05",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "How can you tell if you can reuse an arrow?"
+    },
+    {
+      "id": "q06",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the difference between hiking boots and “hunting boots”?"
+    },
+    {
+      "id": "q07",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q08",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is the difference between hiking boots and “hunting boots”?"
+    },
+    {
+      "id": "q09",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How can I boost morale on long backpacking trips?"
+    },
+    {
+      "id": "q10",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Warranty coverage"
+    },
+    {
+      "id": "q11",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q12",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Caring for your Alpine jacket"
+    },
+    {
+      "id": "q13",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Packing list: Ladakh in winter"
+    },
+    {
+      "id": "q14",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Troubleshooting the Alpine tent range"
+    },
+    {
+      "id": "q15",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Payment methods"
+    },
+    {
+      "id": "q16",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q17",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "Returns and refunds"
+    },
+    {
+      "id": "q18",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Choosing a tent for monsoon treks"
+    },
+    {
+      "id": "q19",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Discount rules for damaged tents"
+    },
+    {
+      "id": "q20",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Escalation guide: late delivery"
+    },
+    {
+      "id": "q21",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Store procedure: gift card issues"
+    },
+    {
+      "id": "q22",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Supplier terms: Deccan Polymers"
+    },
+    {
+      "id": "q23",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Supplier terms: Doon Textiles"
+    },
+    {
+      "id": "q24",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q25",
+      "mode": "keyword",
+      "rank": 3,
+      "top": "Where does the name Deadman come from in mountaineering gear?"
+    },
+    {
+      "id": "q26",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Bulk pricing for colleges"
+    },
+    {
+      "id": "q27",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "Stock allocation: South region"
+    },
+    {
+      "id": "q28",
+      "mode": "keyword",
+      "rank": 2,
+      "top": "HR note: leave policy"
+    },
+    {
+      "id": "q29",
+      "mode": "keyword",
+      "rank": 1,
+      "top": "HR note: referral bonus"
+    },
+    {
+      "id": "q30",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is a self erecting tent and why should I want one?"
+    },
+    {
+      "id": "q31",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q32",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What’s special about a winter gas mixture? Why does it work better?"
+    },
+    {
+      "id": "q33",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What should I look for in a spinning 22lr target?"
+    },
+    {
+      "id": "q34",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "q35",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is a self erecting tent and why should I want one?"
+    },
+    {
+      "id": "q36",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What are the principles of Leave no Trace?"
+    },
+    {
+      "id": "q37",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Where can I get Tyvek maps?"
+    },
+    {
+      "id": "q38",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Cancelling an order"
+    },
+    {
+      "id": "q39",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Why are we moving in circles with a tandem kayak?"
+    },
+    {
+      "id": "q40",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Just how dangerous is it to refill fuel canisters?"
+    },
+    {
+      "id": "q41",
+      "mode": "keyword",
+      "rank": null,
+      "top": "Is the gas canister standard common in France incompatible with EAN417?"
+    },
+    {
+      "id": "q42",
+      "mode": "keyword",
+      "rank": null,
+      "top": "What is a self erecting tent and why should I want one?"
+    },
+    {
+      "id": "q43",
+      "mode": "keyword",
+      "rank": null,
+      "top": "When filming wild animals with a drone, how far away does the drone need to be?"
+    },
+    {
+      "id": "q44",
+      "mode": "keyword",
+      "rank": null,
+      "top": "How to quarter an elk in the field"
+    }
+  ]
+}
