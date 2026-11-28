@@ -22,7 +22,7 @@ target_metadata = None
 def database_url() -> str:
     return (
         f"postgresql+psycopg://{os.environ['INDEX_DB_USER']}:{os.environ['INDEX_DB_PASSWORD']}"
-        f"@localhost:{os.environ['INDEX_DB_PORT']}/{os.environ['INDEX_DB_NAME']}"
+        f"@{os.environ.get('DB_HOST', 'localhost')}:{os.environ['INDEX_DB_PORT']}/{os.environ['INDEX_DB_NAME']}"
     )
 
 

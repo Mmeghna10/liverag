@@ -73,6 +73,49 @@ class OllamaProvider:
         self.client.close()
 
 
+class OpenAICompatibleProvider:
+    """Any server that speaks the OpenAI chat-completions API: Groq, OpenRouter, Together, or
+    Ollama's own /v1 endpoint. Used for deployments without a GPU."""
+
+    def __init__(self, base_url: str, api_key: str, model: str) -> None:
+        self.name = f"openai-compatible:{model}"
+        self.model = model
+        self.client = httpx.Client(base_url=base_url.rstrip("/"),
+                                   headers={"Authorization": f"Bearer {api_key}"},
+                                   timeout=httpx.Timeout(120.0, connect=10.0))
+
+    def _request(self, system: str, user: str, **extra: Any) -> dict[str, Any]:
+        return {"model": self.model, "temperature": 0,
+                "messages": [{"role": "system", "content": system},
+                             {"role": "user", "content": user}], **extra}
+
+    def complete_json(self, system: str, user: str, schema: dict[str, Any]) -> dict[str, Any]:
+        # JSON mode guarantees valid JSON but not the shape, so the schema goes into the prompt.
+        system = f"{system}\n\nReply with only a JSON object matching this JSON Schema:\n{json.dumps(schema)}"
+        response = self.client.post("/chat/completions", json=self._request(
+            system, user, response_format={"type": "json_object"}))
+        response.raise_for_status()
+        return json.loads(response.json()["choices"][0]["message"]["content"])
+
+    def stream_text(self, system: str, user: str) -> Iterator[str]:
+        # Server-Sent Events: "data: {...}" lines with a delta each, ending with "data: [DONE]".
+        with self.client.stream("POST", "/chat/completions",
+                                json=self._request(system, user, stream=True)) as response:
+            response.raise_for_status()
+            for line in response.iter_lines():
+                if not line.startswith("data: "):
+                    continue
+                data = line[6:].strip()
+                if data == "[DONE]":
+                    break
+                choices = json.loads(data).get("choices") or [{}]
+                if piece := (choices[0].get("delta") or {}).get("content"):
+                    yield piece
+
+    def close(self) -> None:
+        self.client.close()
+
+
 def get_provider() -> LLMProvider:
     provider = os.environ.get("LLM_PROVIDER", "ollama")
     if provider == "ollama":
@@ -80,4 +123,10 @@ def get_provider() -> LLMProvider:
         # listens on IPv4, so every new connection to "localhost" waits ~2 s before falling back.
         return OllamaProvider(os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434"),
                               os.environ.get("OLLAMA_MODEL", "qwen2.5:3b"))
-    raise RuntimeError(f"Unknown LLM_PROVIDER {provider!r} (supported: ollama)")
+    if provider == "openai":
+        api_key = os.environ.get("LLM_API_KEY", "")
+        if not api_key:
+            raise RuntimeError("LLM_PROVIDER=openai needs LLM_API_KEY (set it as a secret, never in code)")
+        return OpenAICompatibleProvider(os.environ.get("LLM_BASE_URL", "https://api.groq.com/openai/v1"),
+                                        api_key, os.environ.get("LLM_MODEL", "llama-3.1-8b-instant"))
+    raise RuntimeError(f"Unknown LLM_PROVIDER {provider!r} (supported: ollama, openai)")

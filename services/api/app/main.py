@@ -13,7 +13,7 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 from confluent_kafka import Consumer
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.responses import StreamingResponse
 from liverag_core.config import dsn
 from liverag_core.retrieval import Retriever
@@ -151,3 +151,25 @@ def chat_stream(body: ChatRequest, request: Request, user: CurrentUserDep) -> St
 
     return StreamingResponse(events(), media_type="text/event-stream",
                              headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+
+# Deployment: when WEB_DIST points at the built web app (apps/web/dist), serve it from this same
+# server, so one port hosts both the UI and the API. Unset in development, where Vite serves the UI.
+if os.environ.get("WEB_DIST"):
+    from pathlib import Path
+
+    from fastapi.responses import FileResponse
+    from fastapi.staticfiles import StaticFiles
+
+    _dist = Path(os.environ["WEB_DIST"])
+    app.mount("/assets", StaticFiles(directory=_dist / "assets"), name="assets")
+
+    @app.get("/{path:path}", include_in_schema=False)
+    def web_app(path: str) -> FileResponse:
+        """Files from the build (favicon etc.), and index.html for client-side routes like /chat."""
+        if path.startswith("api/"):
+            raise HTTPException(status.HTTP_404_NOT_FOUND, "Not found")
+        file = (_dist / path).resolve()
+        if path and file.is_file() and _dist.resolve() in file.parents:
+            return FileResponse(file)
+        return FileResponse(_dist / "index.html")

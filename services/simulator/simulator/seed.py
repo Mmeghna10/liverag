@@ -18,7 +18,7 @@ load_dotenv(ROOT / ".env")
 
 def source_dsn() -> str:
     return (
-        f"host=localhost port={os.environ['SOURCE_DB_PORT']} "
+        f"host={os.environ.get('DB_HOST', 'localhost')} port={os.environ['SOURCE_DB_PORT']} "
         f"dbname={os.environ['SOURCE_DB_NAME']} "
         f"user={os.environ['SOURCE_DB_USER']} "
         f"password={os.environ['SOURCE_DB_PASSWORD']}"

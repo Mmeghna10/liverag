@@ -13,7 +13,7 @@ load_dotenv(ROOT / ".env")
 def dsn(prefix: str) -> str:
     """Connection string for SOURCE_DB or INDEX_DB, built from the .env variables."""
     return (
-        f"host=localhost port={os.environ[f'{prefix}_PORT']} "
+        f"host={os.environ.get('DB_HOST', 'localhost')} port={os.environ[f'{prefix}_PORT']} "
         f"dbname={os.environ[f'{prefix}_NAME']} "
         f"user={os.environ[f'{prefix}_USER']} "
         f"password={os.environ[f'{prefix}_PASSWORD']}"

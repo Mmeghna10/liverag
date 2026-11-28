@@ -12,6 +12,8 @@ const FEATURES = [
 ]
 
 // Demo accounts from the simulator seed (password = DEMO_USER_PASSWORD in .env).
+// A public demo deployment sets VITE_DEMO_PASSWORD at build time so the buttons fill it in too.
+const DEMO_PASSWORD = import.meta.env.VITE_DEMO_PASSWORD || ''
 const DEMO = [
   { email: 'customer@example.com', label: 'Customer' },
   { email: 'agent@northwind.test', label: 'Support agent' },
@@ -149,7 +151,7 @@ export default function AuthPage({ mode }) {
               </p>
               <div className="mt-3 flex flex-wrap gap-2">
                 {DEMO.map((d) => (
-                  <button key={d.email} type="button" onClick={() => setEmail(d.email)}
+                  <button key={d.email} type="button" onClick={() => { setEmail(d.email); if (DEMO_PASSWORD) setPassword(DEMO_PASSWORD) }}
                           className="rounded-full border border-slate-200 px-3 py-1 text-xs transition hover:border-brand-300 hover:bg-brand-50 hover:text-brand-800 dark:border-white/10 dark:hover:bg-brand-950 dark:hover:text-brand-200">
                     {d.label}
                   </button>
